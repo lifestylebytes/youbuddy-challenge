@@ -345,8 +345,10 @@ section{padding:72px 20px;}
 .legal-summary{margin-top:14px;padding:14px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.7);}
 .legal-summary p{font-size:13px;color:var(--charcoal);line-height:1.7;}
 .legal-details{margin-top:12px;border:1px solid var(--border);border-radius:12px;background:var(--white);}
-.legal-details summary{cursor:pointer;list-style:none;padding:14px 16px;font-size:13px;font-weight:700;color:var(--charcoal);}
+.legal-details summary{cursor:pointer;list-style:none;padding:14px 16px;font-size:13px;font-weight:700;color:var(--charcoal);display:flex;align-items:center;justify-content:space-between;gap:10px;}
 .legal-details summary::-webkit-details-marker{display:none;}
+.legal-details summary::after{content:'▼';font-size:11px;color:var(--accent-rose);transition:transform .2s ease;}
+.legal-details[open] summary::after{transform:rotate(180deg);}
 .legal-details .legal-body{padding:4px 16px 16px;border-top:1px dashed rgba(200,185,180,.35);}
 .legal-details h4{font-size:13px;font-weight:700;color:var(--charcoal);margin:14px 0 8px;}
 .legal-details p{font-size:12.8px;color:var(--warm-gray);line-height:1.72;margin-bottom:8px;}
@@ -475,7 +477,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
   <a class="hero-cta disabled fade" href="https://www.latpeed.com/products/en0l_" target="_blank">
     유버디 영어 챌린지 신청하기 →
   </a>
-  <p class="hero-sub-note fade">한정 인원 마감 시 조기 종료 · 프리미엄 10명 / 베이직 20명</p>
+  <p class="hero-sub-note fade">한정 인원 마감 시 조기 종료 · 프리미엄 10명</p>
 </section>
 
 <!-- PROBLEM: PAIN POINTS -->
@@ -696,139 +698,6 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
         <h3>혼자가 아닌 책임감 있는 동행</h3>
         <p>매일 학습 현황 체크 + 응원 + 리마인드. 루틴이 끊기지 않도록 유버디가 직접 함께합니다.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="pricing-section">
-  <div class="container">
-    <span class="section-label">코스 & 가격</span>
-    <h2 class="section-title">나에게 맞는 코스를 <em>선택하세요</em></h2>
-    <div class="divider"></div>
-    <div class="compare-wrap">
-      <table class="compare-table" aria-label="프리미엄과 베이직 비교표">
-        <thead>
-          <tr>
-            <th>비교 항목</th>
-            <th>프리미엄 (한정 10명)</th>
-            <th>베이직 (한정 20명)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>4주 완성 노션 학습 템플릿</td>
-            <td><span class="compare-check">✅</span></td>
-            <td><span class="compare-check">✅</span></td>
-          </tr>
-          <tr>
-            <td>매일 다른 학습 방법 제공</td>
-            <td><span class="compare-check">✅</span></td>
-            <td><span class="compare-check">✅</span></td>
-          </tr>
-          <tr>
-            <td>커뮤니티 참여 & 인증 시스템</td>
-            <td><span class="compare-check">✅</span></td>
-            <td><span class="compare-check">✅</span></td>
-          </tr>
-          <tr>
-            <td>평생 소장 가능</td>
-            <td><span class="compare-check">✅</span></td>
-            <td><span class="compare-check">✅</span></td>
-          </tr>
-          <tr>
-            <td>1:1 맞춤 관리 (전용 카톡방)</td>
-            <td><span class="compare-check">✅</span></td>
-            <td><span class="compare-dash">-</span></td>
-          </tr>
-          <tr>
-            <td>130개+ 영어 학습 자료 평생 이용</td>
-            <td><span class="compare-check">✅</span></td>
-            <td><span class="compare-dash">-</span></td>
-          </tr>
-          <tr>
-            <td>실전 미팅 시뮬레이션 (Zoom)</td>
-            <td><span class="compare-check">✅</span></td>
-            <td><span class="compare-dash">-</span></td>
-          </tr>
-          <tr>
-            <td>이전 챌린지 복습 세션 포함</td>
-            <td><span class="compare-check">✅</span></td>
-            <td><span class="compare-dash">-</span></td>
-          </tr>
-          <tr>
-            <td>업계별 맞춤 PPT 발표 기회</td>
-            <td><span class="compare-check">✅</span></td>
-            <td><span class="compare-dash">-</span></td>
-          </tr>
-          <tr>
-            <td>실시간 Q&A 및 피드백</td>
-            <td><span class="compare-check">✅</span></td>
-            <td><span class="compare-dash">-</span></td>
-          </tr>
-          <tr>
-            <td>추천 대상</td>
-            <td>밀착 관리 & 실전 연습 원하는 분</td>
-            <td>자기주도 학습 가능한 분</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="pricing-intro">두 코스 모두 같은 커리큘럼에서 시작합니다. 차이는 <strong>얼마나 촘촘하게 관리받느냐</strong>입니다.</p>
-    <div class="cert-summary">
-      <p><strong>인증 완료 기준:</strong> 20일 중 18일 이상 인증</p>
-      <p><strong>베이직 인증 완료 선물:</strong> 유버디 엄선 130개+ 학습 자료 제공</p>
-      <p><strong>프리미엄 인증 완료 선물:</strong> 프리미엄 전용 선물 제공</p>
-    </div>
-
-    <div class="pricing-grid">
-      <!-- BASIC -->
-      <div class="pricing-card basic fade">
-        <div class="pricing-tier">🎓 베이직</div>
-        <div class="pricing-price">₩49,000</div>
-        <div class="pricing-limit">한정 20명</div>
-        <div class="pricing-tag">스스로 꾸준히 할 수 있다면,<br>체계적인 템플릿으로 충분합니다.</div>
-
-        <ul class="pricing-features" style="margin-top:20px;">
-          <li>4주 완성 노션 학습 템플릿</li>
-          <li>매일 다른 학습 방법 (Day 1~26)</li>
-          <li>실전 영어 표현 4주 워크시트</li>
-          <li>커뮤니티 참여 & 인증 시스템</li>
-          <li>평생 소장 가능</li>
-          <li>공용 단톡방 + 주 1회 동기 메시지</li>
-        </ul>
-        <a class="pricing-btn" href="https://www.latpeed.com/products/en0l_" target="_blank">베이직 신청하기</a>
-      </div>
-
-      <!-- PREMIUM -->
-      <div class="pricing-card premium fade">
-        <div class="pricing-tier">⭐ 프리미엄</div>
-        <div class="pricing-price">₩159,000</div>
-        <div class="pricing-limit">한정 10명</div>
-        <div class="pricing-tag">1:1 맞춤 관리 + 실전 훈련까지,<br>진짜 영어 실력을 만들고 싶다면?</div>
-
-        <div class="complete-bar-wrap">
-          <div class="complete-bar-label"><span>완주율</span><strong style="color:var(--accent-rose);">100%</strong></div>
-          <div class="complete-bar-bg"><div class="complete-bar-fill premium-fill" data-width="100"></div></div>
-        </div>
-
-        <ul class="pricing-features" style="margin-top:20px;">
-          <li>베이직의 모든 혜택 포함</li>
-          <li>전용 카카오톡 단톡방 & 노션 1:1 초대</li>
-          <li>주 1회 Zoom 실전 미팅 시뮬레이션 (총 4회)</li>
-          <li>본인 industry 맞춤 PPT 발표 1회 + 피드백</li>
-          <li>유버디 엄선 130개+ 학습 자료 평생 이용</li>
-          <li>이전 챌린지 단어 세션 전체 포함 (80개 표현)</li>
-          <li>1주마다 어휘·미팅 자료로 전용 팟캐스트 제공</li>
-        </ul>
-        <a class="pricing-btn" href="https://www.latpeed.com/products/en0l_" target="_blank">프리미엄 신청하기 🔥</a>
-      </div>
-    </div>
-
-    <div class="mid-cta">
-      <h3>여기까지 읽으셨다면, 지금 바로 신청해도 충분해요 😊</h3>
-      <p>이번 기회를 놓치면 다음 회의에서도 여전히 같은 상황이 반복됩니다.</p>
-      <a href="https://www.latpeed.com/products/en0l_" target="_blank">유버디 영어 챌린지 구매하기 →</a>
     </div>
   </div>
 </section>
@@ -1126,6 +995,138 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
   </div>
 </section>
 
+<!-- PRICING -->
+<section class="pricing-section">
+  <div class="container">
+    <span class="section-label">코스 & 가격</span>
+    <h2 class="section-title">나에게 맞는 코스를 <em>선택하세요</em></h2>
+    <div class="divider"></div>
+    <div class="compare-wrap">
+      <table class="compare-table" aria-label="프리미엄과 베이직 비교표">
+        <thead>
+          <tr>
+            <th>비교 항목</th>
+            <th>프리미엄 (한정 10명)</th>
+            <th>베이직</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>4주 완성 노션 학습 템플릿</td>
+            <td><span class="compare-check">✅</span></td>
+            <td><span class="compare-check">✅</span></td>
+          </tr>
+          <tr>
+            <td>매일 다른 학습 방법 제공</td>
+            <td><span class="compare-check">✅</span></td>
+            <td><span class="compare-check">✅</span></td>
+          </tr>
+          <tr>
+            <td>커뮤니티 참여 & 인증 시스템</td>
+            <td><span class="compare-check">✅</span></td>
+            <td><span class="compare-check">✅</span></td>
+          </tr>
+          <tr>
+            <td>평생 소장 가능</td>
+            <td><span class="compare-check">✅</span></td>
+            <td><span class="compare-check">✅</span></td>
+          </tr>
+          <tr>
+            <td>1:1 맞춤 관리 (전용 카톡방)</td>
+            <td><span class="compare-check">✅</span></td>
+            <td><span class="compare-dash">-</span></td>
+          </tr>
+          <tr>
+            <td>130개+ 영어 학습 자료 평생 이용</td>
+            <td><span class="compare-check">✅</span></td>
+            <td><span class="compare-dash">-</span></td>
+          </tr>
+          <tr>
+            <td>실전 미팅 시뮬레이션 (Zoom)</td>
+            <td><span class="compare-check">✅</span></td>
+            <td><span class="compare-dash">-</span></td>
+          </tr>
+          <tr>
+            <td>이전 챌린지 복습 세션 포함</td>
+            <td><span class="compare-check">✅</span></td>
+            <td><span class="compare-dash">-</span></td>
+          </tr>
+          <tr>
+            <td>업계별 맞춤 PPT 발표 기회</td>
+            <td><span class="compare-check">✅</span></td>
+            <td><span class="compare-dash">-</span></td>
+          </tr>
+          <tr>
+            <td>실시간 Q&A 및 피드백</td>
+            <td><span class="compare-check">✅</span></td>
+            <td><span class="compare-dash">-</span></td>
+          </tr>
+          <tr>
+            <td>추천 대상</td>
+            <td>밀착 관리 & 실전 연습 원하는 분</td>
+            <td>자기주도 학습 가능한 분</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pricing-intro">두 코스 모두 같은 커리큘럼에서 시작합니다. 차이는 <strong>얼마나 촘촘하게 관리받느냐</strong>입니다.</p>
+    <div class="cert-summary">
+      <p><strong>인증 완료 기준:</strong> 20일 중 18일 이상 인증</p>
+      <p><strong>베이직 인증 완료 선물:</strong> 유버디 엄선 130개+ 학습 자료 제공</p>
+      <p><strong>프리미엄 인증 완료 선물:</strong> 프리미엄 전용 선물 제공</p>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- BASIC -->
+      <div class="pricing-card basic fade">
+        <div class="pricing-tier">🎓 베이직</div>
+        <div class="pricing-price">₩49,000</div>
+        <div class="pricing-tag">스스로 꾸준히 할 수 있다면,<br>체계적인 템플릿으로 충분합니다.</div>
+
+        <ul class="pricing-features" style="margin-top:20px;">
+          <li>4주 완성 노션 학습 템플릿</li>
+          <li>매일 다른 학습 방법 (Day 1~26)</li>
+          <li>실전 영어 표현 4주 워크시트</li>
+          <li>커뮤니티 참여 & 인증 시스템</li>
+          <li>평생 소장 가능</li>
+          <li>공용 단톡방 + 주 1회 동기 메시지</li>
+        </ul>
+        <a class="pricing-btn" href="https://www.latpeed.com/products/en0l_" target="_blank">베이직 신청하기</a>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="pricing-card premium fade">
+        <div class="pricing-tier">⭐ 프리미엄</div>
+        <div class="pricing-price">₩159,000</div>
+        <div class="pricing-limit">한정 10명</div>
+        <div class="pricing-tag">1:1 맞춤 관리 + 실전 훈련까지,<br>진짜 영어 실력을 만들고 싶다면?</div>
+
+        <div class="complete-bar-wrap">
+          <div class="complete-bar-label"><span>완주율</span><strong style="color:var(--accent-rose);">100%</strong></div>
+          <div class="complete-bar-bg"><div class="complete-bar-fill premium-fill" data-width="100"></div></div>
+        </div>
+
+        <ul class="pricing-features" style="margin-top:20px;">
+          <li>베이직의 모든 혜택 포함</li>
+          <li>전용 카카오톡 단톡방 & 노션 1:1 초대</li>
+          <li>주 1회 Zoom 실전 미팅 시뮬레이션 (총 4회)</li>
+          <li>본인 industry 맞춤 PPT 발표 1회 + 피드백</li>
+          <li>유버디 엄선 130개+ 학습 자료 평생 이용</li>
+          <li>이전 챌린지 단어 세션 전체 포함 (80개 표현)</li>
+          <li>1주마다 어휘·미팅 자료로 전용 팟캐스트 제공</li>
+        </ul>
+        <a class="pricing-btn" href="https://www.latpeed.com/products/en0l_" target="_blank">프리미엄 신청하기 🔥</a>
+      </div>
+    </div>
+
+    <div class="mid-cta">
+      <h3>여기까지 읽으셨다면, 지금 바로 신청해도 충분해요 😊</h3>
+      <p>이번 기회를 놓치면 다음 회의에서도 여전히 같은 상황이 반복됩니다.</p>
+      <a href="https://www.latpeed.com/products/en0l_" target="_blank">유버디 영어 챌린지 구매하기 →</a>
+    </div>
+  </div>
+</section>
+
 <!-- PURCHASE INFO -->
 <section class="purchase-section">
   <div class="purchase-card fade">
@@ -1140,7 +1141,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
       <p><strong>동의 안내:</strong> 구매 진행 시 아래 법적 고지사항 확인 및 동의로 간주됩니다.</p>
     </div>
     <details class="legal-details">
-      <summary>⚠️ 환불 정책 및 법적 고지사항 접기/펼치기</summary>
+      <summary>환불 정책 및 법적 고지사항 접기/펼치기</summary>
       <div class="legal-body">
         <h4>환불 정책</h4>
         <p>결제와 동시에 링크가 공개되는 디지털 상품으로, 환불이 불가합니다.</p>
@@ -1208,7 +1209,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
     🎯 유버디 영어 챌린지 구매하기
   </a>
   <p class="final-urgency">
-    프리미엄 10명 / 베이직 20명 한정<br>
+    프리미엄 10명 한정<br>
     <strong>한정 인원 마감 시 조기 종료</strong><br>
     유버디는 외국계 현업 실무자입니다.<br>
     현재 4기 한정 모집 중 (얼리버드 ~3/11).
