@@ -19,6 +19,7 @@
 <meta name="twitter:title" content="유버디 비즈니스 영어 루틴 챌린지 4기">
 <meta name="twitter:description" content="영어는 끝이 없지만, '내 영어 대본'은 4주면 완성됩니다.">
 <meta name="twitter:image" content="https://lifestylebytes.github.io/youbuddy-challenge/assets/og-cover2.png">
+<link rel="icon" type="image/svg+xml" href="assets/favicon-youbuddy.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;700;800&family=IBM+Plex+Sans+KR:wght@500;600;700&family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
 <style>
@@ -59,10 +60,8 @@ h1,h2,h3,p,li,.pricing-tag,.tl-title,.faq-q,.faq-a,.hero-logic,.problem-intro{wo
 
 /* NAV */
 nav{position:sticky;top:0;z-index:100;background:rgba(253,249,244,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
-.nav-brand{display:inline-flex;align-items:center;gap:10px;font-family:'Gothic A1','Noto Sans KR',sans-serif;font-size:16px;font-weight:700;letter-spacing:.01em;color:var(--charcoal);text-decoration:none;}
-.nav-brand .brand-main{color:var(--charcoal);}
-.nav-brand .brand-sep{color:var(--light-text);font-weight:500;}
-.nav-brand .brand-sub{font-size:13px;font-weight:600;color:var(--accent-rose);letter-spacing:.02em;}
+.nav-brand{display:inline-flex;align-items:center;color:var(--charcoal);text-decoration:none;}
+.nav-brand img{height:30px;width:auto;display:block;}
 .nav-cta{background:var(--charcoal);color:var(--cream);padding:9px 22px;border-radius:50px;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:.03em;transition:all .25s;}
 .nav-cta:hover{background:var(--accent-rose);}
 
@@ -308,6 +307,10 @@ section{padding:72px 20px;}
 @media(max-width:500px){.how-step{grid-template-columns:1fr;}}
 @media(max-width:860px){.detail-ppt-grid{grid-template-columns:repeat(3,1fr);}}
 @media(max-width:560px){.detail-ppt-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:768px){
+  .loss-banner{padding:10px 0;}
+  .loss-banner p{font-size:12.5px;line-height:1.5;font-weight:400;padding-right:40px;}
+}
 
 /* ── VOCAB ── */
 .vocab-section{background:var(--blush);}
@@ -420,8 +423,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
 @media(max-width:600px){
   :root{--nav-h:52px;}
   nav{padding:10px 12px;gap:8px;}
-  .nav-brand{font-size:14px;gap:7px;}
-  .nav-brand .brand-sub{font-size:11px;}
+  .nav-brand img{height:26px;}
   .nav-cta{padding:8px 12px;font-size:12px;}
   .hero-proof-row{gap:7px;}
   .proof-chip{font-size:11.5px;padding:7px 11px;}
@@ -447,9 +449,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
 <!-- NAV -->
 <nav>
   <a class="nav-brand" href="#">
-    <span class="brand-main">YouBuddy</span>
-    <span class="brand-sep">|</span>
-    <span class="brand-sub">비즈니스 영어 루틴 챌린지</span>
+    <img src="assets/logo-youbuddy.svg" alt="YouBuddy 로고">
   </a>
   <a class="nav-cta" href="https://www.latpeed.com/products/en0l_" target="_blank">🎯 지금 신청하기</a>
 </nav>
