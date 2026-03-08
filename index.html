@@ -11,14 +11,14 @@
 <meta property="og:url" content="https://lifestylebytes.github.io/youbuddy-challenge/">
 <meta property="og:title" content="유버디 비즈니스 영어 루틴 챌린지 4기">
 <meta property="og:description" content="영어는 끝이 없지만, '내 영어 대본'은 4주면 완성됩니다.">
-<meta property="og:image" content="https://lifestylebytes.github.io/youbuddy-challenge/assets/og-cover.png">
+<meta property="og:image" content="https://lifestylebytes.github.io/youbuddy-challenge/assets/og-cover2.png">
 <meta property="og:image:alt" content="유버디 비즈니스 영어 루틴 챌린지 4기 미리보기 이미지">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="유버디 비즈니스 영어 루틴 챌린지 4기">
 <meta name="twitter:description" content="영어는 끝이 없지만, '내 영어 대본'은 4주면 완성됩니다.">
-<meta name="twitter:image" content="https://lifestylebytes.github.io/youbuddy-challenge/assets/og-cover.png">
+<meta name="twitter:image" content="https://lifestylebytes.github.io/youbuddy-challenge/assets/og-cover2.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;700;800&family=IBM+Plex+Sans+KR:wght@500;600;700&family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
 <style>
@@ -194,6 +194,18 @@ section{padding:72px 20px;}
 /* ── PRICING ── */
 .pricing-section{background:var(--mint);}
 .pricing-intro{font-size:15px;color:var(--warm-gray);max-width:520px;line-height:1.8;margin-bottom:36px;}
+.compare-wrap{margin-bottom:22px;overflow-x:auto;}
+.compare-table{width:100%;border-collapse:collapse;background:#f5f5f5;border:1px solid #d7d7d7;}
+.compare-table th,.compare-table td{padding:12px 14px;font-size:13px;line-height:1.5;border:1px solid #d7d7d7;vertical-align:top;}
+.compare-table thead th{background:#efefef;font-size:14px;font-weight:700;color:var(--charcoal);}
+.compare-table th:first-child{width:32%;text-align:left;}
+.compare-table th:nth-child(2),.compare-table th:nth-child(3){text-align:left;}
+.compare-table td{color:var(--charcoal);}
+.compare-check{font-size:20px;line-height:1;}
+.compare-dash{font-weight:700;color:#777;}
+.cert-summary{margin-bottom:24px;background:rgba(255,255,255,.75);border:1px solid var(--border);border-radius:14px;padding:14px 16px;}
+.cert-summary p{font-size:13.5px;color:var(--charcoal);line-height:1.7;}
+.cert-summary p strong{color:var(--accent-rose);}
 .pricing-grid{display:grid;grid-template-columns:1.08fr 1fr;gap:22px;}
 @media(max-width:660px){.pricing-grid{grid-template-columns:1fr;}}
 .pricing-card.premium{order:-1;}
@@ -297,6 +309,9 @@ section{padding:72px 20px;}
 @media(max-width:620px){.participate-grid{grid-template-columns:1fr;}}
 .participate-card{background:var(--white);border-radius:20px;padding:26px;box-shadow:var(--shadow);border:1px solid var(--border);}
 .participate-card h3{font-size:15px;font-weight:700;color:var(--charcoal);margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:8px;}
+.cert-policy{margin-top:18px;background:rgba(255,255,255,.82);border:1px solid var(--border);border-radius:14px;padding:16px 18px;}
+.cert-policy h4{font-size:14px;font-weight:700;color:var(--charcoal);margin-bottom:8px;}
+.cert-policy p{font-size:13.2px;color:var(--warm-gray);line-height:1.7;}
 
 /* ── OPERATOR ── */
 .operator-section{background:var(--sand);padding:60px 20px;}
@@ -397,6 +412,8 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
   .problem-intro,.solution-intro,.proof-intro,.pricing-intro{font-size:14px;}
   .persona-grid,.reviews-grid,.why-grid,.vocab-cards{grid-template-columns:1fr;}
   .who-grid,.participate-grid,.pricing-grid{grid-template-columns:1fr;}
+  .compare-table th,.compare-table td{padding:10px 11px;font-size:12px;}
+  .compare-check{font-size:18px;}
   .today-marker{gap:8px;}
   .today-dot{width:40px;height:40px;font-size:10px;}
   .today-label{font-size:11px;padding:7px 10px;}
@@ -689,7 +706,80 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
     <span class="section-label">코스 & 가격</span>
     <h2 class="section-title">나에게 맞는 코스를 <em>선택하세요</em></h2>
     <div class="divider"></div>
+    <div class="compare-wrap">
+      <table class="compare-table" aria-label="프리미엄과 베이직 비교표">
+        <thead>
+          <tr>
+            <th>비교 항목</th>
+            <th>프리미엄 (한정 10명)</th>
+            <th>베이직 (한정 20명)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>4주 완성 노션 학습 템플릿</td>
+            <td><span class="compare-check">✅</span></td>
+            <td><span class="compare-check">✅</span></td>
+          </tr>
+          <tr>
+            <td>매일 다른 학습 방법 제공</td>
+            <td><span class="compare-check">✅</span></td>
+            <td><span class="compare-check">✅</span></td>
+          </tr>
+          <tr>
+            <td>커뮤니티 참여 & 인증 시스템</td>
+            <td><span class="compare-check">✅</span></td>
+            <td><span class="compare-check">✅</span></td>
+          </tr>
+          <tr>
+            <td>평생 소장 가능</td>
+            <td><span class="compare-check">✅</span></td>
+            <td><span class="compare-check">✅</span></td>
+          </tr>
+          <tr>
+            <td>1:1 맞춤 관리 (전용 카톡방)</td>
+            <td><span class="compare-check">✅</span></td>
+            <td><span class="compare-dash">-</span></td>
+          </tr>
+          <tr>
+            <td>130개+ 영어 학습 자료 평생 이용</td>
+            <td><span class="compare-check">✅</span></td>
+            <td><span class="compare-dash">-</span></td>
+          </tr>
+          <tr>
+            <td>실전 미팅 시뮬레이션 (Zoom)</td>
+            <td><span class="compare-check">✅</span></td>
+            <td><span class="compare-dash">-</span></td>
+          </tr>
+          <tr>
+            <td>이전 챌린지 복습 세션 포함</td>
+            <td><span class="compare-check">✅</span></td>
+            <td><span class="compare-dash">-</span></td>
+          </tr>
+          <tr>
+            <td>업계별 맞춤 PPT 발표 기회</td>
+            <td><span class="compare-check">✅</span></td>
+            <td><span class="compare-dash">-</span></td>
+          </tr>
+          <tr>
+            <td>실시간 Q&A 및 피드백</td>
+            <td><span class="compare-check">✅</span></td>
+            <td><span class="compare-dash">-</span></td>
+          </tr>
+          <tr>
+            <td>추천 대상</td>
+            <td>밀착 관리 & 실전 연습 원하는 분</td>
+            <td>자기주도 학습 가능한 분</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <p class="pricing-intro">두 코스 모두 같은 커리큘럼에서 시작합니다. 차이는 <strong>얼마나 촘촘하게 관리받느냐</strong>입니다.</p>
+    <div class="cert-summary">
+      <p><strong>인증 완료 기준:</strong> 20일 중 18일 이상 인증</p>
+      <p><strong>베이직 인증 완료 선물:</strong> 유버디 엄선 130개+ 학습 자료 제공</p>
+      <p><strong>프리미엄 인증 완료 선물:</strong> 프리미엄 전용 선물 제공</p>
+    </div>
 
     <div class="pricing-grid">
       <!-- BASIC -->
@@ -698,11 +788,6 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
         <div class="pricing-price">₩49,000</div>
         <div class="pricing-limit">한정 20명</div>
         <div class="pricing-tag">스스로 꾸준히 할 수 있다면,<br>체계적인 템플릿으로 충분합니다.</div>
-
-        <div class="complete-bar-wrap">
-          <div class="complete-bar-label"><span>완주율</span><strong>78%</strong></div>
-          <div class="complete-bar-bg"><div class="complete-bar-fill basic-fill" data-width="78"></div></div>
-        </div>
 
         <ul class="pricing-features" style="margin-top:20px;">
           <li>4주 완성 노션 학습 템플릿</li>
@@ -1000,6 +1085,12 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
           <li>본인 industry 맞춤 PPT 발표 1회 (다른 참여자 발표 2회 필참)</li>
         </ul>
       </div>
+    </div>
+    <div class="cert-policy fade">
+      <h4>🏅 인증 완료 기준 및 선물</h4>
+      <p>인증 완료 기준: 20일 중 18일 이상 인증</p>
+      <p>베이직 인증 완료시: 유버디 엄선 130개+ 학습 자료 제공</p>
+      <p>프리미엄 인증 완료시: 프리미엄 전용 선물 제공</p>
     </div>
   </div>
 </section>
