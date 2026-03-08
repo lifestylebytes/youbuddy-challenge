@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>유버디 비즈니스 영어 루틴 챌린지 4기 | 완주율 100% 가두리 시스템</title>
+<title>유버디 비즈니스 영어 루틴 챌린지 4기 | 완주율 100% 완주 설계 시스템</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;700;800&family=IBM+Plex+Sans+KR:wght@500;600;700&family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --cream: #FDF9F4;
@@ -25,11 +25,13 @@
   --border: rgba(200,185,180,0.3);
   --shadow: 0 4px 24px rgba(180,150,145,0.12);
   --shadow-lg: 0 12px 40px rgba(180,150,145,0.22);
+  --nav-h: 64px;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--charcoal);font-weight:300;line-height:1.75;overflow-x:hidden;}
+h1,h2,h3,p,li,.pricing-tag,.tl-title,.faq-q,.faq-a,.hero-logic,.problem-intro{word-break:keep-all;overflow-wrap:normal;}
 
 /* ANIMATIONS */
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
@@ -42,16 +44,18 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--c
 
 /* NAV */
 nav{position:sticky;top:0;z-index:100;background:rgba(253,249,244,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
-.nav-brand{font-family:'Libre Baskerville',serif;font-size:17px;letter-spacing:.05em;color:var(--charcoal);text-decoration:none;}
-.nav-brand span{color:var(--accent-rose);}
+.nav-brand{display:inline-flex;align-items:center;gap:10px;font-family:'Gothic A1','Noto Sans KR',sans-serif;font-size:16px;font-weight:700;letter-spacing:.01em;color:var(--charcoal);text-decoration:none;}
+.nav-brand .brand-main{color:var(--charcoal);}
+.nav-brand .brand-sep{color:var(--light-text);font-weight:500;}
+.nav-brand .brand-sub{font-size:13px;font-weight:600;color:var(--accent-rose);letter-spacing:.02em;}
 .nav-cta{background:var(--charcoal);color:var(--cream);padding:9px 22px;border-radius:50px;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:.03em;transition:all .25s;}
 .nav-cta:hover{background:var(--accent-rose);}
 
 /* UTIL */
 .container{max-width:860px;margin:0 auto;}
 .section-label{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-rose);margin-bottom:12px;}
-.section-title{font-family:'Libre Baskerville',serif;font-size:clamp(24px,4vw,36px);line-height:1.3;color:var(--charcoal);margin-bottom:10px;}
-.section-title em{font-style:italic;color:var(--accent-rose);}
+.section-title{font-family:'Gothic A1','Noto Sans KR',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:700;line-height:1.34;color:var(--charcoal);margin-bottom:10px;}
+.section-title em{font-style:normal;color:var(--accent-rose);}
 .section-title .sage{color:var(--accent-sage);font-style:normal;}
 .divider{width:36px;height:2px;background:linear-gradient(90deg,var(--accent-rose),var(--lilac));border-radius:2px;margin:16px 0 28px;}
 .accent{color:var(--accent-rose);font-weight:700;}
@@ -66,24 +70,27 @@ b{font-weight:700;}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--rose);padding:8px 18px;border-radius:50px;font-size:12px;font-weight:600;color:var(--accent-rose);letter-spacing:.07em;margin-bottom:28px;box-shadow:var(--shadow);}
 .hero-eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--accent-rose);animation:pulse 2s infinite;flex-shrink:0;}
 
-.hero-title{font-family:'Libre Baskerville',serif;font-size:clamp(30px,6.5vw,62px);line-height:1.18;letter-spacing:-.01em;color:var(--charcoal);margin-bottom:14px;max-width:780px;}
-.hero-title em{font-style:italic;color:var(--accent-rose);}
+.hero-title{font-family:'IBM Plex Sans KR','Gothic A1','Noto Sans KR',sans-serif;font-size:clamp(30px,6.5vw,62px);font-weight:700;line-height:1.32;letter-spacing:-.01em;color:var(--charcoal);margin-bottom:26px;max-width:780px;}
+.hero-title em{font-style:normal;color:var(--accent-rose);font-weight:700;}
 
-.hero-logic{background:rgba(255,255,255,.7);border:1px solid var(--rose);border-radius:16px;padding:18px 24px;max-width:580px;margin:0 auto 32px;font-size:15px;color:var(--warm-gray);line-height:1.75;backdrop-filter:blur(6px);}
+.hero-logic{font-family:'Gothic A1','Noto Sans KR',sans-serif;background:rgba(255,255,255,.7);border:1px solid var(--rose);border-radius:16px;padding:18px 24px;max-width:580px;margin:0 auto 32px;font-size:15px;color:var(--warm-gray);line-height:1.75;backdrop-filter:blur(6px);}
 .hero-logic strong{color:var(--charcoal);font-weight:700;}
 
-.hero-proof-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:36px;}
-.proof-chip{background:var(--white);border:1.5px solid var(--rose);border-radius:50px;padding:9px 18px;font-size:13px;font-weight:600;color:var(--charcoal);display:flex;align-items:center;gap:6px;box-shadow:var(--shadow);}
-.proof-chip .big{font-family:'Libre Baskerville',serif;font-size:20px;color:var(--accent-rose);}
+.hero-proof-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;}
+.proof-chip{font-family:'IBM Plex Sans KR','Noto Sans KR',sans-serif;background:var(--white);border:1.5px solid var(--rose);border-radius:50px;padding:9px 18px;font-size:13px;font-weight:600;color:var(--charcoal);display:flex;align-items:center;gap:8px;box-shadow:var(--shadow);}
+.proof-chip .big{font-family:'IBM Plex Sans KR','Noto Sans KR',sans-serif;font-size:22px;font-weight:700;color:var(--accent-rose);}
 
 .hero-cta{display:inline-block;background:var(--charcoal);color:var(--cream);padding:18px 52px;border-radius:50px;font-size:15px;font-weight:700;text-decoration:none;letter-spacing:.04em;transition:all .3s;box-shadow:0 8px 32px rgba(44,40,40,.2);margin-bottom:14px;animation:float 3s ease-in-out infinite;}
 .hero-cta:hover{background:var(--accent-rose);transform:translateY(-3px);}
 .hero-sub-note{font-size:12px;color:var(--light-text);}
 
 /* ── LOSS AVERSION BANNER ── */
-.loss-banner{background:var(--charcoal);color:var(--cream);padding:16px 24px;text-align:center;}
-.loss-banner p{font-size:13.5px;line-height:1.7;max-width:680px;margin:0 auto;}
+.loss-banner{position:sticky;top:var(--nav-h);z-index:99;background:var(--charcoal);color:var(--cream);padding:14px 0;text-align:center;overflow:hidden;white-space:nowrap;}
+.loss-banner .marquee{display:flex;overflow:hidden;}
+.loss-banner .marquee-track{display:flex;min-width:max-content;animation:bannerMarquee 18s linear infinite;}
+.loss-banner p{font-size:13.5px;line-height:1.7;margin:0;padding-right:56px;}
 .loss-banner strong{color:var(--rose);}
+@keyframes bannerMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ── SECTIONS BASE ── */
 section{padding:72px 20px;}
@@ -103,7 +110,7 @@ section{padding:72px 20px;}
 
 /* ── SOLUTION SECTION ── */
 .solution-section{background:var(--cream);}
-.solution-intro{font-size:15px;color:var(--warm-gray);max-width:600px;line-height:1.8;margin-bottom:40px;}
+.solution-intro{font-size:15px;color:var(--warm-gray);max-width:760px;line-height:1.8;margin-bottom:40px;}
 
 /* System cards */
 .system-grid{display:grid;gap:20px;}
@@ -144,7 +151,7 @@ section{padding:72px 20px;}
 .review-card:hover{transform:translateY(-3px);}
 .review-job{display:inline-block;background:var(--lavender);color:#7b5ea7;font-size:10.5px;font-weight:700;letter-spacing:.06em;padding:4px 10px;border-radius:50px;margin-bottom:10px;}
 .review-stars{color:#F5C842;font-size:12px;margin-bottom:8px;}
-.review-q{font-family:'Libre Baskerville',serif;font-size:42px;color:var(--lilac);line-height:1;opacity:.5;margin-bottom:4px;}
+.review-q{font-family:'Gothic A1','Noto Sans KR',sans-serif;font-size:42px;font-weight:700;color:var(--lilac);line-height:1;opacity:.5;margin-bottom:4px;}
 .review-text{font-size:13.5px;color:var(--charcoal);line-height:1.75;margin-bottom:14px;}
 .review-text b{color:var(--accent-rose);}
 .review-author{font-size:12px;color:var(--light-text);font-weight:600;display:flex;align-items:center;gap:6px;}
@@ -168,8 +175,9 @@ section{padding:72px 20px;}
 /* ── PRICING ── */
 .pricing-section{background:var(--mint);}
 .pricing-intro{font-size:15px;color:var(--warm-gray);max-width:520px;line-height:1.8;margin-bottom:36px;}
-.pricing-grid{display:grid;grid-template-columns:1fr 1.08fr;gap:22px;}
+.pricing-grid{display:grid;grid-template-columns:1.08fr 1fr;gap:22px;}
 @media(max-width:660px){.pricing-grid{grid-template-columns:1fr;}}
+.pricing-card.premium{order:-1;}
 .pricing-card{background:var(--white);border-radius:26px;padding:32px 28px;box-shadow:var(--shadow);border:2px solid transparent;position:relative;overflow:hidden;transition:all .3s;}
 .pricing-card:hover{box-shadow:var(--shadow-lg);}
 .pricing-card.basic{border-color:var(--rose);}
@@ -178,7 +186,7 @@ section{padding:72px 20px;}
 .pricing-tier{font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;}
 .basic .pricing-tier{color:var(--accent-rose);}
 .premium .pricing-tier{color:#8a6bc0;}
-.pricing-price{font-family:'Libre Baskerville',serif;font-size:38px;color:var(--charcoal);line-height:1;margin-bottom:4px;}
+.pricing-price{font-family:'Gothic A1','Noto Sans KR',sans-serif;font-size:38px;font-weight:700;color:var(--charcoal);line-height:1;margin-bottom:4px;}
 .pricing-limit{font-size:12px;color:var(--light-text);padding-bottom:18px;border-bottom:1px solid var(--border);margin-bottom:18px;}
 .pricing-tag{font-size:13.5px;color:var(--warm-gray);line-height:1.7;margin-bottom:20px;}
 .pricing-features{list-style:none;}
@@ -219,7 +227,7 @@ section{padding:72px 20px;}
 .checklist li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--charcoal);padding:7px 0;border-bottom:1px dashed rgba(200,185,180,.2);line-height:1.55;}
 .checklist li::before{content:'✅';flex-shrink:0;font-size:14px;}
 .value-box{background:linear-gradient(135deg,var(--blush),var(--lavender));border-radius:18px;padding:26px;margin-top:22px;border:1px solid var(--rose);}
-.value-box h3{font-family:'Libre Baskerville',serif;font-size:17px;color:var(--charcoal);margin-bottom:12px;}
+.value-box h3{font-family:'Gothic A1','Noto Sans KR',sans-serif;font-size:17px;font-weight:700;color:var(--charcoal);margin-bottom:12px;}
 .value-box p{font-size:13.5px;color:var(--warm-gray);line-height:1.75;}
 
 /* ── WHO IS IT FOR ── */
@@ -238,12 +246,19 @@ section{padding:72px 20px;}
 .how-section{background:var(--cream);}
 .how-steps{display:grid;gap:18px;margin-top:8px;}
 .how-step{background:var(--white);border-radius:20px;padding:26px;box-shadow:var(--shadow);border:1px solid var(--border);display:grid;grid-template-columns:52px 1fr;gap:18px;align-items:start;}
-.step-num{width:52px;height:52px;background:var(--blush);border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:'Libre Baskerville',serif;font-size:20px;color:var(--accent-rose);font-style:italic;flex-shrink:0;}
+.step-num{width:52px;height:52px;background:var(--blush);border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:'Gothic A1','Noto Sans KR',sans-serif;font-size:20px;font-weight:700;color:var(--accent-rose);flex-shrink:0;}
 .step-content h3{font-size:15px;font-weight:700;color:var(--charcoal);margin-bottom:8px;}
 .step-content p,.step-content li{font-size:13.5px;color:var(--warm-gray);line-height:1.75;}
 .step-content ul{list-style:none;padding:0;margin-top:8px;}
 .step-content ul li{display:flex;gap:8px;padding:3px 0;}
 .step-content ul li::before{content:'→';color:var(--accent-rose);}
+.step-shot{margin-top:14px;}
+.step-shot img{width:100%;display:block;border-radius:14px;border:1px solid var(--border);box-shadow:var(--shadow);}
+.step-shot figcaption{margin-top:8px;font-size:12px;color:var(--light-text);}
+.section-photo{margin:18px 0 6px;}
+.section-photo img{width:100%;display:block;border-radius:16px;border:1px solid var(--border);box-shadow:var(--shadow);}
+.detail-inline-image{margin-top:14px;}
+.detail-inline-image img{width:100%;display:block;border-radius:12px;border:1px solid var(--border);box-shadow:var(--shadow);}
 @media(max-width:500px){.how-step{grid-template-columns:1fr;}}
 
 /* ── VOCAB ── */
@@ -268,7 +283,7 @@ section{padding:72px 20px;}
 .operator-section{background:var(--sand);padding:60px 20px;}
 .operator-card{background:var(--white);border-radius:22px;padding:34px;box-shadow:var(--shadow);border:1px solid var(--rose);max-width:700px;margin:0 auto;display:flex;gap:22px;align-items:flex-start;}
 .op-icon{font-size:38px;flex-shrink:0;}
-.operator-card h3{font-family:'Libre Baskerville',serif;font-size:17px;color:var(--charcoal);margin-bottom:10px;}
+.operator-card h3{font-family:'Gothic A1','Noto Sans KR',sans-serif;font-size:17px;font-weight:700;color:var(--charcoal);margin-bottom:10px;}
 .operator-card p{font-size:13.5px;color:var(--warm-gray);line-height:1.8;}
 @media(max-width:500px){.operator-card{flex-direction:column;}}
 
@@ -293,10 +308,18 @@ section{padding:72px 20px;}
 .refund-box{background:var(--lavender);border-radius:14px;padding:20px;margin-top:20px;border:1px solid var(--lilac);}
 .refund-box h4{font-size:13.5px;font-weight:700;color:var(--charcoal);margin-bottom:8px;display:flex;gap:8px;align-items:center;}
 .refund-box p{font-size:13px;color:var(--warm-gray);line-height:1.7;}
+.legal-summary{margin-top:14px;padding:14px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.7);}
+.legal-summary p{font-size:13px;color:var(--charcoal);line-height:1.7;}
+.legal-details{margin-top:12px;border:1px solid var(--border);border-radius:12px;background:var(--white);}
+.legal-details summary{cursor:pointer;list-style:none;padding:14px 16px;font-size:13px;font-weight:700;color:var(--charcoal);}
+.legal-details summary::-webkit-details-marker{display:none;}
+.legal-details .legal-body{padding:4px 16px 16px;border-top:1px dashed rgba(200,185,180,.35);}
+.legal-details h4{font-size:13px;font-weight:700;color:var(--charcoal);margin:14px 0 8px;}
+.legal-details p{font-size:12.8px;color:var(--warm-gray);line-height:1.72;margin-bottom:8px;}
 
 /* ── MID CTA ── */
 .mid-cta{background:linear-gradient(135deg,var(--rose),var(--lilac));border-radius:22px;padding:34px 28px;text-align:center;margin:44px 0;box-shadow:var(--shadow);}
-.mid-cta h3{font-family:'Libre Baskerville',serif;font-size:21px;color:var(--charcoal);margin-bottom:8px;}
+.mid-cta h3{font-family:'Gothic A1','Noto Sans KR',sans-serif;font-size:21px;font-weight:700;color:var(--charcoal);margin-bottom:8px;}
 .mid-cta p{font-size:13.5px;color:var(--charcoal);opacity:.75;margin-bottom:18px;}
 .mid-cta a{display:inline-block;background:var(--charcoal);color:var(--cream);padding:13px 34px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none;transition:all .25s;}
 .mid-cta a:hover{background:#111;}
@@ -305,8 +328,8 @@ section{padding:72px 20px;}
 .final-cta{background:var(--charcoal);padding:100px 20px;text-align:center;position:relative;overflow:hidden;}
 .final-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 25% 40%,rgba(238,206,195,.1) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 75% 60%,rgba(214,237,232,.08) 0%,transparent 70%);}
 .final-cta>*{position:relative;z-index:1;}
-.final-cta h2{font-family:'Libre Baskerville',serif;font-size:clamp(26px,5vw,46px);color:var(--cream);margin-bottom:14px;line-height:1.3;}
-.final-cta h2 em{font-style:italic;color:var(--rose);}
+.final-cta h2{font-family:'Gothic A1','Noto Sans KR',sans-serif;font-size:clamp(26px,5vw,46px);font-weight:700;color:var(--cream);margin-bottom:14px;line-height:1.3;}
+.final-cta h2 em{font-style:normal;color:var(--rose);}
 .final-cta p{font-size:15px;color:rgba(253,249,244,.6);max-width:460px;margin:0 auto 36px;line-height:1.8;}
 .final-btn{display:inline-block;background:var(--rose);color:var(--charcoal);padding:18px 52px;border-radius:50px;font-size:16px;font-weight:800;text-decoration:none;letter-spacing:.04em;transition:all .3s;box-shadow:0 8px 32px rgba(238,206,195,.25);animation:float 3.2s ease-in-out infinite;}
 .final-btn:hover{background:var(--blush);transform:translateY(-3px) scale(1.02);}
@@ -315,7 +338,7 @@ section{padding:72px 20px;}
 
 /* ── FOOTER ── */
 footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);padding:40px 20px;text-align:center;}
-.footer-brand{font-family:'Libre Baskerville',serif;font-size:20px;color:var(--cream);margin-bottom:14px;}
+.footer-brand{font-family:'Gothic A1','Noto Sans KR',sans-serif;font-size:20px;font-weight:700;color:var(--cream);margin-bottom:14px;}
 .footer-brand span{color:var(--rose);}
 .footer-links{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin-bottom:18px;}
 .footer-links a{font-size:13px;color:rgba(253,249,244,.5);text-decoration:none;transition:color .2s;}
@@ -323,12 +346,44 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
 .footer-copy{font-size:12px;color:rgba(253,249,244,.28);letter-spacing:.04em;}
 
 /* RESPONSIVE */
+@media(max-width:900px){
+  .container{max-width:100%;}
+  section{padding:60px 16px;}
+  .hero{padding:84px 16px 52px;min-height:auto;}
+  .hero-title{font-size:clamp(28px,9vw,48px);}
+  .hero-logic{padding:16px 14px;font-size:14px;line-height:1.7;}
+  .hero-cta{width:100%;max-width:360px;padding:16px 18px;font-size:14px;}
+  .timeline-item{gap:12px;}
+  .timeline-content{padding:14px;}
+  .system-card{grid-template-columns:1fr;padding:20px;}
+  .how-step{grid-template-columns:1fr;padding:20px;}
+  .step-num{width:44px;height:44px;font-size:17px;}
+  .pricing-card{padding:24px 20px;}
+  .pricing-price{font-size:34px;}
+  .mid-cta{padding:28px 18px;}
+  .mid-cta h3{font-size:19px;}
+}
+
 @media(max-width:600px){
+  :root{--nav-h:52px;}
+  nav{padding:10px 12px;gap:8px;}
+  .nav-brand{font-size:14px;gap:7px;}
+  .nav-brand .brand-sub{font-size:11px;}
+  .nav-cta{padding:8px 12px;font-size:12px;}
   .hero-proof-row{gap:7px;}
-  .proof-chip{font-size:12px;padding:8px 14px;}
-  .proof-chip .big{font-size:17px;}
-  .system-card{grid-template-columns:1fr;}
-  nav{padding:12px 16px;}
+  .proof-chip{font-size:11.5px;padding:7px 11px;}
+  .proof-chip .big{font-size:16px;}
+  .section-label{font-size:10px;letter-spacing:.1em;}
+  .section-title{font-size:clamp(21px,6vw,28px);line-height:1.35;}
+  .problem-intro,.solution-intro,.proof-intro,.pricing-intro{font-size:14px;}
+  .persona-grid,.reviews-grid,.why-grid,.vocab-cards{grid-template-columns:1fr;}
+  .who-grid,.participate-grid,.pricing-grid{grid-template-columns:1fr;}
+  .today-marker{gap:8px;}
+  .today-dot{width:40px;height:40px;font-size:10px;}
+  .today-label{font-size:11px;padding:7px 10px;}
+  .tl-title{font-size:14px;}
+  .tl-date{font-size:11px;}
+  .footer-links{gap:12px;}
 }
 </style>
 </head>
@@ -336,13 +391,22 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
 
 <!-- NAV -->
 <nav>
-  <a class="nav-brand" href="#">you<span>buddy</span></a>
+  <a class="nav-brand" href="#">
+    <span class="brand-main">YouBuddy</span>
+    <span class="brand-sep">|</span>
+    <span class="brand-sub">비즈니스 영어 루틴 챌린지</span>
+  </a>
   <a class="nav-cta" href="https://www.latpeed.com/products/en0l_" target="_blank">🎯 지금 신청하기</a>
 </nav>
 
 <!-- LOSS AVERSION BANNER -->
 <div class="loss-banner">
-  <p>⚠️ 유버디는 현업 실무자입니다. 이 커리큘럼은 <strong>언제든 종료되거나 가격이 인상</strong>될 수 있습니다. 현재 4기 한정 모집 중.</p>
+  <div class="marquee">
+    <div class="marquee-track">
+      <p>⚠️ 유버디는 <strong>외국계 현업 실무자</strong>입니다. 본업 일정에 따라 다음 기수는 잠정적으로 연기될 수 있습니다 (현재 4기 한정 모집, 지금이 기회입니다!)</p>
+      <p>⚠️ 유버디는 <strong>외국계 현업 실무자</strong>입니다. 본업 일정에 따라 다음 기수는 잠정적으로 연기될 수 있습니다 (현재 4기 한정 모집, 지금이 기회입니다!)</p>
+    </div>
+  </div>
 </div>
 
 <!-- HERO -->
@@ -351,18 +415,19 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
   <div class="hero-eyebrow fade">비즈니스 영어 루틴 챌린지 4기</div>
 
   <h1 class="hero-title fade">
-    30일 후,<br>영어가 <em>'공부'</em>가 아닌<br>
-    <span style="color:var(--accent-sage);font-style:normal;">'내 말'</span>이 됩니다
+    영어는 끝이 없지만,<br>
+    <span style="color:var(--accent-sage);font-style:normal;">'내 영어 대본'</span>은 30일이면 완성됩니다.
   </h1>
 
   <div class="hero-logic fade">
-    단어 테스트를 통과해야 다음으로 넘어가고, 매일 쌓인 결과물이 <strong>나만의 비즈니스 영어 PDF 대본</strong>으로 자동 완성되는 시스템.<br>
-    <strong>의지가 아니라 환경이 당신을 완주시킵니다.</strong>
+    📂 실무 밀착형 노션 30일 루틴: 책에는 없는 '진짜 현업 언어'<br>
+    🧠 유버디 전용 단어 테스트: 매일 배운 단어가 자동으로 업데이트 자체 페이지<br>
+    🎙️ (프리미엄) 1:1 케어: 매주 밋업 + 실무 PPT 발표 및 과제 & 실시간 피드백
   </div>
 
   <div class="hero-proof-row fade">
     <div class="proof-chip"><span class="big">100%</span> 프리미엄 완주율 (3기)</div>
-    <div class="proof-chip"><span class="big">전원</span> PPT 발표 + 미팅 참여</div>
+    <div class="proof-chip"><span class="big">어휘</span> 180개 + 단어테스트</div>
     <div class="proof-chip"><span class="big">30일</span> 나만의 대본 완성</div>
     <div class="proof-chip"><span class="big">∞</span> 평생 소장</div>
   </div>
@@ -370,21 +435,25 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
   <a class="hero-cta fade" href="https://www.latpeed.com/products/en0l_" target="_blank">
     유버디 영어 챌린지 신청하기 →
   </a>
-  <p class="hero-sub-note fade">한정 인원 마감 시 조기 종료 · 베이직 20명 / 프리미엄 10명</p>
+  <p class="hero-sub-note fade">한정 인원 마감 시 조기 종료 · 프리미엄 10명 / 베이직 20명</p>
 </section>
 
 <!-- PROBLEM: PAIN POINTS -->
 <section class="problem-section">
   <div class="container">
     <span class="section-label">참여 전, 다들 이런 고민이었어요</span>
-    <h2 class="section-title">회의 때 <em>'I agree'</em>만 하다가<br>병풍처럼 끝난 적 있으신가요?</h2>
+    <h2 class="section-title">회의 때 <em>'I agree'</em>, <em>'ok'</em>만 하고<br>있지는 않으신가요?</h2>
     <div class="divider"></div>
-    <p class="problem-intro">말이 없는 게 아니에요. 그냥 <strong>꺼낼 준비가 안 된 것</strong>뿐이에요. 같은 고민을 가진 분들이 먼저 왔다가 달라졌습니다.</p>
+    <p class="problem-intro">
+      말이 없는 게 아니에요.<br>
+      그냥 <strong>꺼낼 준비가 안 된 것</strong>뿐이에요.<br>
+      같은 고민을 가진 분들이 먼저 왔다가 달라졌습니다.
+    </p>
 
     <div class="persona-grid">
       <div class="persona-card fade">
         <div class="persona-tag">외국계 신입 · 0~1년차</div>
-        <div class="persona-pain">회의 때 <span class="em">'I agree'만 하다가 병풍처럼 끝나는</span> 상황이 반복돼요</div>
+        <div class="persona-pain">회의 때 <span class="em">'I agree', 'ok'만 하게 되는</span> 상황이 반복돼요</div>
       </div>
       <div class="persona-card fade">
         <div class="persona-tag">PM / 기획 · 3년차</div>
@@ -421,17 +490,25 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
 <section class="solution-section">
   <div class="container">
     <span class="section-label">유버디만의 환경 설계</span>
-    <h2 class="section-title"><em>완주율 100%</em>가 증명하는<br>가두리 시스템</h2>
+    <h2 class="section-title"><em>완주율 100%</em>가 증명하는<br>완주 설계 시스템</h2>
     <div class="divider"></div>
-    <p class="solution-intro">의지로 버티는 챌린지가 아닙니다. <strong>못 빠져나오는 구조</strong>를 만들어드립니다. 3기 프리미엄 참여자 전원이 이 시스템 안에서 끝까지 완주했습니다.</p>
+    <p class="solution-intro">
+      의지로 버티는 챌린지가 아닙니다.<br>
+      <strong>끝까지 갈 수 있게 설계된 구조</strong>를 만들어드립니다.<br>
+      3기 프리미엄 참여자 전원이 이 시스템 안에서 완주했습니다.
+    </p>
+    <figure class="section-photo fade">
+      <img src="assets/premium.png" alt="프리미엄 완주 인증 화면" loading="lazy">
+      <figcaption style="margin-top:8px;font-size:12px;color:var(--light-text);">실제 3기 프리미엄 참여율 체크표</figcaption>
+    </figure>
 
     <div class="system-grid">
       <div class="system-card fade">
         <div class="system-icon rose-bg">🔒</div>
         <div>
-          <h3>단어 테스트 통과 못 하면 못 나가는 독한 시스템</h3>
-          <p>매일 제공되는 단어 테스트는 <strong>맞출 때까지 반복</strong>됩니다. 넘기고 싶으면 외워야 해요. 강제 복습으로 장기 기억에 새겨지는 구조입니다.</p>
-          <div class="highlight">"단어 테스트가 맞춰야 넘어가서 하던 틀리던 계속 리뷰할 수밖에 없어서 좋았다" — 실제 참여자</div>
+          <h3>3회 도전 + 오답 확인으로 반복되는 단어 테스트</h3>
+          <p>힌트 없이 진행되는 단어 테스트는 문항마다 <strong>3번의 입력 기회</strong>가 있습니다. 3번 모두 틀리면 마지막 캡처용 페이지에서 어떤 부분이 틀렸는지 확인할 수 있고, 이 결과를 공유하기 때문에 1~2개라도 더 맞추기 위해 다시 반복하게 됩니다. 3기에는 총 67개 어휘가 제공됐습니다.</p>
+          <div class="highlight">"단어 테스트가 맞춰야 넘어가서 하던 틀리던 계속 리뷰할 수밖에 없어서 좋았다" - 실제 참여자</div>
         </div>
       </div>
       <div class="system-card sage-border fade">
@@ -439,7 +516,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
         <div>
           <h3>공부한 게 사라지지 않는 노션 동기화 블록</h3>
           <p>매일 쌓인 표현이 <strong>나만의 비즈니스 영어 대본 PDF</strong>로 자동 완성됩니다. 30일 후에도, 1년 후에도 꺼내볼 수 있는 내 자산이 됩니다.</p>
-          <div class="highlight sage">"끝나도 남는 게 있는 챌린지, 시스템화가 미쳤다" — 실제 참여자</div>
+          <div class="highlight sage">"끝나도 남는 게 있는 챌린지, 시스템화가 미쳤다" - 실제 참여자</div>
         </div>
       </div>
       <div class="system-card lav-border fade">
@@ -668,8 +745,8 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
         <p>매일 학습 진행 상황을 체크하고, 궁금한 점을 실시간으로 해결합니다. 챌린저 한 명 한 명의 현황을 개별 페이지로 초대해 직접 진행 사항을 체크합니다.</p>
       </div>
       <div class="detail-block pb fade">
-        <h3>📚 유버디 엄선 130개+ 영어 학습 자료 평생 이용</h3>
-        <p>유튜브, 팟캐스트, 기사 등 실무 활용 자료가 지속 업데이트됩니다. 베이직에는 포함되지 않는 심화 콘텐츠입니다.</p>
+        <h3>🎙️ 전용 팟캐스트</h3>
+        <p>1주마다 해당 어휘와 미팅 자료를 기반으로 유버디 전용 팟캐스트를 제작해 제공합니다.</p>
       </div>
       <div class="detail-block pb fade">
         <h3>🎤 실전 미팅 시뮬레이션 (Zoom 화상 회의)</h3>
@@ -678,6 +755,9 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
           <li>미니 캐치업: 주 1회, 투표로 시간 확정 (저녁 시간대)</li>
           <li>프레젠테이션 1회: 본인 업계 맞춤 PPT로 발표</li>
         </ul>
+        <figure class="detail-inline-image">
+          <img src="assets/premieum_gathering.png" alt="프리미엄 실전 미팅 시뮬레이션 화면" loading="lazy">
+        </figure>
       </div>
       <div class="detail-block pb fade">
         <h3>🗣️ 본인 Industry 맞춤 PPT 발표 1회</h3>
@@ -690,6 +770,14 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
       <div class="detail-block pb fade">
         <h3>🔄 이전 챌린지 단어 복습 세션 전체 포함</h3>
         <p>과거 기수 콘텐츠 80개 비즈니스 표현 포함. 더 넓은 어휘력을 쌓을 수 있습니다.</p>
+      </div>
+      <div class="detail-block pb fade">
+        <h3>📚 유버디 엄선 130개+ 영어 학습 자료 평생 이용</h3>
+        <p>유튜브, 팟캐스트, 기사 등 실무 활용 자료가 지속 업데이트됩니다. 베이직에는 포함되지 않는 심화 콘텐츠입니다.</p>
+      </div>
+      <div class="detail-block pb fade">
+        <h3>✅ 베이직 모든 내용 포함</h3>
+        <p>프리미엄 코스는 베이직의 모든 커리큘럼과 자료를 포함한 확장형 구성입니다.</p>
       </div>
     </div>
 
@@ -795,6 +883,9 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
         <div class="step-content">
           <h3>매일 inbox 확인 → 오늘의 학습 자료</h3>
           <p>새로운 학습 콘텐츠가 노션 inbox에 매일 업데이트됩니다. 당일 공부 페이지를 확인하는 것부터 시작해요.</p>
+          <figure class="step-shot">
+            <img src="assets/inbox.png" data-base="assets/inbox" alt="노션 inbox에서 오늘의 학습 자료를 확인하는 화면" loading="lazy">
+          </figure>
         </div>
       </div>
       <div class="how-step fade">
@@ -807,6 +898,10 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
             <li>유사 표현 차이점까지 친절하게 제공</li>
             <li>매일 다른 카드 형식으로 지루하지 않게</li>
           </ul>
+          <figure class="step-shot">
+            <img src="assets/card1.png" data-base="assets/card1" alt="내 상황 문장 3개 작성 워크시트 화면 1" loading="lazy">
+            <img src="assets/card2.png" data-base="assets/card2" alt="내 상황 문장 3개 작성 워크시트 화면 2" loading="lazy" style="margin-top:10px;">
+          </figure>
         </div>
       </div>
       <div class="how-step fade">
@@ -814,6 +909,19 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
         <div class="step-content">
           <h3>계속 추가되는 효율적인 학습 도구들</h3>
           <p>유버디가 직접 제작한 랜덤 단어 테스트 페이지, AI 활용법, 표현 모음집 내보내기 등 실용적인 노하우를 아낌없이 공유합니다.</p>
+          <figure class="step-shot">
+            <img src="assets/wordtest.png" data-base="assets/wordtest" alt="랜덤 단어 테스트 페이지 화면" loading="lazy">
+          </figure>
+        </div>
+      </div>
+      <div class="how-step fade">
+        <div class="step-num">④</div>
+        <div class="step-content">
+          <h3>카톡 인증 + 공용 페이지에서 인증률 체크</h3>
+          <p>그날 공부한 내용을 카카오톡에 인증하고, 모두가 보는 공용 페이지에서 전체 인증률을 함께 확인합니다.</p>
+          <figure class="step-shot">
+            <img src="assets/check.png" data-base="assets/check" alt="공용 페이지 인증률 체크 화면" loading="lazy">
+          </figure>
         </div>
       </div>
     </div>
@@ -840,19 +948,13 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
       <div class="vocab-card fade">
         <div class="v-icon">📊</div>
         <h4>하루 제공량</h4>
-        <p>상황별 대표 어휘 3개<br>+ 유의어 3개씩 = 총 9개</p>
+        <p>상황별 대표 어휘 3개<br>+ 유의어 2개씩 = 총 9개</p>
       </div>
       <div class="vocab-card fade">
         <div class="v-icon">📝</div>
         <h4>단어 테스트</h4>
         <p>기본 (대표 어휘 3개)<br>심화 (유의어 포함)</p>
-        <div class="course-rule">🎓 베이직: 기본/심화 선택<br>⭐ 프리미엄: 심화 필수</div>
-      </div>
-      <div class="vocab-card premium-card fade">
-        <div class="premium-badge-sm">PREMIUM</div>
-        <div class="v-icon">🎙️</div>
-        <h4>전용 팟캐스트</h4>
-        <p>1주마다 해당 어휘 & 미팅 자료로 유버디 팟캐스트 제작 제공</p>
+        <div class="course-rule">⭐ 프리미엄: 심화 필수<br>🎓 베이직: 기본/심화 선택</div>
       </div>
     </div>
   </div>
@@ -904,9 +1006,9 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
     <div class="divider"></div>
     <div class="faq-list">
       <div class="faq-item"><div class="faq-q">노션을 처음 사용하는데 괜찮을까요?</div><div class="faq-a">네! 노션 가입해주시면 차근차근 따라할 수 있는 OT 영상을 제공해드립니다.</div></div>
-      <div class="faq-item"><div class="faq-q">베이직과 프리미엄 중 어떤 걸 선택해야 할까요?</div><div class="faq-a">혼자서도 꾸준히 할 수 있다면 베이직으로도 충분합니다. 하지만 1:1 관리, 실전 회의 연습, 더 많은 학습 자료가 필요하다면 프리미엄을 추천드려요.</div></div>
+      <div class="faq-item"><div class="faq-q">프리미엄과 베이직 중 어떤 걸 선택해야 할까요?</div><div class="faq-a">1:1 관리, 실전 회의 연습, 더 많은 학습 자료가 필요하다면 프리미엄을 추천드려요. 혼자서도 꾸준히 할 수 있다면 베이직으로도 충분합니다.</div></div>
       <div class="faq-item"><div class="faq-q">챌린지가 끝난 후에도 자료를 볼 수 있나요?</div><div class="faq-a">네! 평생 소장 가능합니다. 언제든 돌아와 복습하실 수 있고, 원하면 다음 챌린지에 다시 참여해 동기부여를 재충전할 수 있어요.</div></div>
-      <div class="faq-item"><div class="faq-q">노션 템플릿을 내 워크스페이스로 복제해도 되나요?</div><div class="faq-a">베이직: 네, 복제해가셔서 사용하시면 됩니다. / 프리미엄: 노션 아이디로 초대해드립니다. (언급·수정·복제 모두 가능한 full access)</div></div>
+      <div class="faq-item"><div class="faq-q">노션 템플릿을 내 워크스페이스로 복제해도 되나요?</div><div class="faq-a">프리미엄: 노션 아이디로 초대해드립니다. (언급·수정·복제 모두 가능한 full access) / 베이직: 네, 복제해가셔서 사용하시면 됩니다.</div></div>
       <div class="faq-item"><div class="faq-q">모바일에서도 볼 수 있나요?</div><div class="faq-a">네, 노션 모바일 앱에서도 동일하게 이용 가능합니다. 앱에서 즐겨찾기 해두시면 편리해요!</div></div>
       <div class="faq-item"><div class="faq-q">중간에 참여해도 괜찮나요?</div><div class="faq-a">중간 참여는 불가능합니다. 챌린지는 마감일이 정해져 있으며, 한정 인원이 차면 조기 마감됩니다.</div></div>
       <div class="faq-item"><div class="faq-q">해외 거주중이에요. 결제 가능할까요?</div><div class="faq-a">따로 DM 주시면 바로 해결해드립니다. 인스타그램 @youbuddy_day</div></div>
@@ -919,15 +1021,69 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
 <!-- PURCHASE INFO -->
 <section class="purchase-section">
   <div class="purchase-card fade">
-    <h3>💰 신청 전 확인사항</h3>
+    <h3>💰 결제 전 핵심 안내</h3>
     <ul class="purchase-list">
       <li>결제 시 연락 수단을 위한 핸드폰 번호와 이메일이 필요합니다.</li>
-      <li>결제 완료 후 바로 온보딩 페이지 링크를 받아보실 수 있습니다.</li>
-      <li>프리미엄의 경우, 폼을 작성해 노션 이메일을 전달해 주셔야 합니다.</li>
+      <li>베이직: 결제 완료 후 바로 노션 페이지 링크가 제공됩니다.</li>
+      <li>프리미엄: 설문 확인 후 바로 노션 페이지로 초대됩니다.</li>
     </ul>
+    <div class="legal-summary">
+      <p><strong>환불 정책:</strong> 결제와 동시에 링크가 공개되는 디지털 상품으로, 환불이 불가합니다. 단, 서비스 미제공 또는 중대한 하자가 있는 경우 전액 환불해드립니다.</p>
+      <p><strong>동의 안내:</strong> 구매 진행 시 아래 법적 고지사항 확인 및 동의로 간주됩니다.</p>
+    </div>
+    <details class="legal-details">
+      <summary>⚠️ 환불 정책 및 법적 고지사항 접기/펼치기</summary>
+      <div class="legal-body">
+        <h4>환불 정책</h4>
+        <p>결제와 동시에 링크가 공개되는 디지털 상품으로, 환불이 불가합니다.</p>
+        <p>서비스 미제공 시에는 전액 환불해드립니다.</p>
+
+        <h4>제공 방식</h4>
+        <p>(베이직) 결제 완료 후 바로 노션 페이지 링크를 받아보실 수 있습니다.</p>
+        <p>(프리미엄) 설문을 작성해주시면, 확인 후 바로 노션 페이지로 초대드립니다.</p>
+
+        <h4>법적 고지사항</h4>
+        <p>본 챌린지의 모든 콘텐츠(단어장, 예문, 템플릿, 자료 등)에 대한 저작권 및 지적재산권은 Buddy you에게 있습니다.</p>
+        <p>구매자는 개인적인 학습 목적으로만 사용할 수 있으며, 상업적 이용은 금지됩니다.</p>
+        <p>챌린지 구조 및 시스템, 인증 시스템, 1:1 트래킹 방식, 커리큘럼 구성 등 구조적 요소는 제작자의 독창적인 지적재산입니다.</p>
+        <p>랜덤 단어 테스트 페이지의 코드, 노션 템플릿 구조, 자동화 시스템 등 기술적 구현은 제작자의 지적재산권으로 보호됩니다.</p>
+        <p>단어 선정, 예문, 설명, 학습 자료 등 모든 콘텐츠는 저작권법의 보호를 받습니다.</p>
+
+        <h4>금지 사항</h4>
+        <p>본 챌린지의 구조, 시스템, 운영 방식을 모방하여 유사한 프로그램을 제작하는 행위</p>
+        <p>본 챌린지에서 사용된 코드(단어 테스트 페이지 등)를 무단으로 복제, 수정, 배포하는 행위</p>
+        <p>본 챌린지의 콘텐츠를 무단으로 복제, 배포, 상업적으로 이용하는 행위</p>
+        <p>본 챌린지와 실질적으로 유사한 서비스를 제공하는 행위</p>
+
+        <h4>법적 조치</h4>
+        <p>위 금지 사항 위반 시 저작권법, 부정경쟁방지법 등 관련 법령에 따라 민형사상 법적 조치를 취할 수 있습니다. 본 지적재산권은 대한민국 법률의 보호를 받습니다.</p>
+
+        <h4>2차 가공 및 재배포 금지</h4>
+        <p>본 상품 내용을 무단으로 복제, 수정, 재배포, 판매하는 행위는 엄격히 금지됩니다.</p>
+        <p>SNS, 블로그, 커뮤니티 등에 상품 내용을 무단 공유하는 행위도 금지됩니다. (링크 공유 금지, 후기성 캡처 허용)</p>
+
+        <h4>개인정보 보호</h4>
+        <p>결제 및 배송 과정에서 수집된 개인정보는 상품 제공 목적으로만 사용됩니다.</p>
+        <p>개인정보는 관련 법령에 따라 안전하게 보호되며, 제3자에게 제공되지 않습니다.</p>
+        <p>수집된 개인정보는 추후 신규 상품 출시 시 안내를 위한 연락 목적으로 사용될 수 있습니다.</p>
+
+        <h4>환불 정책 재확인</h4>
+        <p>디지털 상품의 특성상 결제 완료 후 환불이 불가능합니다.</p>
+        <p>단, 서비스 미제공 또는 중대한 하자가 있는 경우 전액 환불해드립니다.</p>
+
+        <h4>면책 조항</h4>
+        <p>본 챌린지는 영어 학습을 돕기 위한 교육 자료이며, 특정 성과나 결과를 보장하지 않습니다.</p>
+        <p>사용자의 학습 태도, 환경, 개인차에 따라 결과가 다를 수 있습니다.</p>
+        <p>기술적 문제(노션 서버 오류, 인터넷 연결 문제 등)로 인한 일시적 접속 불가는 환불 사유가 되지 않습니다.</p>
+
+        <h4>분쟁 해결</h4>
+        <p>상품 이용 중 문제가 발생한 경우 인스타그램 DM(@youbuddy_day)으로 먼저 문의해주세요.</p>
+        <p>원만한 합의가 이루어지지 않을 경우 관련 법령 및 소비자보호법에 따라 해결합니다.</p>
+      </div>
+    </details>
     <div class="refund-box">
-      <h4>⚠️ 환불 정책 및 법적 고지</h4>
-      <p>위의 모든 사항에 동의하시는 경우에만 구매를 진행해주세요. 결제는 위 내용에 대한 동의로 간주됩니다.</p>
+      <h4>✅ 동의 확인</h4>
+      <p>구매를 진행하면 본 환불 정책 및 법적 고지사항을 확인하고 동의한 것으로 간주됩니다.</p>
     </div>
   </div>
 </section>
@@ -935,13 +1091,19 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
 <!-- FINAL CTA -->
 <section class="final-cta">
   <h2>이번 기회를 놓치면<br><em>다음 회의도 똑같습니다</em></h2>
-  <p>의지가 아니라 환경이 당신을 완주시킵니다. 유버디는 단순한 인증 챌린지가 아니라, 매일 쌓이는 결과물이 내 비즈니스 영어 대본이 되는 30일 루틴 프로젝트예요.</p>
+  <p>
+    의지가 아니라 환경이 당신을 완주시킵니다.<br>
+    유버디는 단순한 인증 챌린지가 아니라,<br>
+    매일 쌓이는 결과물이 내 비즈니스 영어 대본이 되는 30일 루틴 프로젝트예요.
+  </p>
   <a class="final-btn" href="https://www.latpeed.com/products/en0l_" target="_blank">
     🎯 유버디 영어 챌린지 구매하기
   </a>
   <p class="final-urgency">
-    베이직 20명 / 프리미엄 10명 한정 · <strong>한정 인원 마감 시 조기 종료</strong><br>
-    유버디는 현업 실무자입니다. 이 커리큘럼은 언제든 종료되거나 가격이 인상될 수 있습니다.
+    프리미엄 10명 / 베이직 20명 한정<br>
+    <strong>한정 인원 마감 시 조기 종료</strong><br>
+    유버디는 외국계 현업 실무자입니다.<br>
+    현재 4기 한정 모집 중 (얼리버드 ~3/11).
   </p>
 </section>
 
@@ -985,19 +1147,68 @@ const barObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 document.querySelectorAll('.complete-bar-fill').forEach(el => barObserver.observe(el));
 
-// Timeline today marker
+// Step screenshot extension fallback (png/jpg/jpeg/webp)
 (function() {
-  const nowUTC = new Date();
-  const kst = new Date(nowUTC.getTime() + (9 * 60 - nowUTC.getTimezoneOffset()) * 60000);
-  const today = new Date(kst.getFullYear(), kst.getMonth(), kst.getDate());
+  const exts = ['.png', '.jpg', '.jpeg', '.webp'];
+  const imgs = document.querySelectorAll('img[data-base]');
+
+  imgs.forEach(img => {
+    const base = img.dataset.base;
+    let idx = 0;
+
+    const tryNext = () => {
+      if (idx >= exts.length) {
+        img.style.display = 'none';
+        return;
+      }
+      const testSrc = base + exts[idx++];
+      const probe = new Image();
+      probe.onload = () => { img.src = testSrc; };
+      probe.onerror = tryNext;
+      probe.src = testSrc;
+    };
+
+    tryNext();
+  });
+})();
+
+// Timeline today marker
+function getKstDateParts() {
+  const now = new Date();
+  const kstParts = new Intl.DateTimeFormat('ko-KR', {
+    timeZone: 'Asia/Seoul',
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+    weekday: 'short'
+  }).formatToParts(now);
+
+  const readPart = type => Number(kstParts.find(p => p.type === type)?.value || 0);
+  const year = readPart('year');
+  const month = readPart('month');
+  const day = readPart('day');
+  const weekdayToken = kstParts.find(p => p.type === 'weekday')?.value || '일';
+  const weekday = weekdayToken.replace('요일', '');
+  return { year, month, day, weekday };
+}
+
+function renderTimelineTodayMarker() {
+  const { year, month, day, weekday } = getKstDateParts();
+  const today = new Date(year, month - 1, day);
   const dayNames = ['일','월','화','수','목','금','토'];
-  const label = `TODAY · ${today.getMonth()+1}월 ${today.getDate()}일 (${dayNames[today.getDay()]})`;
+  const weekdayLabel = dayNames.includes(weekday) ? weekday : dayNames[today.getDay()];
+  const label = `오늘 · ${month}월 ${day}일 (${weekdayLabel})`;
 
   const items = document.querySelectorAll('.timeline-item[data-start]');
   const container = document.getElementById('timeline-container');
+  if (!container) return;
+  const oldMarker = container.querySelector('.today-marker');
+  if (oldMarker) oldMarker.remove();
+
   let insertBefore = null;
 
   items.forEach(item => {
+    item.classList.remove('past');
     const end = new Date(item.dataset.end || item.dataset.start);
     if (end < today) {
       item.classList.add('past');
@@ -1008,9 +1219,25 @@ document.querySelectorAll('.complete-bar-fill').forEach(el => barObserver.observ
 
   const marker = document.createElement('div');
   marker.className = 'today-marker';
-  marker.innerHTML = `<div class="today-dot">TODAY</div><div class="today-label">${label}</div>`;
+  marker.innerHTML = `<div class="today-dot">오늘</div><div class="today-label">${label}</div>`;
   if (insertBefore) container.insertBefore(marker, insertBefore);
   else container.appendChild(marker);
+}
+
+renderTimelineTodayMarker();
+
+// KST 자정에 맞춰 자동 갱신
+(function scheduleKstMidnightRefresh() {
+  const now = new Date();
+  const kstNow = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Seoul' }));
+  const nextMidnightKst = new Date(kstNow);
+  nextMidnightKst.setHours(24, 0, 0, 0);
+  const delayMs = Math.max(1000, nextMidnightKst.getTime() - kstNow.getTime() + 1000);
+
+  setTimeout(() => {
+    renderTimelineTodayMarker();
+    setInterval(renderTimelineTodayMarker, 24 * 60 * 60 * 1000);
+  }, delayMs);
 })();
 </script>
 </body>
