@@ -165,6 +165,16 @@ section{padding:72px 20px;}
 /* ── SOCIAL PROOF ── */
 .proof-section{background:var(--lavender);}
 .proof-intro{font-size:15px;color:var(--warm-gray);max-width:540px;line-height:1.8;margin-bottom:36px;}
+.proof-essential{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:18px;}
+.proof-essential-item{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:14px 16px;box-shadow:var(--shadow);}
+.proof-essential-item strong{display:block;font-size:14px;color:var(--charcoal);margin-bottom:4px;}
+.proof-essential-item span{font-size:12.5px;color:var(--warm-gray);line-height:1.6;}
+.proof-fold{background:var(--white);border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);padding:8px 14px 14px;}
+.proof-fold>summary{cursor:pointer;list-style:none;font-size:14px;font-weight:700;color:var(--charcoal);padding:12px 8px;display:flex;align-items:center;gap:8px;}
+.proof-fold>summary::-webkit-details-marker{display:none;}
+.proof-fold>summary::before{content:'▸';font-size:14px;color:var(--accent-rose);transition:transform .2s;}
+.proof-fold[open]>summary::before{transform:rotate(90deg);}
+.proof-fold-body{padding:0 6px 6px;}
 .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px;}
 .review-card{background:var(--white);border-radius:20px;padding:24px;box-shadow:var(--shadow);transition:transform .2s;}
 .review-card:hover{transform:translateY(-3px);}
@@ -175,6 +185,8 @@ section{padding:72px 20px;}
 .review-text b{color:var(--accent-rose);}
 .review-author{font-size:12px;color:var(--light-text);font-weight:600;display:flex;align-items:center;gap:6px;}
 .review-author::before{content:'';display:inline-block;width:18px;height:1.5px;background:var(--lilac);}
+.review-shots{margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;}
+.review-shots img{width:100%;height:190px;object-fit:cover;border-radius:12px;border:1px solid var(--border);background:#f6f6f6;}
 
 /* ── WHY SPECIAL ── */
 .why-section{background:var(--cream);}
@@ -290,7 +302,12 @@ section{padding:72px 20px;}
 .section-photo img{width:100%;display:block;border-radius:16px;border:1px solid var(--border);box-shadow:var(--shadow);}
 .detail-inline-image{margin-top:14px;}
 .detail-inline-image img{width:100%;display:block;border-radius:12px;border:1px solid var(--border);box-shadow:var(--shadow);}
+.detail-ppt-grid{margin-top:14px;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
+.detail-ppt-grid img{width:100%;display:block;border-radius:10px;border:1px solid var(--border);box-shadow:var(--shadow);}
+.detail-ppt-caption{margin-top:8px;font-size:12px;color:var(--light-text);text-align:left;}
 @media(max-width:500px){.how-step{grid-template-columns:1fr;}}
+@media(max-width:860px){.detail-ppt-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:560px){.detail-ppt-grid{grid-template-columns:repeat(2,1fr);}}
 
 /* ── VOCAB ── */
 .vocab-section{background:var(--blush);}
@@ -623,46 +640,80 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
     <span class="section-label">3기 실제 참여자 후기</span>
     <h2 class="section-title">나와 비슷한 사람들이<br><em>이미 달라졌습니다</em></h2>
     <div class="divider"></div>
-    <p class="proof-intro">과장 없이 그대로입니다. 직접 받은 후기 원문에서 발췌했어요.</p>
+    <p class="proof-intro">과장 없이 그대로입니다. 핵심 후기는 바로 보이고, 원문/인증 캡처는 아래에서 펼쳐 확인할 수 있어요.</p>
 
-    <div class="reviews-grid">
-      <div class="review-card fade">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-q">"</div>
-        <p class="review-text">기존 것들과는 확연히 다르게 효능을 느꼈다. <b>복습이 진짜 중요함.</b> 노션 공유 블록/단어 챌린지로 귀찮은 것들은 <b>시스템화가 다 되어있어서, 끝나도 남는 게 좋다.</b></p>
-        <div class="review-author">신*림 님 (프리미엄)</div>
+    <div class="proof-essential">
+      <div class="proof-essential-item fade">
+        <strong>매일 복습 루틴이 잡혔어요</strong>
+        <span>테스트 인증을 반복하면서 스펠링과 표현이 오래 기억된다는 후기가 가장 많았습니다.</span>
       </div>
-      <div class="review-card fade">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-q">"</div>
-        <p class="review-text">단어테스트는 맞추지 않으면 안 넘어가서 하던 틀리던 <b>계속 리뷰할 수밖에 없어서 좋았고,</b> 비슷한 영어 고민을 가진 사람들끼리 줌으로 미팅하면서 대화하는 것도 <b>너무 좋은 경험이었다.</b></p>
-        <div class="review-author">김*미 님 (프리미엄)</div>
+      <div class="proof-essential-item fade">
+        <strong>실무형 표현이라 바로 써먹었어요</strong>
+        <span>단어만 외우는 방식이 아니라, 내 상황 문장으로 바꾸는 점이 특히 좋았다는 피드백입니다.</span>
       </div>
-      <div class="review-card fade">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-q">"</div>
-        <p class="review-text">평소 알지 못했던 표현을 접하고 <b>내 상황에 대입해서 대본을 만들고 연습하는 부분이 기대치 이상으로 알찬 커리큘럼이라 너무 좋습니다.</b></p>
-        <div class="review-author">김*윤 님</div>
-      </div>
-      <div class="review-card fade">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-q">"</div>
-        <p class="review-text">실무에서 많이 사용할 단어들을 알려주고, <b>나만의 패턴으로 만드는 것으로 도와주어 큰 도움이 됩니다.</b> 강제성 있게 짧지만 매일 영어 공부한다는 것에 만족합니다.</p>
-        <div class="review-author">고*지 님</div>
-      </div>
-      <div class="review-card fade">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-q">"</div>
-        <p class="review-text">특히 <b>비즈니스적인 표현들, 약어들을 많이 익히고</b> 영작 직접해보고 speaking도 연습할 수 있어서 좋습니다. <b>무엇보다 routinely word test가 복습에 도움이 됐어요.</b></p>
-        <div class="review-author">진*송 님</div>
-      </div>
-      <div class="review-card fade">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-q">"</div>
-        <p class="review-text">일상에서 영어로 표현을 쉽게 하길 원하는 분, <b>의지가 약한 분에게 도움이 될 것 같아요.</b> 영어와 가까워지는 습관 형성하기!</p>
-        <div class="review-author">김*지 님</div>
+      <div class="proof-essential-item fade">
+        <strong>혼자보다 훨씬 꾸준히 하게 돼요</strong>
+        <span>단톡/노션 리마인드와 인증 공유로 루틴이 끊기지 않았다는 재참여 의사가 많았습니다.</span>
       </div>
     </div>
+
+    <details class="proof-fold fade" open>
+      <summary>후기 원문 + 인증 캡처 전체 보기</summary>
+      <div class="proof-fold-body">
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-q">"</div>
+            <p class="review-text">기존 것들과는 확연히 다르게 효능을 느꼈다. <b>복습이 진짜 중요함.</b> 노션 공유 블록/단어 챌린지로 귀찮은 것들은 <b>시스템화가 다 되어있어서, 끝나도 남는 게 좋다.</b></p>
+            <div class="review-author">신*림 님 (프리미엄)</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-q">"</div>
+            <p class="review-text">단어테스트는 맞추지 않으면 안 넘어가서 하던 틀리던 <b>계속 리뷰할 수밖에 없어서 좋았고,</b> 비슷한 영어 고민을 가진 사람들끼리 줌으로 미팅하면서 대화하는 것도 <b>너무 좋은 경험이었다.</b></p>
+            <div class="review-author">김*미 님 (프리미엄)</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-q">"</div>
+            <p class="review-text">평소 알지 못했던 표현을 접하고 <b>내 상황에 대입해서 대본을 만들고 연습하는 부분이 기대치 이상으로 알찬 커리큘럼이라 너무 좋습니다.</b></p>
+            <div class="review-author">김*윤 님</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-q">"</div>
+            <p class="review-text">실무에서 많이 사용할 단어들을 알려주고, <b>나만의 패턴으로 만드는 것으로 도와주어 큰 도움이 됩니다.</b> 강제성 있게 짧지만 매일 영어 공부한다는 것에 만족합니다.</p>
+            <div class="review-author">고*지 님</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-q">"</div>
+            <p class="review-text">특히 <b>비즈니스적인 표현들, 약어들을 많이 익히고</b> 영작 직접해보고 speaking도 연습할 수 있어서 좋습니다. <b>무엇보다 routinely word test가 복습에 도움이 됐어요.</b></p>
+            <div class="review-author">진*송 님</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-q">"</div>
+            <p class="review-text">일상에서 영어로 표현을 쉽게 하길 원하는 분, <b>의지가 약한 분에게 도움이 될 것 같아요.</b> 영어와 가까워지는 습관 형성하기!</p>
+            <div class="review-author">김*지 님</div>
+          </div>
+        </div>
+        <div class="review-shots">
+          <img src="assets/reviews/6A31109A-F6CF-4CD3-B553-3EDBEEF8FE81.jpeg" alt="리뷰 캡처 1">
+          <img src="assets/reviews/911382B7-1BE5-4EF4-80FD-2A1324C2278C.jpeg" alt="리뷰 캡처 2">
+          <img src="assets/reviews/9692F55B-C82C-4973-8612-194BF9B8906A.jpeg" alt="리뷰 캡처 3">
+          <img src="assets/reviews/IMG_5200.jpeg" alt="리뷰 캡처 4">
+          <img src="assets/reviews/IMG_8649.jpeg" alt="리뷰 캡처 5">
+          <img src="assets/reviews/IMG_8651.jpeg" alt="리뷰 캡처 6">
+          <img src="assets/reviews/IMG_8652.jpeg" alt="리뷰 캡처 7">
+          <img src="assets/reviews/IMG_8654.jpeg" alt="리뷰 캡처 8">
+          <img src="assets/reviews/IMG_8655.jpeg" alt="리뷰 캡처 9">
+          <img src="assets/reviews/IMG_8656.jpeg" alt="리뷰 캡처 10">
+          <img src="assets/reviews/IMG_9113.png" alt="리뷰 캡처 11">
+          <img src="assets/reviews/image%20(3).png" alt="리뷰 캡처 12">
+        </div>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -734,6 +785,14 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
           <li>실시간 Zoom(+녹화) 진행 · 표현·발표력·구조 피드백 제공</li>
           <li>본인 발표 1회 + 다른 참여자 발표 2회 필참</li>
         </ul>
+        <figure class="detail-ppt-grid">
+          <img src="assets/ppt1.png" alt="3기 업계별 맞춤 PPT 발표 자료 1" loading="lazy">
+          <img src="assets/ppt2.png" alt="3기 업계별 맞춤 PPT 발표 자료 2" loading="lazy">
+          <img src="assets/ppt3.png" alt="3기 업계별 맞춤 PPT 발표 자료 3" loading="lazy">
+          <img src="assets/ppt4.png" alt="3기 업계별 맞춤 PPT 발표 자료 4" loading="lazy">
+          <img src="assets/ppt5.png" alt="3기 업계별 맞춤 PPT 발표 자료 5" loading="lazy">
+        </figure>
+        <p class="detail-ppt-caption">실제 본인 커리어에 맞는 ppt 3기 발표 자료</p>
       </div>
       <div class="detail-block pb fade">
         <h3>🔄 이전 챌린지 단어 복습 세션 전체 포함</h3>
