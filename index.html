@@ -98,7 +98,8 @@ b{font-weight:700;}
 .proof-chip{font-family:'IBM Plex Sans KR','Noto Sans KR',sans-serif;background:var(--white);border:1.5px solid var(--rose);border-radius:50px;padding:9px 18px;font-size:13px;font-weight:600;color:var(--charcoal);display:flex;align-items:center;gap:8px;box-shadow:var(--shadow);}
 .proof-chip .big{font-family:'IBM Plex Sans KR','Noto Sans KR',sans-serif;font-size:22px;font-weight:700;color:var(--accent-rose);}
 
-.hero-cta{display:inline-block;background:var(--charcoal);color:var(--cream);padding:18px 52px;border-radius:50px;font-size:15px;font-weight:700;text-decoration:none;letter-spacing:.04em;transition:all .3s;box-shadow:0 8px 32px rgba(44,40,40,.2);margin-bottom:14px;animation:float 3s ease-in-out infinite;}
+.hero-cta-group{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:14px;}
+.hero-cta{display:inline-block;background:var(--charcoal);color:var(--cream);padding:18px 52px;border-radius:50px;font-size:15px;font-weight:700;text-decoration:none;letter-spacing:.04em;transition:all .3s;box-shadow:0 8px 32px rgba(44,40,40,.2);animation:float 3s ease-in-out infinite;}
 .hero-cta:hover{background:var(--accent-rose);transform:translateY(-3px);}
 .hero-cta.alert{background:var(--accent-rose);margin-bottom:10px;animation:none;}
 .hero-cta.alert:hover{background:#b96a6a;transform:translateY(-2px);}
@@ -414,6 +415,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
   .hero{padding:84px 16px 52px;min-height:auto;}
   .hero-title{font-size:clamp(28px,9vw,48px);}
   .hero-logic{padding:16px 14px;font-size:14px;line-height:1.7;}
+  .hero-cta-group{gap:10px;}
   .hero-cta{width:100%;max-width:360px;padding:16px 18px;font-size:14px;}
   .timeline-item{gap:12px;}
   .timeline-content{padding:14px;}
@@ -461,7 +463,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
     <span class="nav-logo-word"><span class="you">you</span><span class="buddy">buddy</span></span>
     <span class="nav-brand-text">비즈니스 영어 루틴</span>
   </a>
-  <a class="nav-cta" href="https://www.latpeed.com/products/en0l_" target="_blank">🎯 지금 신청하기</a>
+  <a class="nav-cta" href="https://www.latpeed.com/products/en0l_" target="_blank" rel="noopener noreferrer">🎯 지금 신청하기</a>
 </nav>
 
 <!-- LOSS AVERSION BANNER -->
@@ -498,10 +500,15 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
     <div class="proof-chip"><span class="big">∞</span> 평생 소장</div>
   </div>
 
-  <a class="hero-cta fade" href="https://www.latpeed.com/products/en0l_" target="_blank">
-    유버디 영어 챌린지 신청하기 →
-  </a>
-  <p class="hero-sub-note fade">한정 인원 마감 시 조기 종료</p>
+  <div class="hero-cta-group fade">
+    <a class="hero-cta" href="https://www.latpeed.com/products/en0l_" target="_blank" rel="noopener noreferrer">
+      유버디 영어 챌린지 신청하기 →
+    </a>
+    <a class="hero-cta alert" href="https://tally.so/r/ZjVZ05" target="_blank" rel="noopener noreferrer">
+      프리미엄 마감 · 5기 알림 신청
+    </a>
+  </div>
+  <p class="hero-sub-note fade">프리미엄 마감 · 5기 오픈 시 가장 먼저 안내드려요</p>
 </section>
 
 <!-- PROBLEM: PAIN POINTS -->
@@ -1178,7 +1185,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
           <li>이전 챌린지 단어 세션 전체 포함 (80개 표현)</li>
           <li>1주마다 어휘·미팅 자료로 전용 팟캐스트 제공</li>
         </ul>
-        <a class="pricing-btn" href="https://www.latpeed.com/products/en0l_" target="_blank">프리미엄 신청하기 🔥</a>
+        <a class="pricing-btn" href="https://tally.so/r/ZjVZ05" target="_blank" rel="noopener noreferrer">프리미엄 마감 · 5기 미리 알림 신청 등록하기</a>
       </div>
     </div>
 
@@ -1272,7 +1279,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
     🎯 유버디 영어 챌린지 구매하기
   </a>
   <p class="final-urgency">
-    프리미엄 10명 한정<br>
+    프리미엄 마감<br>
     <strong>한정 인원 마감 시 조기 종료</strong><br>
     유버디는 외국계 현업 실무자입니다.<br>
     현재 4기 한정 모집 중 (얼리버드 ~3/11).
