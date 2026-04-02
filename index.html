@@ -369,27 +369,28 @@ section{padding:72px 20px;}
 
 /* ── PURCHASE INFO ── */
 .purchase-section{background:var(--blush);padding:60px 20px;}
-.purchase-card{background:var(--white);border-radius:20px;padding:30px;box-shadow:var(--shadow);max-width:580px;margin:0 auto;border:1px solid var(--rose);}
-.purchase-card h3{font-size:15px;font-weight:700;margin-bottom:14px;color:var(--charcoal);}
-.purchase-list{list-style:none;padding:0;}
-.purchase-list li{font-size:13.5px;color:var(--warm-gray);padding:8px 0;display:flex;gap:10px;border-bottom:1px dashed rgba(200,185,180,.2);line-height:1.6;}
-.purchase-list li::before{content:'📌';flex-shrink:0;}
-.refund-box{background:var(--lavender);border-radius:14px;padding:20px;margin-top:20px;border:1px solid var(--lilac);}
-.refund-box h4{font-size:13.5px;font-weight:700;color:var(--charcoal);margin-bottom:8px;display:flex;gap:8px;align-items:center;}
-.refund-box p{font-size:13px;color:var(--warm-gray);line-height:1.7;}
-.legal-summary{margin-top:14px;padding:14px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.7);}
-.legal-summary p{font-size:13px;color:var(--charcoal);line-height:1.7;}
-.notice-box{margin:20px 0 0;padding:18px 20px;border-left:5px solid var(--accent-rose);background:rgba(255,239,236,.95);border-radius:18px;}
-.notice-box strong{display:block;font-size:14px;font-weight:800;color:var(--charcoal);margin-bottom:10px;}
-.notice-box p{font-size:13.5px;color:var(--charcoal);line-height:1.8;margin-bottom:8px;}
-.legal-details{margin-top:12px;border:1px solid var(--border);border-radius:12px;background:var(--white);}
-.legal-details summary{cursor:pointer;list-style:none;padding:14px 16px;font-size:13px;font-weight:700;color:var(--charcoal);display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.purchase-card{background:var(--white);border-radius:26px;padding:34px 32px;box-shadow:0 24px 60px rgba(180,150,145,0.13);max-width:680px;margin:0 auto;border:1px solid rgba(233,194,186,0.65);display:grid;gap:26px;}
+.purchase-card h3{font-size:18px;font-weight:800;margin-bottom:0;color:var(--charcoal);}
+.purchase-list{list-style:none;padding:0;margin:0;display:grid;gap:12px;}
+.purchase-list li{font-size:13.7px;color:var(--charcoal);padding:14px 16px;display:flex;gap:12px;align-items:flex-start;background:rgba(255,244,241,0.9);border:1px solid rgba(233,194,186,0.55);border-radius:16px;line-height:1.75;}
+.purchase-list li::before{content:'📌';flex-shrink:0;margin-top:2px;}
+.refund-box{background:var(--lavender);border-radius:18px;padding:22px 24px;margin-top:16px;border:1px solid var(--lilac);}
+.refund-box h4{font-size:14px;font-weight:700;color:var(--charcoal);margin-bottom:10px;display:flex;gap:8px;align-items:center;}
+.refund-box p{font-size:13.3px;color:var(--warm-gray);line-height:1.9;margin:0;}
+.legal-summary{margin-top:0;padding:20px 22px;border:1px solid rgba(200,185,180,0.35);border-radius:18px;background:rgba(255,255,255,0.95);}
+.legal-summary p{font-size:13.2px;color:var(--charcoal);line-height:1.85;margin:0;}
+.notice-box{margin:0;padding:22px 24px;border-left:5px solid var(--accent-rose);background:rgba(255,244,239,0.95);border-radius:22px;}
+.notice-box strong{display:block;font-size:15px;font-weight:800;color:var(--charcoal);margin-bottom:14px;}
+.notice-box p{font-size:13.4px;color:var(--charcoal);line-height:1.9;margin:0 0 12px;}
+.notice-box p:last-child{margin-bottom:0;}
+.legal-details{margin-top:16px;border:1px solid rgba(200,185,180,0.35);border-radius:16px;background:var(--white);overflow:hidden;}
+.legal-details summary{cursor:pointer;list-style:none;padding:16px 20px;font-size:13.5px;font-weight:700;color:var(--charcoal);display:flex;align-items:center;justify-content:space-between;gap:10px;background:rgba(255,249,247,0.95);}
 .legal-details summary::-webkit-details-marker{display:none;}
 .legal-details summary::after{content:'▼';font-size:11px;color:var(--accent-rose);transition:transform .2s ease;}
 .legal-details[open] summary::after{transform:rotate(180deg);}
-.legal-details .legal-body{padding:4px 16px 16px;border-top:1px dashed rgba(200,185,180,.35);}
-.legal-details h4{font-size:13px;font-weight:700;color:var(--charcoal);margin:14px 0 8px;}
-.legal-details p{font-size:12.8px;color:var(--warm-gray);line-height:1.72;margin-bottom:8px;}
+.legal-details .legal-body{padding:14px 20px 20px;border-top:1px dashed rgba(200,185,180,.35);}
+.legal-details h4{font-size:13.2px;font-weight:700;color:var(--charcoal);margin:14px 0 10px;}
+.legal-details p{font-size:13px;color:var(--warm-gray);line-height:1.8;margin-bottom:10px;}
 
 /* ── MID CTA ── */
 .mid-cta{background:linear-gradient(135deg,var(--rose),var(--lilac));border-radius:22px;padding:34px 28px;text-align:center;margin:44px 0;box-shadow:var(--shadow);}
@@ -1016,7 +1017,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
       <div class="vocab-card fade">
         <div class="v-icon">🔄</div>
         <h4>5기 구성</h4>
-        <p>기존 1~4기 단어를 25%씩 섞고,<br>유의어는 모두 새로운 어휘로 구성합니다.</p>
+        <p>기존 1~4기 단어를 25%씩 섞되, 자주 사용하는 표현은 겹칠 수 있습니다. 이는 반복 학습을 위한 의도적 배치이며, 약 25% 정도입니다.</p>
       </div>
       <div class="vocab-card fade">
         <div class="v-icon">📊</div>
