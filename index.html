@@ -59,7 +59,7 @@ h1,h2,h3,p,li,.pricing-tag,.tl-title,.faq-q,.faq-a,.hero-logic,.problem-intro{wo
 .fade.visible{opacity:1;transform:translateY(0);}
 
 /* NAV */
-nav{position:sticky;top:0;z-index:100;background:rgba(253,249,244,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
+nav{position:sticky;top:0;z-index:100;background:rgba(253,249,244,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:14px 24px;min-height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;}
 .nav-brand{display:inline-flex;align-items:center;color:var(--charcoal);text-decoration:none;}
 .nav-brand img{height:30px;width:auto;display:block;}
 .nav-logo-word{font-family:'Manrope','Gothic A1','Noto Sans KR',sans-serif;font-size:25px;font-weight:800;line-height:1;letter-spacing:-.015em;margin-left:8px;white-space:nowrap;display:inline-flex;align-items:center;gap:0;}
@@ -68,6 +68,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,249,244,.92);backdrop-
 .nav-brand-text{font-family:'Gothic A1','Noto Sans KR',sans-serif;font-size:13px;font-weight:600;color:var(--accent-rose);letter-spacing:.01em;margin-left:12px;white-space:nowrap;}
 .nav-cta{background:var(--charcoal);color:var(--cream);padding:9px 22px;border-radius:50px;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:.03em;transition:all .25s;}
 .nav-cta:hover{background:var(--accent-rose);}
+.is-hidden{display:none !important;}
 
 /* UTIL */
 .container{max-width:860px;margin:0 auto;}
@@ -87,6 +88,14 @@ b{font-weight:700;}
 
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--rose);padding:8px 18px;border-radius:50px;font-size:12px;font-weight:600;color:var(--accent-rose);letter-spacing:.07em;margin-bottom:28px;box-shadow:var(--shadow);}
 .hero-eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--accent-rose);animation:pulse 2s infinite;flex-shrink:0;}
+.hero-deadline-wrap{display:flex;justify-content:center;margin:-8px 0 22px;}
+.hero-deadline{display:inline-flex;flex-direction:column;align-items:center;gap:8px;padding:16px 22px;border-radius:18px;background:linear-gradient(135deg,#fff7f5,#fff);border:2px solid var(--accent-rose);box-shadow:0 18px 36px rgba(201,127,127,.18);}
+.hero-deadline-kicker{font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--accent-rose);}
+.hero-deadline-badge{font-family:'IBM Plex Sans KR','Gothic A1','Noto Sans KR',sans-serif;font-size:clamp(34px,8vw,64px);font-weight:800;line-height:1;color:var(--charcoal);}
+.hero-deadline-sub{font-size:13px;font-weight:700;color:var(--warm-gray);text-align:center;line-height:1.6;}
+.hero-deadline.is-dday{background:linear-gradient(135deg,#fff0ef,#ffe3e0);border-color:var(--accent-rose);box-shadow:0 22px 44px rgba(201,127,127,.26);animation:float 2.4s ease-in-out infinite;}
+.hero-deadline.is-dday .hero-deadline-kicker{color:#b86060;}
+.hero-deadline.is-dday .hero-deadline-badge{font-size:clamp(42px,10vw,82px);color:var(--accent-rose);}
 
 .hero-title{font-family:'IBM Plex Sans KR','Gothic A1','Noto Sans KR',sans-serif;font-size:clamp(30px,6.5vw,62px);font-weight:700;line-height:1.32;letter-spacing:-.01em;color:var(--charcoal);margin-bottom:26px;max-width:780px;}
 .hero-title em{font-style:normal;color:var(--accent-rose);font-weight:700;}
@@ -178,7 +187,7 @@ section{padding:72px 20px;}
 .proof-spotlight-label{display:inline-flex;align-items:center;padding:6px 11px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.04em;margin-bottom:12px;}
 .proof-spotlight.basic .proof-spotlight-label{background:var(--blush);color:var(--accent-rose);}
 .proof-spotlight.premium .proof-spotlight-label{background:var(--lavender);color:#7b5ea7;}
-.proof-spotlight-title{font-family:'Gothic A1','Noto Sans KR',sans-serif;font-size:clamp(24px,3vw,34px);font-weight:700;line-height:1.35;color:var(--charcoal);margin-bottom:10px;}
+.proof-spotlight-title{font-family:'Gothic A1','Noto Sans KR',sans-serif;font-size:clamp(22px,2.4vw,30px);font-weight:700;line-height:1.36;color:var(--charcoal);margin-bottom:12px;max-width:none;}
 .proof-spotlight-note{font-size:13.5px;line-height:1.75;color:var(--warm-gray);}
 .proof-spotlight-note strong{color:var(--charcoal);}
 .proof-essential{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:18px;}
@@ -490,7 +499,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
     <span class="nav-logo-word"><span class="you">you</span><span class="buddy">buddy</span></span>
     <span class="nav-brand-text">비즈니스 영어 루틴</span>
   </a>
-  <a class="nav-cta" href="https://tally.so/r/ZjVZ05" target="_blank" rel="noopener noreferrer">📩 5기 오픈 알림</a>
+  <a class="nav-cta is-hidden" id="next-alert-nav" href="https://tally.so/r/ZjVZ05" target="_blank" rel="noopener noreferrer">📩 6기 오픈 알림</a>
 </nav>
 
 <!-- LOSS AVERSION BANNER -->
@@ -507,10 +516,17 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-eyebrow fade">유버디 비즈니스 영어 챌린지 5기</div>
+  <div class="hero-deadline-wrap fade">
+    <div class="hero-deadline" id="hero-deadline">
+      <div class="hero-deadline-kicker">5기 티켓 오픈 카운트다운</div>
+      <div class="hero-deadline-badge" id="hero-deadline-badge">D-2</div>
+      <div class="hero-deadline-sub" id="hero-deadline-sub">2026년 4월 18일 토요일 오픈</div>
+    </div>
+  </div>
 
   <h1 class="hero-title fade">
-    영어를 몰라서가 아니라,<br>
-    <span style="color:var(--accent-sage);font-style:normal;">'쓸 환경이 없어서'</span> 막혀 있는 직장인을 위한 4주 루틴
+    외국계 실무 영어 표현을<br>
+    <span style="color:var(--accent-sage);font-style:normal;">내 것으로 만드는</span> 4주 루틴
   </h1>
 
   <div class="hero-logic fade">
@@ -528,14 +544,11 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
   </div>
 
   <div class="hero-cta-group fade">
-    <a class="hero-cta" href="https://tally.so/r/ZjVZ05" target="_blank" rel="noopener noreferrer">
-      5기 오픈 알림 신청 →
-    </a>
-    <a class="hero-cta alert" href="https://www.latpeed.com/products/en0l_" target="_blank" rel="noopener noreferrer">
+    <a class="hero-cta alert" id="hero-primary-cta" href="https://www.latpeed.com/products/en0l_" target="_blank" rel="noopener noreferrer">
       5기 상세 / 가격 보기
     </a>
   </div>
-  <p class="hero-sub-note fade">5기 티켓은 2026년 4월 18일 토요일 오픈됩니다. 알림을 먼저 받아보시고, 상품 페이지에서 구성과 가격을 미리 확인해보세요.</p>
+  <p class="hero-sub-note fade" id="hero-sub-note">5기 티켓은 2026년 4월 18일 토요일 오픈됩니다. 상품 페이지에서 구성과 가격을 미리 확인해보세요.</p>
 </section>
 
 <!-- PROBLEM: PAIN POINTS -->
@@ -693,28 +706,13 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
     <div class="proof-spotlights">
       <div class="proof-spotlight basic fade">
         <div class="proof-spotlight-label">🎓 베이직 핵심 변화</div>
-        <div class="proof-spotlight-title">외국계 회사에서 쓰는<br>어휘가 늘어났어요</div>
-        <p class="proof-spotlight-note"><strong>베이직은 스피킹 훈련 코스가 아니라,</strong> 실무에서 쓰는 어휘와 문장 감각을 쌓는 코스에 가깝습니다. 말해보는 변화까지 기대한다면 프리미엄 쪽이 더 맞습니다.</p>
+        <div class="proof-spotlight-title">외국계 표현이 익숙해져<br>메일·메신저·문서가 편해져요</div>
+        <p class="proof-spotlight-note">베이직은 <strong>업무용 표현을 내 것으로 만드는 코스</strong>에 가깝습니다. 스피킹은 개별 연습이 더 필요합니다.</p>
       </div>
       <div class="proof-spotlight premium fade">
         <div class="proof-spotlight-label">⭐ 프리미엄 핵심 변화</div>
-        <div class="proof-spotlight-title">영어 미팅에서<br>좀 더 말하게 됐어요</div>
-        <p class="proof-spotlight-note"><strong>프리미엄은 표현을 익히는 데서 끝나지 않고,</strong> Zoom 미팅과 피드백으로 실제로 입 밖으로 꺼내보는 데까지 가져갑니다.</p>
-      </div>
-    </div>
-
-    <div class="proof-essential">
-      <div class="proof-essential-item fade">
-        <strong>베이직은 어휘와 표현 stock이 남아요</strong>
-        <span>테스트 인증을 반복하면서 스펠링과 표현이 오래 기억되고, 외국계에서 쓰는 표현 감각이 붙는다는 후기가 많았습니다.</span>
-      </div>
-      <div class="proof-essential-item fade">
-        <strong>프리미엄은 말할 기회가 생겨요</strong>
-        <span>단어만 쌓는 데서 끝나지 않고, 미팅 시뮬레이션 안에서 바로 입으로 꺼내보게 된다는 피드백이 특히 강했습니다.</span>
-      </div>
-      <div class="proof-essential-item fade">
-        <strong>혼자보다 훨씬 꾸준히 하게 돼요</strong>
-        <span>단톡/노션 리마인드와 인증 공유로 루틴이 끊기지 않았다는 재참여 의사가 많았습니다.</span>
+        <div class="proof-spotlight-title">어휘량을 늘리고<br>실제로 말하는 데 익숙해져요</div>
+        <p class="proof-spotlight-note">프리미엄은 <strong>어휘량을 늘리고 실제 말하기까지 연결하는 코스</strong>입니다. Zoom 시뮬레이션과 피드백이 함께 갑니다.</p>
       </div>
     </div>
 
@@ -836,7 +834,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
 <section class="detail-section premium-bg">
   <div class="container">
     <span class="detail-badge p">⭐ 프리미엄 상세</span>
-    <p class="detail-price-meta">사전 알림 신청 시 10% 할인 적용가</p>
+    <p class="detail-price-meta">5기 오픈 기념 특별가</p>
     <div class="detail-price-row">
       <div class="pricing-price" style="font-size:32px;">₩152,100</div>
       <div class="detail-price-old">정가 ₩169,000</div>
@@ -906,7 +904,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
 <section class="detail-section basic-bg">
   <div class="container">
     <span class="detail-badge b">🎓 베이직 상세</span>
-    <p class="detail-price-meta">사전 알림 신청 시 10% 할인 적용가</p>
+    <p class="detail-price-meta">5기 오픈 기념 특별가</p>
     <div class="detail-price-row">
       <div class="pricing-price" style="font-size:32px;">₩53,100</div>
       <div class="detail-price-old">정가 ₩59,000</div>
@@ -977,7 +975,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
         <h3>🎓 베이직 추천 대상</h3>
         <ul class="who-list">
           <li>혼자서도 루틴만 있으면 꾸준히 할 수 있는 분</li>
-          <li>스피킹 훈련보다 먼저, 내 업무에 맞는 영어 어휘와 문장을 차근차근 쌓고 싶은 분</li>
+          <li>외국계에서 쓰는 표현을 익혀 메일·메신저·문서 작업을 더 능숙하게 하고 싶은 분</li>
           <li>외국계 감각을 먼저 가볍게 붙여보고 싶은 분</li>
         </ul>
       </div>
@@ -1125,7 +1123,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
     <div class="divider"></div>
     <div class="faq-list">
       <div class="faq-item"><div class="faq-q">노션을 처음 사용하는데 괜찮을까요?</div><div class="faq-a">네! 노션 가입해주시면 차근차근 따라할 수 있는 OT 영상을 제공해드립니다.</div></div>
-      <div class="faq-item"><div class="faq-q">프리미엄과 베이직 중 어떤 걸 선택해야 할까요?</div><div class="faq-a">영어 미팅에서 실제로 더 말해보는 변화, 1:1 관리, 실전 회의 연습까지 원한다면 프리미엄이 맞습니다. 베이직은 스피킹 훈련보다는 외국계 회사에서 쓰는 어휘와 문장 감각을 쌓는 쪽에 더 가깝습니다.</div></div>
+      <div class="faq-item"><div class="faq-q">프리미엄과 베이직 중 어떤 걸 선택해야 할까요?</div><div class="faq-a">외국계에서 쓰는 표현을 익혀 메일·메신저·문서 작업을 더 능숙하게 하고 싶다면 베이직이 맞습니다. 어휘량을 더 넓히고, 시뮬레이션을 통해 실제로 말하는 데 익숙해지고 싶다면 프리미엄이 맞습니다.</div></div>
       <div class="faq-item"><div class="faq-q">챌린지가 끝난 후에도 자료를 볼 수 있나요?</div><div class="faq-a">네! 평생 소장 가능합니다. 언제든 돌아와 복습하실 수 있고, 원하면 다음 챌린지에 다시 참여해 동기부여를 재충전할 수 있어요.</div></div>
       <div class="faq-item"><div class="faq-q">노션 템플릿을 내 워크스페이스로 복제해도 되나요?</div><div class="faq-a">프리미엄: 노션 아이디로 초대해드립니다. (언급·수정·복제 모두 가능한 full access) / 베이직: 네, 복제해가셔서 사용하시면 됩니다.</div></div>
       <div class="faq-item"><div class="faq-q">모바일에서도 볼 수 있나요?</div><div class="faq-a">네, 노션 모바일 앱에서도 동일하게 이용 가능합니다. 앱에서 즐겨찾기 해두시면 편리해요!</div></div>
@@ -1226,7 +1224,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
         </tbody>
       </table>
     </div>
-    <p class="pricing-intro">두 코스 모두 같은 커리큘럼에서 시작합니다. 차이는 <strong>얼마나 촘촘하게 관리받느냐</strong>와 <strong>실제로 말해보는 훈련까지 가느냐</strong>입니다.</p>
+    <p class="pricing-intro">두 코스 모두 같은 커리큘럼에서 시작합니다. 차이는 <strong>업무용 표현에 집중하느냐</strong>와 <strong>시뮬레이션까지 통해 실제 말하기에 익숙해지느냐</strong>입니다.</p>
     <div class="cert-summary">
       <p><strong>인증 완료 기준:</strong> 20일 중 18일 이상 인증</p>
       <p><strong>완료 안내:</strong> 완료 기준을 충족한 분들은 운영진이 확인 후 완료로 안내드립니다.</p>
@@ -1237,7 +1235,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
       <div class="pricing-card basic fade">
         <div class="pricing-tier">🎓 베이직</div>
         <div class="pricing-price">₩59,000</div>
-        <div class="pricing-tag">스피킹 실전보다 먼저,<br>외국계 회사에서 쓰는 어휘와 문장 감각을 쌓고 싶다면.</div>
+        <div class="pricing-tag">외국계에서 쓰는 표현을 익혀,<br>메일·메신저·문서 작업을 더 능숙하게 하고 싶다면.</div>
 
         <ul class="pricing-features" style="margin-top:20px;">
           <li>4주 완성 노션 학습 템플릿</li>
@@ -1255,7 +1253,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
         <div class="pricing-tier">⭐ 프리미엄</div>
         <div class="pricing-price">₩169,000</div>
         <div class="pricing-limit">소수정예 운영</div>
-        <div class="pricing-tag">1:1 맞춤 관리 + 실전 훈련으로,<br>영어 미팅에서 실제로 더 말해보고 싶다면.</div>
+        <div class="pricing-tag">어휘량을 늘리고 시뮬레이션으로,<br>실제로 말하는 데 더 익숙해지고 싶다면.</div>
 
         <div class="complete-bar-wrap">
           <div class="complete-bar-label"><span>완주율</span><strong style="color:var(--accent-rose);">100%</strong></div>
@@ -1268,7 +1266,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
           <li>주 1회 Zoom 실전 미팅 시뮬레이션 (총 4회)</li>
           <li>본인 industry 맞춤 PPT 발표 1회 + 피드백</li>
         </ul>
-        <a class="pricing-btn" href="https://tally.so/r/ZjVZ05" target="_blank" rel="noopener noreferrer">5기 오픈 알림 신청하기</a>
+        <a class="pricing-btn" id="premium-primary-cta" href="https://www.latpeed.com/products/en0l_" target="_blank" rel="noopener noreferrer">프리미엄 상세보기</a>
       </div>
     </div>
 
@@ -1356,16 +1354,15 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
 
 <!-- FINAL CTA -->
 <section class="final-cta">
-  <h2>5기 티켓 오픈 전입니다<br><em>4월 18일 일정을 먼저 체크하세요</em></h2>
-  <p>
+  <h2 id="final-cta-title">5기 티켓 오픈 전입니다<br><em>4월 18일 일정을 먼저 체크하세요</em></h2>
+  <p id="final-cta-copy">
     5기 티켓은 2026년 4월 18일 토요일에 오픈됩니다.<br>
-    오픈 알림을 먼저 받아두시고,<br>
-    위에서 챌린지 구성과 가격도 충분히 확인해보세요.
+    위에서 챌린지 구성과 가격을 충분히 확인해보세요.
   </p>
-  <a class="final-btn" href="https://tally.so/r/ZjVZ05" target="_blank" rel="noopener noreferrer">
-    📩 5기 오픈 알림 신청하기
+  <a class="final-btn" id="final-primary-cta" href="https://www.latpeed.com/products/en0l_" target="_blank" rel="noopener noreferrer">
+    5기 상세 / 가격 보기
   </a>
-  <p class="final-urgency">
+  <p class="final-urgency" id="final-cta-meta">
     5기 티켓 오픈: 4월 18일 (토)<br>
     <strong>챌린지 진행: 4월 27일 (월) ~ 5월 22일 (금)</strong><br>
     유버디는 외국계 현업 실무자입니다.<br>
@@ -1385,6 +1382,11 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
 </footer>
 
 <script>
+const DETAIL_PAGE_URL = 'https://www.latpeed.com/products/en0l_';
+const NEXT_COHORT_ALERT_URL = 'https://tally.so/r/ZjVZ05';
+const CURRENT_COHORT_OPEN_UTC = Date.UTC(2026, 3, 18);
+const CURRENT_COHORT_CLOSE_UTC = Date.UTC(2026, 3, 25);
+
 // FAQ
 document.querySelectorAll('.faq-item').forEach(item => {
   item.addEventListener('click', () => {
@@ -1458,6 +1460,109 @@ function getKstDateParts() {
   return { year, month, day, weekday };
 }
 
+function updateHeroDeadline() {
+  const deadlineCard = document.getElementById('hero-deadline');
+  const deadlineBadge = document.getElementById('hero-deadline-badge');
+  const deadlineSub = document.getElementById('hero-deadline-sub');
+  if (!deadlineCard || !deadlineBadge || !deadlineSub) return;
+
+  const { year, month, day } = getKstDateParts();
+  const todayUtc = Date.UTC(year, month - 1, day);
+  const diffDays = Math.round((CURRENT_COHORT_OPEN_UTC - todayUtc) / (24 * 60 * 60 * 1000));
+
+  deadlineCard.classList.remove('is-dday');
+
+  if (diffDays > 0) {
+    deadlineBadge.textContent = `D-${diffDays}`;
+    deadlineSub.textContent = '2026년 4월 18일 토요일 오픈';
+    return;
+  }
+
+  if (diffDays === 0) {
+    deadlineBadge.textContent = 'D-DAY';
+    deadlineSub.textContent = '오늘 5기 티켓이 오픈됩니다';
+    deadlineCard.classList.add('is-dday');
+    return;
+  }
+
+  deadlineBadge.textContent = 'OPEN';
+  deadlineSub.textContent = '5기 티켓 오픈 진행 중';
+}
+
+function updatePostCloseCtas() {
+  const { year, month, day } = getKstDateParts();
+  const todayUtc = Date.UTC(year, month - 1, day);
+  const isOpen = todayUtc >= CURRENT_COHORT_OPEN_UTC;
+  const isClosed = todayUtc > CURRENT_COHORT_CLOSE_UTC;
+
+  const navAlert = document.getElementById('next-alert-nav');
+  const heroPrimary = document.getElementById('hero-primary-cta');
+  const heroSubNote = document.getElementById('hero-sub-note');
+  const premiumPrimary = document.getElementById('premium-primary-cta');
+  const finalPrimary = document.getElementById('final-primary-cta');
+  const finalTitle = document.getElementById('final-cta-title');
+  const finalCopy = document.getElementById('final-cta-copy');
+  const finalMeta = document.getElementById('final-cta-meta');
+
+  if (navAlert) {
+    navAlert.href = NEXT_COHORT_ALERT_URL;
+    navAlert.classList.toggle('is-hidden', !isClosed);
+  }
+
+  if (!isClosed) {
+    if (heroPrimary) {
+      heroPrimary.href = DETAIL_PAGE_URL;
+      heroPrimary.textContent = '5기 상세 / 가격 보기';
+    }
+    if (heroSubNote) {
+      heroSubNote.textContent = isOpen
+        ? '5기 티켓이 지금 오픈되어 있습니다. 상품 페이지에서 구성과 가격을 확인해보세요.'
+        : '5기 티켓은 2026년 4월 18일 토요일 오픈됩니다. 상품 페이지에서 구성과 가격을 미리 확인해보세요.';
+    }
+    if (premiumPrimary) {
+      premiumPrimary.href = DETAIL_PAGE_URL;
+      premiumPrimary.textContent = '프리미엄 상세보기';
+    }
+    if (finalPrimary) {
+      finalPrimary.href = DETAIL_PAGE_URL;
+      finalPrimary.textContent = '5기 상세 / 가격 보기';
+    }
+
+    if (finalTitle && finalCopy && finalMeta) {
+      if (isOpen) {
+        finalTitle.innerHTML = '5기 티켓 오픈되었습니다<br><em>지금 바로 확인해보세요</em>';
+        finalCopy.innerHTML = '5기 티켓이 지금 열려 있습니다.<br>구성과 가격을 확인하고 바로 참여하실 수 있어요.';
+        finalMeta.innerHTML = '5기 티켓 오픈: 4월 18일 (토)<br><strong>챌린지 진행: 4월 27일 (월) ~ 5월 22일 (금)</strong><br>유버디는 외국계 현업 실무자입니다.<br>선착순 모집은 4월 25일에 마감됩니다.';
+      } else {
+        finalTitle.innerHTML = '5기 티켓 오픈 전입니다<br><em>4월 18일 일정을 먼저 체크하세요</em>';
+        finalCopy.innerHTML = '5기 티켓은 2026년 4월 18일 토요일에 오픈됩니다.<br>위에서 챌린지 구성과 가격을 충분히 확인해보세요.';
+        finalMeta.innerHTML = '5기 티켓 오픈: 4월 18일 (토)<br><strong>챌린지 진행: 4월 27일 (월) ~ 5월 22일 (금)</strong><br>유버디는 외국계 현업 실무자입니다.<br>선착순 모집은 4월 25일에 마감됩니다.';
+      }
+    }
+    return;
+  }
+
+  [
+    { el: heroPrimary, label: '6기 오픈 알림 받기' },
+    { el: premiumPrimary, label: '6기 오픈 알림 받기' },
+    { el: finalPrimary, label: '📩 6기 오픈 알림 받기' }
+  ].forEach(({ el, label }) => {
+    if (!el) return;
+    el.href = NEXT_COHORT_ALERT_URL;
+    el.textContent = label;
+  });
+
+  if (heroSubNote) {
+    heroSubNote.textContent = '5기 모집은 마감되었습니다. 6기 오픈 알림을 받아보세요.';
+  }
+
+  if (finalTitle && finalCopy && finalMeta) {
+    finalTitle.innerHTML = '5기 모집이 마감되었습니다<br><em>6기 오픈 알림을 받아보세요</em>';
+    finalCopy.innerHTML = '이번 기수 모집은 마감되었습니다.<br>다음 기수 오픈 소식을 가장 먼저 받아보실 수 있어요.';
+    finalMeta.innerHTML = '5기 모집 마감: 4월 25일 (토)<br><strong>6기 오픈 알림 신청 가능</strong><br>유버디는 외국계 현업 실무자입니다.';
+  }
+}
+
 function highlightTimelineCurrentItem() {
   const { year, month, day } = getKstDateParts();
   const today = new Date(year, month - 1, day);
@@ -1477,6 +1582,8 @@ function highlightTimelineCurrentItem() {
   });
 }
 
+updateHeroDeadline();
+updatePostCloseCtas();
 highlightTimelineCurrentItem();
 
 // KST 자정에 맞춰 자동 갱신
@@ -1488,8 +1595,14 @@ highlightTimelineCurrentItem();
   const delayMs = Math.max(1000, nextMidnightKst.getTime() - kstNow.getTime() + 1000);
 
   setTimeout(() => {
+    updateHeroDeadline();
+    updatePostCloseCtas();
     highlightTimelineCurrentItem();
-    setInterval(highlightTimelineCurrentItem, 24 * 60 * 60 * 1000);
+    setInterval(() => {
+      updateHeroDeadline();
+      updatePostCloseCtas();
+      highlightTimelineCurrentItem();
+    }, 24 * 60 * 60 * 1000);
   }, delayMs);
 })();
 </script>
