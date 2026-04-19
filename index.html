@@ -545,10 +545,10 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
 
   <div class="hero-cta-group fade">
     <a class="hero-cta alert" id="hero-primary-cta" href="https://www.latpeed.com/products/en0l_" target="_blank" rel="noopener noreferrer">
-      5기 상세 / 가격 보기
+      5기 지금 바로 신청하기
     </a>
   </div>
-  <p class="hero-sub-note fade" id="hero-sub-note">5기 티켓은 2026년 4월 18일 토요일 오픈됩니다. 상품 페이지에서 구성과 가격을 미리 확인해보세요.</p>
+  <p class="hero-sub-note fade" id="hero-sub-note">5기 티켓이 지금 오픈되어 있습니다. 선착순 마감 전에 바로 신청해보세요.</p>
 </section>
 
 <!-- PROBLEM: PAIN POINTS -->
@@ -1245,7 +1245,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
           <li>평생 소장 가능</li>
           <li>공용 단톡방 + 주 1회 동기 메시지</li>
         </ul>
-        <a class="pricing-btn" href="https://www.latpeed.com/products/en0l_" target="_blank" rel="noopener noreferrer">베이직 상세보기</a>
+        <a class="pricing-btn" href="https://www.latpeed.com/products/en0l_" target="_blank" rel="noopener noreferrer">베이직 바로 신청하기</a>
       </div>
 
       <!-- PREMIUM -->
@@ -1266,14 +1266,14 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
           <li>주 1회 Zoom 실전 미팅 시뮬레이션 (총 4회)</li>
           <li>본인 industry 맞춤 PPT 발표 1회 + 피드백</li>
         </ul>
-        <a class="pricing-btn" id="premium-primary-cta" href="https://www.latpeed.com/products/en0l_" target="_blank" rel="noopener noreferrer">프리미엄 상세보기</a>
+        <a class="pricing-btn" id="premium-primary-cta" href="https://www.latpeed.com/products/en0l_" target="_blank" rel="noopener noreferrer">프리미엄 바로 신청하기</a>
       </div>
     </div>
 
     <div class="mid-cta">
-      <h3>5기 시작 전, 챌린지 내용은 지금 미리 확인하실 수 있어요</h3>
-      <p>4월 18일 티켓 오픈 전에 커리큘럼과 가격, 구성을 상품 페이지에서 먼저 살펴보세요.</p>
-      <a href="https://www.latpeed.com/products/en0l_" target="_blank" rel="noopener noreferrer">유비챌 상세보기 →</a>
+      <h3>5기 지금 신청 가능합니다</h3>
+      <p>선착순 마감 전에 커리큘럼과 가격을 확인하고 바로 참여해보세요.</p>
+      <a href="https://www.latpeed.com/products/en0l_" target="_blank" rel="noopener noreferrer">지금 바로 신청하기 →</a>
     </div>
   </div>
 </section>
@@ -1354,13 +1354,13 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
 
 <!-- FINAL CTA -->
 <section class="final-cta">
-  <h2 id="final-cta-title">5기 티켓 오픈 전입니다<br><em>4월 18일 일정을 먼저 체크하세요</em></h2>
+  <h2 id="final-cta-title">5기 티켓 오픈되었습니다<br><em>지금 바로 신청해보세요</em></h2>
   <p id="final-cta-copy">
-    5기 티켓은 2026년 4월 18일 토요일에 오픈됩니다.<br>
-    위에서 챌린지 구성과 가격을 충분히 확인해보세요.
+    5기 티켓이 지금 열려 있습니다.<br>
+    구성과 가격을 확인하고 바로 참여하실 수 있어요.
   </p>
   <a class="final-btn" id="final-primary-cta" href="https://www.latpeed.com/products/en0l_" target="_blank" rel="noopener noreferrer">
-    5기 상세 / 가격 보기
+    5기 지금 바로 신청하기
   </a>
   <p class="final-urgency" id="final-cta-meta">
     5기 티켓 오픈: 4월 18일 (토)<br>
@@ -1512,25 +1512,25 @@ function updatePostCloseCtas() {
   if (!isClosed) {
     if (heroPrimary) {
       heroPrimary.href = DETAIL_PAGE_URL;
-      heroPrimary.textContent = '5기 상세 / 가격 보기';
+      heroPrimary.textContent = '5기 지금 바로 신청하기';
     }
     if (heroSubNote) {
       heroSubNote.textContent = isOpen
-        ? '5기 티켓이 지금 오픈되어 있습니다. 상품 페이지에서 구성과 가격을 확인해보세요.'
-        : '5기 티켓은 2026년 4월 18일 토요일 오픈됩니다. 상품 페이지에서 구성과 가격을 미리 확인해보세요.';
+        ? '5기 티켓이 지금 오픈되어 있습니다. 선착순 마감 전에 바로 신청해보세요.'
+        : '5기 티켓은 2026년 4월 18일 토요일 오픈됩니다. 오픈되면 바로 신청하실 수 있어요.';
     }
     if (premiumPrimary) {
       premiumPrimary.href = DETAIL_PAGE_URL;
-      premiumPrimary.textContent = '프리미엄 상세보기';
+      premiumPrimary.textContent = '프리미엄 바로 신청하기';
     }
     if (finalPrimary) {
       finalPrimary.href = DETAIL_PAGE_URL;
-      finalPrimary.textContent = '5기 상세 / 가격 보기';
+      finalPrimary.textContent = '5기 지금 바로 신청하기';
     }
 
     if (finalTitle && finalCopy && finalMeta) {
       if (isOpen) {
-        finalTitle.innerHTML = '5기 티켓 오픈되었습니다<br><em>지금 바로 확인해보세요</em>';
+        finalTitle.innerHTML = '5기 티켓 오픈되었습니다<br><em>지금 바로 신청해보세요</em>';
         finalCopy.innerHTML = '5기 티켓이 지금 열려 있습니다.<br>구성과 가격을 확인하고 바로 참여하실 수 있어요.';
         finalMeta.innerHTML = '5기 티켓 오픈: 4월 18일 (토)<br><strong>챌린지 진행: 4월 27일 (월) ~ 5월 22일 (금)</strong><br>유버디는 외국계 현업 실무자입니다.<br>선착순 모집은 4월 25일에 마감됩니다.';
       } else {
