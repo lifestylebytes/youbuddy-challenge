@@ -519,7 +519,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
   <div class="hero-deadline-wrap fade">
     <div class="hero-deadline" id="hero-deadline">
       <div class="hero-deadline-kicker">5기 모집 현황</div>
-      <div class="hero-deadline-badge" id="hero-deadline-badge">CLOSED</div>
+      <div class="hero-deadline-badge" id="hero-deadline-badge">Sold Out</div>
       <div class="hero-deadline-sub" id="hero-deadline-sub">5기 모집이 마감되었습니다</div>
     </div>
   </div>
@@ -1473,7 +1473,7 @@ function updateHeroDeadline() {
   deadlineCard.classList.remove('is-dday');
 
   if (isClosed) {
-    deadlineBadge.textContent = 'CLOSED';
+    deadlineBadge.textContent = 'Sold Out';
     deadlineSub.textContent = '5기 모집이 마감되었습니다';
     return;
   }
