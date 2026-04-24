@@ -499,7 +499,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
     <span class="nav-logo-word"><span class="you">you</span><span class="buddy">buddy</span></span>
     <span class="nav-brand-text">[유비챌] 비즈니스 영어 루틴</span>
   </a>
-  <a class="nav-cta" id="next-alert-nav" href="https://tally.so/r/XxRWMV" target="_blank" rel="noopener noreferrer">📩 6기 대기 신청</a>
+  <a class="nav-cta" id="next-alert-nav" href="https://tally.so/r/XxRWMV" target="_blank" rel="noopener noreferrer">📩 6기 대기 오픈</a>
 </nav>
 
 <!-- LOSS AVERSION BANNER -->
@@ -518,9 +518,9 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
   <div class="hero-eyebrow fade">유버디 비즈니스 영어 챌린지 5기</div>
   <div class="hero-deadline-wrap fade">
     <div class="hero-deadline" id="hero-deadline">
-      <div class="hero-deadline-kicker">5기 모집 현황</div>
+      <div class="hero-deadline-kicker">6기 대기 오픈</div>
       <div class="hero-deadline-badge" id="hero-deadline-badge">Sold Out</div>
-      <div class="hero-deadline-sub" id="hero-deadline-sub">5기 모집이 마감되었습니다</div>
+      <div class="hero-deadline-sub" id="hero-deadline-sub">5기 마감 후 6기 대기 신청을 받고 있습니다</div>
     </div>
   </div>
 
@@ -548,7 +548,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
       6기 대기 신청하기
     </a>
   </div>
-  <p class="hero-sub-note fade" id="hero-sub-note">5기 모집은 마감되었습니다. 6기 대기 신청을 남겨주세요.</p>
+  <p class="hero-sub-note fade" id="hero-sub-note">6기 대기 신청이 오픈되었습니다. 다음 기수 안내를 받아보세요.</p>
 </section>
 
 <!-- PROBLEM: PAIN POINTS -->
@@ -1271,8 +1271,8 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
     </div>
 
     <div class="mid-cta">
-      <h3 id="mid-cta-title">5기 모집이 마감되었습니다</h3>
-      <p id="mid-cta-copy">6기 대기 신청을 남겨주시면 다음 기수 안내를 받아보실 수 있어요.</p>
+      <h3 id="mid-cta-title">6기 대기 신청 오픈</h3>
+      <p id="mid-cta-copy">대기 신청을 남겨주시면 6기 티켓 오픈 안내를 받아보실 수 있어요.</p>
       <a id="mid-primary-cta" href="https://tally.so/r/XxRWMV" target="_blank" rel="noopener noreferrer">6기 대기 신청하기 →</a>
     </div>
   </div>
@@ -1354,17 +1354,17 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
 
 <!-- FINAL CTA -->
 <section class="final-cta">
-  <h2 id="final-cta-title">5기 모집이 마감되었습니다<br><em>6기 대기 신청을 남겨주세요</em></h2>
+  <h2 id="final-cta-title">6기 대기 신청이 오픈되었습니다<br><em>다음 기수 안내를 받아보세요</em></h2>
   <p id="final-cta-copy">
-    이번 기수 모집은 마감되었습니다.<br>
-    다음 기수 참여를 원하시면 대기 신청을 남겨주세요.
+    5기 모집은 마감되었습니다.<br>
+    6기 참여를 원하시면 대기 신청을 남겨주세요.
   </p>
   <a class="final-btn" id="final-primary-cta" href="https://tally.so/r/XxRWMV" target="_blank" rel="noopener noreferrer">
     📩 6기 대기 신청하기
   </a>
   <p class="final-urgency" id="final-cta-meta">
     5기 모집 마감<br>
-    <strong>6기 대기 신청 가능</strong><br>
+    <strong>6기 대기 신청 오픈</strong><br>
     유버디는 외국계 현업 실무자입니다.
   </p>
 </section>
@@ -1474,7 +1474,7 @@ function updateHeroDeadline() {
 
   if (isClosed) {
     deadlineBadge.textContent = 'Sold Out';
-    deadlineSub.textContent = '5기 모집이 마감되었습니다';
+    deadlineSub.textContent = '5기 마감 후 6기 대기 신청을 받고 있습니다';
     return;
   }
 
@@ -1577,18 +1577,18 @@ function updatePostCloseCtas() {
   });
 
   if (heroSubNote) {
-    heroSubNote.textContent = '5기 모집은 마감되었습니다. 6기 대기 신청을 남겨주세요.';
+    heroSubNote.textContent = '6기 대기 신청이 오픈되었습니다. 다음 기수 안내를 받아보세요.';
   }
 
   if (midTitle && midCopy) {
-    midTitle.textContent = '5기 모집이 마감되었습니다';
-    midCopy.textContent = '6기 대기 신청을 남겨주시면 다음 기수 안내를 받아보실 수 있어요.';
+    midTitle.textContent = '6기 대기 신청 오픈';
+    midCopy.textContent = '대기 신청을 남겨주시면 6기 티켓 오픈 안내를 받아보실 수 있어요.';
   }
 
   if (finalTitle && finalCopy && finalMeta) {
-    finalTitle.innerHTML = '5기 모집이 마감되었습니다<br><em>6기 대기 신청을 남겨주세요</em>';
-    finalCopy.innerHTML = '이번 기수 모집은 마감되었습니다.<br>다음 기수 참여를 원하시면 대기 신청을 남겨주세요.';
-    finalMeta.innerHTML = '5기 모집 마감<br><strong>6기 대기 신청 가능</strong><br>유버디는 외국계 현업 실무자입니다.';
+    finalTitle.innerHTML = '6기 대기 신청이 오픈되었습니다<br><em>다음 기수 안내를 받아보세요</em>';
+    finalCopy.innerHTML = '5기 모집은 마감되었습니다.<br>6기 참여를 원하시면 대기 신청을 남겨주세요.';
+    finalMeta.innerHTML = '5기 모집 마감<br><strong>6기 대기 신청 오픈</strong><br>유버디는 외국계 현업 실무자입니다.';
   }
 }
 
