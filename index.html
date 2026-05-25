@@ -1489,14 +1489,14 @@ function updatePostCloseCtas() {
 
   if (navAlert) {
     navAlert.href = isOpen && !isClosed ? DETAIL_PAGE_URL : NEXT_COHORT_ALERT_URL;
-    navAlert.textContent = isOpen && !isClosed ? '6기 신청하러 가기' : '📩 6기 티켓 오픈 안내';
+    navAlert.textContent = isOpen && !isClosed ? '6기 신청하기' : '📩 6기 티켓 오픈 안내';
     navAlert.classList.remove('is-hidden');
   }
 
   if (!isClosed) {
     const ctaUrl = isOpen ? DETAIL_PAGE_URL : NEXT_COHORT_ALERT_URL;
-    const primaryLabel = isOpen ? '6기 신청하러 가기' : '6기 티켓 오픈 안내 받기';
-    const midLabel = isOpen ? '6기 신청하러 가기 →' : '6기 티켓 오픈 안내 받기 →';
+    const primaryLabel = isOpen ? '6기 신청하기' : '6기 티켓 오픈 안내 받기';
+    const midLabel = isOpen ? '6기 신청하기 →' : '6기 티켓 오픈 안내 받기 →';
 
     if (heroPrimary) {
       heroPrimary.href = ctaUrl;
@@ -1509,11 +1509,11 @@ function updatePostCloseCtas() {
     }
     if (basicPrimary) {
       basicPrimary.href = ctaUrl;
-      basicPrimary.textContent = isOpen ? '베이직 신청하러 가기' : '6기 티켓 오픈 안내 받기';
+      basicPrimary.textContent = isOpen ? '6기 신청하기' : '6기 티켓 오픈 안내 받기';
     }
     if (premiumPrimary) {
       premiumPrimary.href = ctaUrl;
-      premiumPrimary.textContent = isOpen ? '프리미엄 신청하러 가기' : '6기 티켓 오픈 안내 받기';
+      premiumPrimary.textContent = isOpen ? '6기 신청하기' : '6기 티켓 오픈 안내 받기';
     }
     if (midPrimary) {
       midPrimary.href = ctaUrl;
@@ -1527,7 +1527,7 @@ function updatePostCloseCtas() {
     }
     if (finalPrimary) {
       finalPrimary.href = ctaUrl;
-      finalPrimary.textContent = isOpen ? '6기 신청하러 가기' : '📩 6기 티켓 오픈 안내 받기';
+      finalPrimary.textContent = isOpen ? '6기 신청하기' : '📩 6기 티켓 오픈 안내 받기';
     }
 
     if (finalTitle && finalCopy && finalMeta) {
