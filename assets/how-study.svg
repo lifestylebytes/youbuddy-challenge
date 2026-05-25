@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="924" height="1216" viewBox="0 0 924 1216" role="img" aria-labelledby="title desc">
+  <title id="title">Day 1 learning screenshot</title>
+  <desc id="desc">Today's learning page with three expressions and progress indicators.</desc>
+  <rect width="924" height="1216" fill="#fbf7ef"/>
+  <rect x="30" y="27" width="74" height="74" rx="24" fill="#fffaf0" stroke="#e5d7bf"/>
+  <text x="67" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" fill="#2a1d12">←</text>
+  <rect x="819" y="27" width="74" height="74" rx="24" fill="#fffaf0" stroke="#e5d7bf"/>
+  <circle cx="856" cy="62" r="7" fill="none" stroke="#2a1d12" stroke-width="2"/>
+  <path d="M843 82c2-14 24-14 26 0" fill="none" stroke="#2a1d12" stroke-width="2" stroke-linecap="round"/>
+  <rect x="22" y="146" width="146" height="53" rx="24" fill="#2a1d12"/>
+  <text x="95" y="181" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="800" fill="#fff" letter-spacing="2">WEEK 1</text>
+  <rect x="184" y="149" width="221" height="50" rx="25" fill="#f2ebdf"/>
+  <text x="294" y="181" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#6a5743">2026년 6월 8일</text>
+  <rect x="421" y="149" width="124" height="50" rx="25" fill="#d9e9ca"/>
+  <text x="483" y="181" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="2" fill="#6e9454">✓ DONE</text>
+  <text x="22" y="292" font-family="Arial, sans-serif" font-size="72" font-weight="900" fill="#2a1d12">Day 1</text>
+  <text x="22" y="360" font-family="Arial, sans-serif" font-size="46" font-weight="900" fill="#ef7337">우리 목표부터 정렬하고 시작하죠</text>
+  <rect x="22" y="420" width="880" height="276" rx="44" fill="#f1e6d6"/>
+  <rect x="66" y="460" width="58" height="58" rx="18" fill="#fff7ee"/>
+  <text x="95" y="501" text-anchor="middle" font-family="Arial, sans-serif" font-size="29" fill="#e86f36">◎</text>
+  <text x="138" y="494" font-family="Arial, sans-serif" font-size="22" fill="#a08f79">오늘의 목표</text>
+  <text x="66" y="584" font-family="Arial, sans-serif" font-size="38" font-weight="800" fill="#2a1d12">Let's set the stage and anchor our strategy.</text>
+  <text x="66" y="646" font-family="Arial, sans-serif" font-size="28" fill="#6a5743">제대로 판 깔고 기준점 잡기.</text>
+  <rect x="22" y="721" width="880" height="132" rx="32" fill="#fff0bf" stroke="#f4ce76" stroke-width="2"/>
+  <text x="61" y="777" font-family="Arial, sans-serif" font-size="28" fill="#72551c">⚡ 2분만 투자해도 Day 1 완료 | 오늘은 </text>
+  <text x="517" y="777" font-family="Arial, sans-serif" font-size="28" font-weight="800" fill="#72551c">"우리 목표부터 정렬하고</text>
+  <text x="112" y="812" font-family="Arial, sans-serif" font-size="28" font-weight="800" fill="#72551c">시작하죠" 표현 한 번 써보기</text>
+  <text x="529" y="812" font-family="Arial, sans-serif" font-size="28" fill="#72551c">만 해요.</text>
+  <rect x="22" y="878" width="880" height="187" rx="40" fill="#332b23"/>
+  <rect x="62" y="916" width="112" height="112" rx="36" fill="#5a5651"/>
+  <text x="118" y="987" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" fill="#fff">🎬</text>
+  <text x="203" y="934" font-family="Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="5" fill="#ffd790">인증 완료 · 보너스 열림</text>
+  <text x="203" y="978" font-family="Arial, sans-serif" font-size="33" font-weight="800" fill="#fff">오늘의 귀 열기 영상 보기</text>
+  <text x="203" y="1020" font-family="Arial, sans-serif" font-size="23" fill="#c6bbae">실제 대화에서 오늘 표현이 어떻게 쓰이는지 2분 영상</text>
+  <circle cx="822" cy="971" r="40" fill="#6b6254"/>
+  <text x="822" y="985" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" fill="#fff">▷</text>
+  <rect x="22" y="1095" width="880" height="114" rx="30" fill="#fffaf2" stroke="#e6d6bd"/>
+  <text x="54" y="1160" font-family="Arial, sans-serif" font-size="22" letter-spacing="5" fill="#a08f79">today's 3</text>
+  <rect x="193" y="1119" width="214" height="60" rx="30" fill="#f2ebdf"/>
+  <circle cx="220" cy="1149" r="7" fill="#719857"/>
+  <text x="239" y="1158" font-family="Arial, sans-serif" font-size="22" font-weight="800" fill="#cf5b30">Set the stage</text>
+  <rect x="423" y="1119" width="165" height="60" rx="30" fill="#f2ebdf"/>
+  <circle cx="450" cy="1149" r="7" fill="#719857"/>
+  <text x="469" y="1158" font-family="Arial, sans-serif" font-size="22" font-weight="800" fill="#cf5b30">Anchor</text>
+  <rect x="604" y="1119" width="184" height="60" rx="30" fill="#f2ebdf"/>
+  <circle cx="631" cy="1149" r="7" fill="#719857"/>
+  <text x="650" y="1158" font-family="Arial, sans-serif" font-size="22" font-weight="800" fill="#cf5b30">Key driver</text>
+</svg>
