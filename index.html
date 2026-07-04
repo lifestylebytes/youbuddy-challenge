@@ -751,7 +751,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
       <span class="eb-meta" style="display:block;font-size:13.5px;font-weight:700;color:var(--accent-rose);">🐤 슈퍼 얼리버드 20% 할인 · 6월 12일(금)까지</span>
     </div>
   </div>
-  <p class="hero-sub-note fade" id="hero-sub-note">지금 7기 슈퍼 얼리버드(20% 할인) 모집중입니다. 단계별 할인은 정식 모집(7/1) 전까지 적용됩니다.</p>
+  <p class="hero-sub-note fade" id="hero-sub-note">지금 7기 슈퍼 얼리버드(20% 할인) 모집중입니다. 단계별 할인은 정식 모집(7/9) 전까지 적용됩니다.</p>
 </section>
 
 <!-- PROOF STRIP -->
@@ -1025,7 +1025,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
       <div class="timeline-item" data-start="2026-06-27" data-end="2026-07-01">
         <div class="timeline-dot">🎟️</div>
         <div class="timeline-content">
-          <div class="tl-date">6월 27일 ~ 7월 1일 (수)</div>
+          <div class="tl-date">6월 27일 ~ 7월 9일 (목)</div>
           <div class="tl-title">정식 모집 (정가)</div>
         </div>
       </div>
@@ -1067,7 +1067,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
         <li>평생 소장 · 커뮤니티 인증 시스템</li>
       </ul>
       <a class="offer-cta" href="https://www.latpeed.com/products/en0l_" target="_blank" rel="noopener noreferrer">슈퍼 얼리버드로 시작하기 →</a>
-      <p class="offer-mini">이후 <strong>10%(~6/26)</strong> → <strong>정가(~7/1)</strong> 순으로 가격이 오릅니다.</p>
+      <p class="offer-mini">이후 <strong>10%(~6/26)</strong> → <strong>정가(~7/9)</strong> 순으로 가격이 오릅니다.</p>
     </div>
   </div>
 </section>
@@ -1580,7 +1580,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
           <tr>
             <th>구분</th>
             <th>프리미엄 (한정 10명)</th>
-            <th>베이직 (한정 20명)</th>
+            <th>베이직</th>
           </tr>
         </thead>
         <tbody>
@@ -1688,7 +1688,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
 
     <div class="mid-cta">
       <h3 id="mid-cta-title">7기 슈퍼 얼리버드 모집중</h3>
-      <p id="mid-cta-copy">슈퍼 얼리버드 20% 할인은 6월 12일(금)까지입니다. 이후 10%(~6/26) → 정가(~7/1) 순으로 전환됩니다. 7월 13일(월) 시작.</p>
+      <p id="mid-cta-copy">슈퍼 얼리버드 20% 할인은 6월 12일(금)까지입니다. 이후 10%(~6/26) → 정가(~7/9) 순으로 전환됩니다. 7월 13일(월) 시작.</p>
       <a id="mid-primary-cta" href="https://www.latpeed.com/products/en0l_" target="_blank" rel="noopener noreferrer">7기 얼리버드 신청하기 →</a>
     </div>
   </div>
@@ -1778,7 +1778,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
   <h2 id="final-cta-title">7기 슈퍼 얼리버드 모집중<br><em>7월 13일 시작, 지금 합류하세요</em></h2>
   <p id="final-cta-copy">
     슈퍼 얼리버드 20% 할인은 6월 12일(금)까지입니다.<br>
-    이후 10%(~6/26) → 정가(~7/1) 순으로 전환됩니다.
+    이후 10%(~6/26) → 정가(~7/9) 순으로 전환됩니다.
   </p>
   <a class="final-btn" id="final-primary-cta" href="https://www.latpeed.com/products/en0l_" target="_blank" rel="noopener noreferrer">
     🎟️ 7기 슈퍼 얼리버드 신청하기
@@ -1814,13 +1814,13 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
 const DETAIL_PAGE_URL = 'https://www.latpeed.com/products/en0l_';
 const NEXT_COHORT_ALERT_URL = 'https://www.latpeed.com/products/en0l_';
 const CURRENT_COHORT_OPEN_UTC = Date.UTC(2026, 5, 6);
-const CURRENT_COHORT_CLOSE_UTC = Date.UTC(2026, 6, 1); // 정식 모집 마감 7/1
+const CURRENT_COHORT_CLOSE_UTC = Date.UTC(2026, 6, 9); // 정식 모집 마감 7/9
 
 // 7기 모집 단계: 슈퍼 얼리버드(20%) → 얼리버드(10%) → 정식(정가)
 const COHORT_PHASES = [
   { endUtc: Date.UTC(2026, 5, 12), label: '슈퍼 얼리버드', discount: 0.20, dateText: '6월 12일(금)', shortDate: '6/12' },
   { endUtc: Date.UTC(2026, 5, 26), label: '얼리버드',     discount: 0.10, dateText: '6월 26일(금)', shortDate: '6/26' },
-  { endUtc: Date.UTC(2026, 6, 1),  label: '정식 모집',     discount: 0,    dateText: '7월 1일(수)',  shortDate: '7/1'  }
+  { endUtc: Date.UTC(2026, 6, 9),  label: '정식 모집',     discount: 0,    dateText: '7월 9일(목)',  shortDate: '7/9'  }
 ];
 
 function getPhaseInfo(todayUtc) {
@@ -1873,7 +1873,7 @@ function updatePhasePricing() {
     else if (discount > 0) {
       const dday = Math.round((phase.endUtc - todayUtc) / (24 * 60 * 60 * 1000));
       sct.textContent = `🐤 ${phase.label} ${pct}% · D-${dday}`;
-    } else sct.textContent = '🎟️ 정식 모집중 · ~7/1';
+    } else sct.textContent = '🎟️ 정식 모집중 · ~7/9';
   }
 }
 
@@ -1991,7 +1991,7 @@ function updateHeroDeadline() {
     if (dday <= 2) deadlineCard.classList.add('is-dday');
   } else {
     deadlineBadge.textContent = `7기 ${phase.label || '정식 모집'}`;
-    deadlineSub.textContent = `${phase.dateText || '7월 1일(수)'}까지 · 7월 13일(월) 시작`;
+    deadlineSub.textContent = `${phase.dateText || '7월 9일(목)'}까지 · 7월 13일(월) 시작`;
   }
 }
 
@@ -2037,7 +2037,7 @@ function updatePostCloseCtas() {
     }
     if (heroSubNote) {
       heroSubNote.textContent = isOpen
-        ? `지금 7기 ${phase.discount > 0 ? phase.label + '(' + pct + '% 할인)' : '정식'} 모집중입니다. 단계별 할인은 정식 모집(7/1) 전까지 적용됩니다.`
+        ? `지금 7기 ${phase.discount > 0 ? phase.label + '(' + pct + '% 할인)' : '정식'} 모집중입니다. 단계별 할인은 정식 모집(7/9) 전까지 적용됩니다.`
         : '곧 7기 모집이 시작됩니다. 7월 13일(월) 시작 예정입니다.';
     }
     if (basicPrimary) {
