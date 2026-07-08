@@ -698,8 +698,8 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
 <div class="loss-banner">
   <div class="marquee">
     <div class="marquee-track">
-      <p>🐤 유버디는 <strong>외국계 현업 실무자</strong>입니다. 7기 모집중! <strong>슈퍼 얼리버드 20% 할인 ~6/12</strong> · 챌린지 <strong>7월 13일(월)</strong> 시작.</p>
-      <p>🐤 유버디는 <strong>외국계 현업 실무자</strong>입니다. 7기 모집중! <strong>슈퍼 얼리버드 20% 할인 ~6/12</strong> · 챌린지 <strong>7월 13일(월)</strong> 시작.</p>
+      <p>🔒 <strong>7기 모집이 마감되었습니다.</strong> 다음 기수 오픈 소식은 인스타 <strong>@youbuddy_day</strong>에서 먼저 받아보세요.</p>
+      <p>🔒 <strong>7기 모집이 마감되었습니다.</strong> 다음 기수 오픈 소식은 인스타 <strong>@youbuddy_day</strong>에서 먼저 받아보세요.</p>
     </div>
   </div>
 </div>
@@ -710,7 +710,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
   <div class="hero-eyebrow fade">유버디 비즈니스 영어 챌린지 7기</div>
   <div class="hero-deadline-wrap fade">
     <div class="hero-deadline" id="hero-deadline">
-      <div class="hero-deadline-kicker">SUPER EARLY BIRD · 7기</div>
+      <div class="hero-deadline-kicker">7기 · CLOSED</div>
       <div class="hero-deadline-badge" id="hero-deadline-badge">7기 슈퍼 얼리버드</div>
       <div class="hero-deadline-sub" id="hero-deadline-sub">6월 12일(금)까지 · 7월 13일(월) 시작</div>
     </div>
@@ -1056,7 +1056,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
   <div class="container">
     <div class="offer-card fade">
       <span class="offer-badge eb-meta">🐤 슈퍼 얼리버드 20% 할인 · 6월 12일(금)까지</span>
-      <h2>지금 합류하면, 7월 13일 첫 주를<br>가장 싼 가격으로 시작해요</h2>
+      <h2>7기 모집이 마감되었습니다</h2>
       <div class="offer-prices">
         베이직 <b class="eb-now" data-base="65555">₩52,444</b> <s class="eb-strike" data-base="65555">₩65,555</s><br>
         프리미엄 <b class="eb-now" data-base="187778">₩150,222</b> <s class="eb-strike" data-base="187778">₩187,778</s>
@@ -1066,8 +1066,8 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
         <li>외국계 실무 표현 워크시트 · 단어 테스트</li>
         <li>평생 소장 · 커뮤니티 인증 시스템</li>
       </ul>
-      <a class="offer-cta" href="https://www.latpeed.com/products/en0l_" target="_blank" rel="noopener noreferrer">슈퍼 얼리버드로 시작하기 →</a>
-      <p class="offer-mini">이후 <strong>10%(~6/26)</strong> → <strong>정가(~7/9)</strong> 순으로 가격이 오릅니다.</p>
+      <a class="offer-cta" href="https://www.instagram.com/youbuddy_day" target="_blank" rel="noopener noreferrer">다음 기수 알림받기 →</a>
+      <p class="offer-mini">다음 기수 오픈 소식을 인스타 <strong>@youbuddy_day</strong>에서 먼저 받아보세요.</p>
     </div>
   </div>
 </section>
@@ -1815,6 +1815,7 @@ const DETAIL_PAGE_URL = 'https://www.latpeed.com/products/en0l_';
 const NEXT_COHORT_ALERT_URL = 'https://www.latpeed.com/products/en0l_';
 const CURRENT_COHORT_OPEN_UTC = Date.UTC(2026, 5, 6);
 const CURRENT_COHORT_CLOSE_UTC = Date.UTC(2026, 6, 9); // 정식 모집 마감 7/9
+const COHORT_MANUALLY_CLOSED = true; // 7기 모집 마감 (수동 오버라이드 · 다시 열 땐 false)
 
 // 7기 모집 단계: 슈퍼 얼리버드(20%) → 얼리버드(10%) → 정식(정가)
 const COHORT_PHASES = [
@@ -1824,6 +1825,7 @@ const COHORT_PHASES = [
 ];
 
 function getPhaseInfo(todayUtc) {
+  if (COHORT_MANUALLY_CLOSED) return { closed: true, discount: 0 };
   for (let i = 0; i < COHORT_PHASES.length; i++) {
     if (todayUtc <= COHORT_PHASES[i].endUtc) {
       return Object.assign({}, COHORT_PHASES[i], { next: COHORT_PHASES[i + 1] || null, closed: false });
@@ -1958,7 +1960,7 @@ function updateHeroDeadline() {
 
   const { year, month, day } = getKstDateParts();
   const todayUtc = Date.UTC(year, month - 1, day);
-  const isClosed = todayUtc > CURRENT_COHORT_CLOSE_UTC;
+  const isClosed = COHORT_MANUALLY_CLOSED || todayUtc > CURRENT_COHORT_CLOSE_UTC;
   const diffDays = Math.round((CURRENT_COHORT_OPEN_UTC - todayUtc) / (24 * 60 * 60 * 1000));
 
   deadlineCard.classList.remove('is-dday');
@@ -1998,8 +2000,8 @@ function updateHeroDeadline() {
 function updatePostCloseCtas() {
   const { year, month, day } = getKstDateParts();
   const todayUtc = Date.UTC(year, month - 1, day);
-  const isOpen = todayUtc >= CURRENT_COHORT_OPEN_UTC;
-  const isClosed = todayUtc > CURRENT_COHORT_CLOSE_UTC;
+  const isOpen = !COHORT_MANUALLY_CLOSED && todayUtc >= CURRENT_COHORT_OPEN_UTC;
+  const isClosed = COHORT_MANUALLY_CLOSED || todayUtc > CURRENT_COHORT_CLOSE_UTC;
 
   const navAlert = document.getElementById('next-alert-nav');
   const heroPrimary = document.getElementById('hero-primary-cta');
@@ -2020,7 +2022,7 @@ function updatePostCloseCtas() {
 
   if (navAlert) {
     navAlert.href = DETAIL_PAGE_URL;
-    navAlert.textContent = isOpen && !isClosed ? `🎟️ ${applyLabel}` : '7기 신청하기';
+    navAlert.textContent = isOpen && !isClosed ? `🎟️ ${applyLabel}` : '7기 모집 마감';
     navAlert.classList.remove('is-hidden');
   }
 
@@ -2072,30 +2074,30 @@ function updatePostCloseCtas() {
   }
 
   [
-    { el: heroPrimary, label: '7기 신청하기' },
-    { el: basicPrimary, label: '7기 신청하기' },
-    { el: premiumPrimary, label: '7기 신청하기' },
-    { el: midPrimary, label: '7기 신청하기' },
-    { el: finalPrimary, label: '7기 신청하기' }
-  ].forEach(({ el, label }) => {
+    { el: heroPrimary },
+    { el: basicPrimary },
+    { el: premiumPrimary },
+    { el: midPrimary },
+    { el: finalPrimary }
+  ].forEach(({ el }) => {
     if (!el) return;
-    el.href = NEXT_COHORT_ALERT_URL;
-    el.textContent = label;
+    el.href = 'https://www.instagram.com/youbuddy_day';
+    el.textContent = '7기 모집 마감 · 다음 기수 알림받기';
   });
 
   if (heroSubNote) {
-    heroSubNote.textContent = '7기 얼리버드 모집은 마감되었습니다. 정가 신청은 계속 가능합니다.';
+    heroSubNote.textContent = '7기 모집이 마감되었습니다. 다음 기수 소식은 인스타 @youbuddy_day에서 먼저 받아보세요.';
   }
 
   if (midTitle && midCopy) {
-    midTitle.textContent = '7기 얼리버드 마감';
-    midCopy.textContent = '얼리버드 할인은 마감되었습니다. 정가 신청은 계속 가능합니다.';
+    midTitle.textContent = '7기 모집이 마감되었습니다';
+    midCopy.textContent = '다음 기수 오픈 소식을 인스타 @youbuddy_day에서 먼저 받아보세요.';
   }
 
   if (finalTitle && finalCopy && finalMeta) {
-    finalTitle.innerHTML = '7기 얼리버드가 마감되었습니다<br><em>정가 신청은 계속 가능합니다</em>';
-    finalCopy.innerHTML = '얼리버드 할인은 마감되었지만, 7기 신청은 계속 받고 있어요.';
-    finalMeta.innerHTML = '얼리버드 마감<br><strong>챌린지 시작: 7월 13일 (월) · 4주 (8월 7일 종료)</strong><br>유버디는 외국계 현업 실무자입니다.';
+    finalTitle.innerHTML = '7기 모집이 마감되었습니다<br><em>다음 기수를 기다려주세요</em>';
+    finalCopy.innerHTML = '이번 기수 모집은 마감되었어요. 다음 기수 소식을 먼저 받아보세요.';
+    finalMeta.innerHTML = '7기 모집 마감<br><strong>다음 기수 알림: 인스타 @youbuddy_day</strong><br>유버디는 외국계 현업 실무자입니다.';
   }
 }
 
