@@ -20,6 +20,42 @@
 <meta name="twitter:description" content="유비챌 8기 얼리버드 신청중! 7월 31일까지 베이직 20%·프리미엄 15% 할인가.">
 <meta name="twitter:image" content="https://lifestylebytes.github.io/youbuddy-challenge/assets/og-cover2.png">
 <link rel="icon" type="image/svg+xml" href="assets/favicon-youbuddy.svg">
+
+<!-- ═══════ 방문자 분석 (GA4 + Microsoft Clarity) ═══════
+     ↓↓ 아래 두 ID를 발급받아 교체하세요 (무료) ↓↓
+     · GA4:     analytics.google.com → 속성 만들기 → "측정 ID" G-XXXXXXXXXX
+     · Clarity: clarity.microsoft.com → 프로젝트 만들기 → "프로젝트 ID"
+     교체 전까지는 데이터가 수집되지 않아요. -->
+<script>
+  window.YB_GA_ID = 'G-GSGC5YFGPG';        // GA4 측정 ID
+  window.YB_CLARITY_ID = 'CLARITY_ID';     // ← Clarity 프로젝트 ID로 교체
+</script>
+<!-- GA4 -->
+<script>
+  if (window.YB_GA_ID && window.YB_GA_ID.indexOf('XXXX') === -1) {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.YB_GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', window.YB_GA_ID);
+  } else {
+    window.gtag = window.gtag || function(){};
+  }
+</script>
+<!-- Microsoft Clarity -->
+<script>
+  if (window.YB_CLARITY_ID && window.YB_CLARITY_ID !== 'CLARITY_ID') {
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", window.YB_CLARITY_ID);
+  }
+</script>
+<!-- ═══════════════════════════════════════════════════ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;700;800&family=IBM+Plex+Sans+KR:wght@500;600;700&family=Manrope:wght@700;800&family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
 <style>
@@ -2235,6 +2271,48 @@ function updatePricingTier() {
       highlightTimelineCurrentItem();
     }, 24 * 60 * 60 * 1000);
   }, delayMs);
+})();
+</script>
+
+<!-- ═══════ 이벤트 추적: 스크롤 깊이 · 버튼 클릭 · 체류시간 ═══════ -->
+<script>
+(function(){
+  function track(name, params){ if (typeof window.gtag === 'function') window.gtag('event', name, params || {}); }
+
+  // 1) 스크롤 깊이 25 / 50 / 75 / 100 %
+  var marks = [25, 50, 75, 100], hit = {};
+  function onScroll(){
+    var doc = document.documentElement, body = document.body;
+    var scrolled = doc.scrollTop || body.scrollTop;
+    var height = (doc.scrollHeight || body.scrollHeight) - doc.clientHeight;
+    var pct = height > 0 ? Math.round(scrolled / height * 100) : 0;
+    marks.forEach(function(m){ if (!hit[m] && pct >= m){ hit[m] = 1; track('scroll_depth', { percent: m }); } });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // 2) 버튼(CTA) 클릭 — 어느 섹션의 어느 버튼인지
+  function sectionOf(el){
+    var s = el.closest('section');
+    if (!s) return '상단 네비/배너';
+    var label = s.querySelector('.section-label, h2, h1');
+    return label ? label.textContent.trim().replace(/\s+/g,' ').slice(0, 24) : (s.className || 'section');
+  }
+  var sel = 'a[href*="latpeed"], a[href*="tally"], a[href*="pf.kakao"], .hero-cta, .pricing-btn, .offer-cta, .final-btn, .sticky-cta-btn, .vsresult-cta, .pricing-consult, .nav-cta';
+  document.querySelectorAll(sel).forEach(function(a){
+    a.addEventListener('click', function(){
+      track('cta_click', {
+        label: (a.textContent || '').trim().replace(/\s+/g,' ').slice(0, 40),
+        section: sectionOf(a),
+        link: a.getAttribute('href') || ''
+      });
+    });
+  });
+
+  // 3) 체류 시간 — 페이지를 벗어날 때 초 단위 기록
+  var start = Date.now();
+  function sendDwell(){ track('dwell_time', { seconds: Math.round((Date.now() - start) / 1000) }); }
+  document.addEventListener('visibilitychange', function(){ if (document.visibilityState === 'hidden') sendDwell(); });
 })();
 </script>
 </body>
