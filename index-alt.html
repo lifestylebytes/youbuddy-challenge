@@ -172,6 +172,56 @@ b{font-weight:700;}
 .proofstrip{padding:40px 20px 10px;}
 .proofstrip-kicker{text-align:center;font-weight:800;color:var(--charcoal);font-size:15px;margin-bottom:6px;}
 .proofstrip-sub{text-align:center;font-size:12.5px;color:var(--light-text);margin-bottom:20px;}
+/* ── 시그니처 스트릭 보드 ── */
+.streak-section{padding:56px 20px 40px;background:var(--cream);text-align:center;}
+.streak-intro{font-size:14.5px;color:var(--warm-gray);max-width:600px;margin:0 auto 24px;line-height:1.7;}
+.streak-intro strong{color:var(--charcoal);font-weight:800;}
+.sb-wrap{max-width:560px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);overflow-x:auto;text-align:left;}
+.sb-row{display:flex;align-items:center;border-bottom:1px solid var(--border);}
+.sb-row:last-child{border-bottom:none;}
+.sb-row.head{color:var(--light-text);font-family:'Manrope',sans-serif;font-size:11px;}
+.sb-mcell{flex:0 0 118px;display:flex;align-items:center;gap:7px;padding:8px 10px;font-size:12px;font-weight:700;position:sticky;left:0;background:#fff;z-index:1;}
+.sb-row.head .sb-mcell{letter-spacing:.1em;}
+.sb-av{width:20px;height:20px;border-radius:6px;background:var(--blush);color:#b5774f;font-size:9.5px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+.sb-av.on{background:#E8762C;color:#fff;}
+.sb-p{background:var(--lavender);color:#7b5ea7;font-size:8px;font-weight:800;padding:1px 4px;border-radius:50px;}
+.sb-cell{flex:0 0 26px;height:30px;display:flex;align-items:center;justify-content:center;font-size:9.5px;color:var(--light-text);}
+.sb-dot{width:18px;height:18px;border-radius:5px;background:#eee9e2;}
+.sb-dot.done{background:#E8762C;}
+.sb-dot.late{background:#b8a58a;}
+.streak-legend{display:flex;gap:16px;justify-content:center;margin-top:16px;font-size:12px;color:var(--warm-gray);}
+.streak-legend span{display:inline-flex;align-items:center;gap:5px;}
+.streak-legend i{width:12px;height:12px;border-radius:3px;display:inline-block;}
+@media (max-width:640px){.sb-mcell{flex-basis:96px;}}
+
+/* ── 이미 시도해본 방법 (경쟁 비교) ── */
+.tried-section{padding:60px 20px;background:var(--sand);text-align:center;}
+.tried-intro{font-size:14px;color:var(--warm-gray);max-width:560px;margin:0 auto 28px;line-height:1.7;}
+.tried-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:820px;margin:0 auto 26px;}
+.tried-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px 22px;box-shadow:var(--shadow);text-align:left;}
+.tried-q{font-size:14px;font-weight:800;color:var(--charcoal);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.tried-q::before{content:'✕';color:var(--accent-rose);font-weight:800;}
+.tried-a{font-size:13.5px;color:var(--warm-gray);line-height:1.6;}
+.tried-punch{font-size:clamp(15px,3.4vw,20px);font-weight:800;color:var(--charcoal);max-width:640px;margin:0 auto;line-height:1.55;}
+.tried-punch strong{color:var(--accent-sage);}
+@media (max-width:640px){.tried-grid{grid-template-columns:1fr;}}
+
+/* ── 아침 밋업 (8기 특별혜택) ── */
+.meetup-section{padding:64px 20px;background:linear-gradient(180deg,var(--blush),var(--cream));text-align:center;}
+.meetup-badge{display:inline-block;background:var(--accent-rose);color:#fff;font-size:12px;font-weight:800;padding:6px 15px;border-radius:50px;margin-bottom:16px;}
+.meetup-title{font-size:clamp(26px,5vw,40px);font-weight:800;color:var(--charcoal);line-height:1.2;margin-bottom:12px;}
+.meetup-sub{font-size:15px;color:var(--warm-gray);line-height:1.7;margin-bottom:26px;}
+.meetup-card{max-width:520px;margin:0 auto 18px;background:#fff;border-radius:20px;box-shadow:var(--shadow-lg);padding:6px 24px;text-align:left;}
+.meetup-row{display:flex;gap:18px;padding:16px 0;border-bottom:1px solid var(--border);}
+.meetup-row:last-child{border-bottom:none;}
+.meetup-k{flex:0 0 52px;font-size:13px;font-weight:800;color:var(--warm-gray);padding-top:3px;}
+.meetup-v{font-size:16px;font-weight:800;color:var(--charcoal);line-height:1.4;}
+.meetup-v b{color:var(--accent-rose);}
+.meetup-v small{display:block;font-size:12.5px;font-weight:500;color:var(--light-text);margin-top:3px;}
+.meetup-chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:520px;margin:0 auto 16px;}
+.meetup-chip{background:#fff;border:1px solid var(--border);border-radius:50px;padding:8px 15px;font-size:13px;font-weight:700;color:var(--charcoal);}
+.meetup-note{font-size:14px;color:var(--warm-gray);font-weight:700;}
+
 .proofstrip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:940px;margin:0 auto;}
 .ps-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:20px;box-shadow:var(--shadow);}
 .ps-stars{color:#F5C842;font-size:12px;margin-bottom:9px;letter-spacing:1px;}
@@ -753,11 +803,11 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
   </div>
 
   <h1 class="hero-title fade">
-    비즈니스 영어가 사실<br>
-    <span style="color:var(--accent-sage);font-style:normal;">제일 쉽습니다</span>
+    혼자선 또 흐지부지되는 비즈니스 영어,<br>
+    <span style="color:var(--accent-sage);font-style:normal;">끊기지 않게 만들어드릴게요</span>
   </h1>
 
-  <p class="hero-lede fade"><strong>내가 쓸 문장만</strong> 외우면 되니까요. 회사에서 쓰는 영어는 이미 정해져 있습니다.<br>외국계 현업 실무자가 큐레이션한 표현으로, <strong>어제 배운 걸 오늘 바로 쓰는</strong> 4주 루틴을 만듭니다.</p>
+  <p class="hero-lede fade"><strong>단어·표현은 아는데 막상 말하려면 안 나오죠.</strong> 혼자 하면 또 미루게 되니까요.<br>외국계 현업 실무자가 큐레이션한 표현을, <strong>안 할 수 없는 4주 환경</strong>에서 매일 꺼내 쓰게 만듭니다.</p>
 
   <div class="hero-paths fade">
     <div class="hero-path">
@@ -774,7 +824,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
 
   <div class="hero-proof-row fade">
     <div class="proof-chip"><span class="big">⭐ 4.9</span> 참여자 만족</div>
-    <div class="proof-chip"><span class="big">124명</span> 누적 챌린저</div>
+    <div class="proof-chip"><span class="big">163명</span> 누적 챌린저</div>
     <div class="proof-chip"><span class="big">100%</span> 프리미엄 완주율</div>
     <div class="proof-chip"><span class="big">∞</span> 평생 소장</div>
   </div>
@@ -790,10 +840,61 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
   <p class="hero-sub-note fade" id="hero-sub-note">지금은 슈퍼 얼리버드 기간이에요. 베이직 20%·프리미엄 15% 할인은 7/31까지, 8/1부터는 얼리버드 10%로 인상됩니다.</p>
 </section>
 
+<!-- SIGNATURE STREAK BOARD -->
+<section class="streak-section">
+  <div class="container">
+    <span class="section-label">유버디 시그니처</span>
+    <h2 class="section-title">매일 채우는 칸, <em>안 하면 티 나요</em></h2>
+    <div class="divider"></div>
+    <p class="streak-intro">혼자 하면 흐지부지되니까요. 매일 인증이 쌓이는 <strong>데일리 스트릭 보드</strong>에서 서로가 서로를 끌어줍니다. 내 칸이 비면 바로 보이니까, <strong>안 할 수가 없어요.</strong></p>
+    <div class="sb-wrap" id="streak-board" role="img" aria-label="유버디 데일리 스트릭 보드"></div>
+    <div class="streak-legend">
+      <span><i style="background:#E8762C"></i> 완료</span>
+      <span><i style="background:#b8a58a"></i> 늦은 인증</span>
+      <span><i style="background:#eee9e2"></i> 놓침</span>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  var board=document.getElementById('streak-board');
+  if(!board) return;
+  var cols=12;
+  // d=완료, l=늦은인증, x=놓침
+  var members=[
+    {a:'Y',n:'유버디',p:1,on:1,row:'dddddddddddd'},
+    {a:'A',n:'이*현',p:1,on:1,row:'dddddddddddd'},
+    {a:'B',n:'김*영',p:1,on:1,row:'dddddddddddd'},
+    {a:'C',n:'박*수',p:1,on:1,row:'dddddddddddd'},
+    {a:'D',n:'최*아',p:1,on:1,row:'dddddddddddd'},
+    {a:'E',n:'정*민',p:1,on:1,row:'ddddddddddld'},
+    {a:'F',n:'한*래',p:1,on:1,row:'dddddddddddd'},
+    {a:'G',n:'오*진',p:1,on:1,row:'dddddldldl dl'.replace(' ','l')},
+    {a:'H',n:'서*우',p:0,on:0,row:'xxxxxxxxxxxx'},
+    {a:'I',n:'윤*빈',p:0,on:0,row:'xxxllxxxlxxl'},
+    {a:'J',n:'강*연',p:0,on:0,row:'xxxxxxxxxxxx'},
+    {a:'K',n:'임*호',p:0,on:0,row:'xxxxxxxxxxxx'}
+  ];
+  var html='<div class="sb-row head"><div class="sb-mcell">MEMBER</div>';
+  for(var c=1;c<=cols;c++) html+='<div class="sb-cell">'+c+'</div>';
+  html+='</div>';
+  members.forEach(function(m){
+    html+='<div class="sb-row"><div class="sb-mcell"><span class="sb-av'+(m.on?' on':'')+'">'+m.a+'</span>'+m.n+(m.p?' <span class="sb-p">P</span>':'')+'</div>';
+    for(var c=0;c<cols;c++){
+      var ch=m.row[c]||'x';
+      var cls=ch==='d'?' done':(ch==='l'?' late':'');
+      html+='<div class="sb-cell"><span class="sb-dot'+cls+'"></span></div>';
+    }
+    html+='</div>';
+  });
+  board.innerHTML=html;
+})();
+</script>
+
 <!-- PROOF STRIP -->
 <section class="proofstrip">
   <div class="container">
-    <p class="proofstrip-kicker fade">★★★★★ 벌써 124명이 검증했어요</p>
+    <p class="proofstrip-kicker fade">★★★★★ 벌써 163명이 검증했어요</p>
     <p class="proofstrip-sub fade">"영어를 가르치는 곳"이 아니라, "영어를 안 할 수 없게 만드는 곳"에서 나온 진짜 후기</p>
     <div class="proofstrip-grid">
       <div class="ps-card fade">
@@ -818,55 +919,77 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
 <!-- PROBLEM: PAIN POINTS -->
 <section class="problem-section">
   <div class="container">
-    <span class="section-label">참여 전, 다들 이런 고민이었어요</span>
-    <h2 class="section-title">영어를 못해서가 아니라<br><em>쓸 환경이 없어서</em> 막혀 있는 건가요?</h2>
+    <span class="section-label">실제 구매자들의 진짜 고민</span>
+    <h2 class="section-title">몰라서가 아니라,<br><em>아는데 안 나와서</em> 막혀 있나요?</h2>
     <div class="divider"></div>
     <p class="problem-intro">
-      영어를 아예 안 한 것도 아닌데,<br>
-      막상 회의에 들어가면 <strong>바로 꺼낼 문장</strong>이 없습니다.<br>
-      의지가 약해서가 아니라, <strong>영어를 쓸 수밖에 없는 환경</strong>이 없었을 뿐이에요.
+      단어·표현은 아는데 <strong>막상 말하려면 기억이 안 나요.</strong><br>
+      혼자 하면 배워도 그때뿐, 실전에선 또 안 나오고요.<br>
+      실제 구매자들의 고민을 유형으로 정리했어요. <strong>하나라도 내 얘기 같다면, 유버디예요.</strong>
     </p>
 
     <div class="persona-grid">
       <div class="persona-card fade">
-        <div class="persona-tag">국내 기업 · 영어 안 써도 되는 환경</div>
-        <div class="persona-pain">필요성은 아는데 <span class="em">영어를 안 써도 버텨져서 계속 미뤄져요</span></div>
+        <div class="persona-tag">① 아는데, 말이 안 나와요</div>
+        <div class="persona-pain">단어·표현은 아는데 <span class="em">막상 말하려면 기억이 안 나요</span></div>
       </div>
       <div class="persona-card fade">
-        <div class="persona-tag">외국계 점프업 준비</div>
-        <div class="persona-pain">외국계에서는 <span class="em">어떻게 말하는지 감각이 없어요</span></div>
-        <div class="persona-branch">⭐ 면접·PT가 닥쳤다면 시뮬레이션이 필요해요 → 프리미엄</div>
+        <div class="persona-tag">② 늘 같은 말만 반복</div>
+        <div class="persona-pain">쓰던 표현만 돌려막기, <span class="em">말이 늘 똑같아요</span></div>
       </div>
       <div class="persona-card fade">
-        <div class="persona-tag">해외 고객 · 에이전시 협업</div>
-        <div class="persona-pain">미팅에서 바로 꺼낼 <span class="em">실전 문장이 부족해요</span></div>
-        <div class="persona-branch">⭐ 실제 미팅이 있다면 말하기 연습이 필요해요 → 프리미엄</div>
+        <div class="persona-tag">③ 빠르면 못 알아들어요</div>
+        <div class="persona-pain">조금만 빨라지면 <span class="em">놓치고 흐름을 잃어요</span></div>
       </div>
       <div class="persona-card fade">
-        <div class="persona-tag">통역 있는 팀 · 국내 업무 중심</div>
-        <div class="persona-pain"><span class="em">영어를 안 써도 되는 구조</span> 때문에 늘 후순위가 돼요</div>
+        <div class="persona-tag">④ 확신이 없어 못 꺼내요</div>
+        <div class="persona-pain">틀릴까 봐 <span class="em">입을 못 떼겠어요</span></div>
       </div>
       <div class="persona-card fade">
-        <div class="persona-tag">루틴이 필요한 직장인</div>
-        <div class="persona-pain">혼자 하면 작심삼일이라 <span class="em">외부 시스템이 꼭 필요해요</span></div>
+        <div class="persona-tag">⑤ 배워도 그때뿐</div>
+        <div class="persona-pain">혼자 하면 작심삼일, <span class="em">배워도 실전엔 못 써요</span></div>
       </div>
       <div class="persona-card fade">
-        <div class="persona-tag">영어 공부는 계속 해온 사람</div>
-        <div class="persona-pain">표현은 수집했는데 <span class="em">막상 회의에서는 안 나와요</span></div>
-        <div class="persona-branch">⭐ 수집은 충분, 이젠 입으로 꺼내는 연습 → 프리미엄</div>
-      </div>
-      <div class="persona-card fade">
-        <div class="persona-tag">표현 자체가 궁금한 분</div>
-        <div class="persona-pain">유버디가 매일 3개씩 수집하는 <span class="em">찐 외국계 표현이 궁금해요</span></div>
+        <div class="persona-tag">⑥ 업무 용어를 몰라요</div>
+        <div class="persona-pain">회의에서 나오는 <span class="em">외국계 실무 용어 자체가 낯설어요</span></div>
       </div>
     </div>
 
     <div class="pain-tags-row">
-      <span class="pain-tag">영어를 안 써도 되는 구조</span>
-      <span class="pain-tag">혼자서는 계속 미뤄짐</span>
-      <span class="pain-tag">단어보다 문장이 필요함</span>
-      <span class="pain-tag">외국계 감각이 부족함</span>
+      <span class="pain-tag">아는데 안 나옴</span>
+      <span class="pain-tag">표현 돌려막기</span>
+      <span class="pain-tag">배워도 그때뿐</span>
+      <span class="pain-tag">혼자선 작심삼일</span>
     </div>
+  </div>
+</section>
+
+<!-- ALREADY TRIED (경쟁 비교) -->
+<section class="tried-section">
+  <div class="container">
+    <span class="section-label">이미 여러 방법 써보셨죠?</span>
+    <h2 class="section-title">전화영어·회화앱·시험, 다 해봤는데<br><em>왜 회의에선 여전히 막힐까요?</em></h2>
+    <div class="divider"></div>
+    <p class="tried-intro">유버디에 오는 분들 대부분, 이미 돈과 시간을 써봤어요. 실패한 이유는 늘 비슷했습니다.</p>
+    <div class="tried-grid">
+      <div class="tried-card fade">
+        <div class="tried-q">1:1 전화·화상영어</div>
+        <div class="tried-a">"바로 쓸 실무 표현을 배우는 데는 한계가 있더라고요."</div>
+      </div>
+      <div class="tried-card fade">
+        <div class="tried-q">회화 앱</div>
+        <div class="tried-a">"콘텐츠가 부족하고, 비싸요."</div>
+      </div>
+      <div class="tried-card fade">
+        <div class="tried-q">쉐도잉</div>
+        <div class="tried-a">"지루해서 잘 안 하게 되고, 비즈니스 상황엔 못 써요."</div>
+      </div>
+      <div class="tried-card fade">
+        <div class="tried-q">스피킹 시험</div>
+        <div class="tried-a">"점수는 정체돼 있고, 실전 말하기는 그대로예요."</div>
+      </div>
+    </div>
+    <p class="tried-punch">공통점은 하나. <strong>혼자, 내 업무와 상관없이, 끊기게</strong> 했다는 거예요.<br>유버디는 <strong>내 업무 표현을 · 매일 안 할 수 없게 · 끝까지</strong> 이어가게 합니다.</p>
   </div>
 </section>
 
@@ -1080,6 +1203,27 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
   </div>
 </section>
 
+<!-- 아침 밋업 (8기 특별혜택) -->
+<section class="meetup-section">
+  <div class="container">
+    <span class="meetup-badge">유비챌 8기 특별혜택</span>
+    <h2 class="meetup-title">유버디 아침밋업 🌅</h2>
+    <p class="meetup-sub">평일 아침 7시, 딱 50분.<br>2주간 스터디룸을 열어둘게요. <strong>혼자선 못 이어가는 영어, 아침에 서로 끌어줘요.</strong></p>
+    <div class="meetup-card fade">
+      <div class="meetup-row"><div class="meetup-k">언제</div><div class="meetup-v">평일 매일 <b>오전 7:00 ~ 7:50</b><small>50분이면 출근 준비 전에 끝나요</small></div></div>
+      <div class="meetup-row"><div class="meetup-k">기간</div><div class="meetup-v">8/18(화) ~ 8/28(금)<small>2주차부터 2주간, 총 9번</small></div></div>
+      <div class="meetup-row"><div class="meetup-k">어디서</div><div class="meetup-v">온라인 라운지<small>링크는 매일 아침 단톡방에 올려드려요</small></div></div>
+    </div>
+    <div class="meetup-chips">
+      <span class="meetup-chip">카메라 안 켜도 OK</span>
+      <span class="meetup-chip">늦게 와도 OK</span>
+      <span class="meetup-chip">중간에 나가도 OK</span>
+      <span class="meetup-chip">말 안 해도 OK</span>
+    </div>
+    <p class="meetup-note">신청 없이, 그날 마음 내킬 때 들어오시면 돼요 🧡</p>
+  </div>
+</section>
+
 <!-- EARLY OFFER -->
 <section class="offerblock">
   <div class="container">
@@ -1104,10 +1248,10 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
 <!-- SOCIAL PROOF -->
 <section class="proof-section">
   <div class="container">
-    <span class="section-label">실제 참여자 후기 (현재 누적 챌린저 124명)</span>
+    <span class="section-label">실제 참여자 후기 (현재 누적 챌린저 163명)</span>
     <h2 class="section-title">나와 비슷한 사람들이<br><em>이미 달라졌습니다</em></h2>
     <div class="divider"></div>
-    <p class="proof-intro">현재까지 누적 124명이 참여한 챌린지입니다. 핵심 후기는 바로 보이고, 원문/인증 캡처는 아래에서 펼쳐 확인할 수 있어요.</p>
+    <p class="proof-intro">현재까지 누적 163명이 참여한 챌린지입니다. 핵심 후기는 바로 보이고, 원문/인증 캡처는 아래에서 펼쳐 확인할 수 있어요.</p>
 
     <div class="proof-spotlights">
       <div class="proof-spotlight basic fade">
@@ -1584,7 +1728,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
     <div class="divider"></div>
     <div class="faq-list">
       <div class="faq-item"><div class="faq-q">프로그램 사용이 처음인데 괜찮을까요?</div><div class="faq-a">네! 이전 기수까지는 노션으로 진행했고, 이번 기수부터는 노션 구조를 그대로 옮긴 자체제작 프로그램으로 진행합니다. 웹 페이지를 사용할 수 있는 온보딩 세션이 준비돼있습니다.</div></div>
-      <div class="faq-item"><div class="faq-q">프리미엄과 베이직 중 어떤 걸 선택해야 할까요?</div><div class="faq-a"><b>한 줄 기준:</b> 영어 회의·콜이 <b>분기에 한 번이라도</b> 있다면 프리미엄을 권합니다.<br><br>외국계에서 쓰는 표현을 익혀 메일·메신저·문서 작업을 더 능숙하게 하고 싶다면 <b>베이직</b>이 맞습니다. 어휘량을 더 넓히고, 시뮬레이션으로 <b>실제로 말하는 것까지</b> 익숙해지고 싶다면 <b>프리미엄</b>이 맞습니다. 표현을 '모으는' 데서 끝내지 않고 '말해보는' 단계가 필요하다면 프리미엄이에요.</div></div>
+      <div class="faq-item"><div class="faq-q">프리미엄과 베이직 중 어떤 걸 선택해야 할까요?</div><div class="faq-a"><b>한 줄 기준:</b> 영어 회의·콜이 <b>분기에 한 번이라도</b> 있다면 프리미엄을 권합니다.<br><br>외국계에서 쓰는 표현을 익혀 메일·메신저·문서 작업을 더 능숙하게 하고 싶다면 <b>베이직</b>이 맞습니다. 어휘량을 더 넓히고, 시뮬레이션으로 <b>실제로 말하는 것까지</b> 익숙해지고 싶다면 <b>프리미엄</b>이 맞습니다.<br><br>그리고 <b>혹시 3개월 안에 발표·면접·입사가 잡혀 있다면?</b> 데드라인이 있는 분께는 프리미엄을 추천해요. (실제로 프리미엄 참여자들은 구체적인 마감을 앞둔 경우가 많았어요.)</div></div>
       <div class="faq-item"><div class="faq-q">프리미엄, 시간(목 9시)·발표·녹화가 부담돼요.</div><div class="faq-a">충분히 풀어드릴 수 있어요.<br><br>✔️ <b>시간</b>: 실전 미팅은 목요일 밤 9시 기준이지만, 참여자들과 <b>목요일 중 시간 조율</b>이 가능합니다. (예: 저녁 8시부터)<br>✔️ <b>녹화</b>: 이번 기수 <b>복습용으로만</b> 제공되고, 제공 후 모두 파기됩니다.<br>✔️ <b>발표</b>: 본인 업계 주제로 10~15분, <b>표현·발표력·구조 피드백</b>이 함께 갑니다. 부담되면 분량·범위를 함께 조정해 드려요.<br>✔️ <b>한정 10명</b>이라, 한 명 한 명을 유버디가 직접 챙깁니다.</div></div>
       <div class="faq-item"><div class="faq-q">챌린지가 끝난 후에도 자료를 볼 수 있나요?</div><div class="faq-a">네! 평생 소장 가능합니다. 언제든 돌아와 복습하실 수 있고, 원하면 다음 챌린지에 다시 참여해 동기부여를 재충전할 수 있어요.</div></div>
       <div class="faq-item"><div class="faq-q">학습 내용을 따로 보관할 수 있나요?</div><div class="faq-a">네. 챌린지는 자체제작 프로그램으로 진행되지만, 다 끝난 뒤 원하시면 학습 내용을 노션으로 가져가실 수 있습니다.</div></div>
