@@ -840,57 +840,6 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
   <p class="hero-sub-note fade" id="hero-sub-note">지금은 슈퍼 얼리버드 기간이에요. 베이직 20%·프리미엄 15% 할인은 7/31까지, 8/1부터는 얼리버드 10%로 인상됩니다.</p>
 </section>
 
-<!-- SIGNATURE STREAK BOARD -->
-<section class="streak-section">
-  <div class="container">
-    <span class="section-label">유버디 시그니처</span>
-    <h2 class="section-title">매일 채우는 칸, <em>안 하면 티 나요</em></h2>
-    <div class="divider"></div>
-    <p class="streak-intro">혼자 하면 흐지부지되니까요. 매일 인증이 쌓이는 <strong>데일리 스트릭 보드</strong>에서 서로가 서로를 끌어줍니다. 내 칸이 비면 바로 보이니까, <strong>안 할 수가 없어요.</strong></p>
-    <div class="sb-wrap" id="streak-board" role="img" aria-label="유버디 데일리 스트릭 보드"></div>
-    <div class="streak-legend">
-      <span><i style="background:#E8762C"></i> 완료</span>
-      <span><i style="background:#b8a58a"></i> 늦은 인증</span>
-      <span><i style="background:#eee9e2"></i> 놓침</span>
-    </div>
-  </div>
-</section>
-<script>
-(function(){
-  var board=document.getElementById('streak-board');
-  if(!board) return;
-  var cols=12;
-  // d=완료, l=늦은인증, x=놓침
-  var members=[
-    {a:'Y',n:'유버디',p:1,on:1,row:'dddddddddddd'},
-    {a:'A',n:'이*현',p:1,on:1,row:'dddddddddddd'},
-    {a:'B',n:'김*영',p:1,on:1,row:'dddddddddddd'},
-    {a:'C',n:'박*수',p:1,on:1,row:'dddddddddddd'},
-    {a:'D',n:'최*아',p:1,on:1,row:'dddddddddddd'},
-    {a:'E',n:'정*민',p:1,on:1,row:'ddddddddddld'},
-    {a:'F',n:'한*래',p:1,on:1,row:'dddddddddddd'},
-    {a:'G',n:'오*진',p:1,on:1,row:'dddddldldl dl'.replace(' ','l')},
-    {a:'H',n:'서*우',p:0,on:0,row:'xxxxxxxxxxxx'},
-    {a:'I',n:'윤*빈',p:0,on:0,row:'xxxllxxxlxxl'},
-    {a:'J',n:'강*연',p:0,on:0,row:'xxxxxxxxxxxx'},
-    {a:'K',n:'임*호',p:0,on:0,row:'xxxxxxxxxxxx'}
-  ];
-  var html='<div class="sb-row head"><div class="sb-mcell">MEMBER</div>';
-  for(var c=1;c<=cols;c++) html+='<div class="sb-cell">'+c+'</div>';
-  html+='</div>';
-  members.forEach(function(m){
-    html+='<div class="sb-row"><div class="sb-mcell"><span class="sb-av'+(m.on?' on':'')+'">'+m.a+'</span>'+m.n+(m.p?' <span class="sb-p">P</span>':'')+'</div>';
-    for(var c=0;c<cols;c++){
-      var ch=m.row[c]||'x';
-      var cls=ch==='d'?' done':(ch==='l'?' late':'');
-      html+='<div class="sb-cell"><span class="sb-dot'+cls+'"></span></div>';
-    }
-    html+='</div>';
-  });
-  board.innerHTML=html;
-})();
-</script>
-
 <!-- PROOF STRIP -->
 <section class="proofstrip">
   <div class="container">
