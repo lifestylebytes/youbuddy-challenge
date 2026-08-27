@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>YOUBUDDY 5기 · 4주 단어집 (샘플 미리보기)</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" rel="stylesheet">
+<style>
+* { box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif; color: #2A1F14; line-height: 1.55; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; background: #d9d2c2; }
+
+.preview-banner {
+  position: fixed; top: 12px; left: 50%; transform: translateX(-50%);
+  background: rgba(20,12,4,0.92); color: #FCE8B2; padding: 8px 18px;
+  border-radius: 99px; font-size: 12px; font-weight: 700;
+  letter-spacing: -0.01em; z-index: 100;
+  box-shadow: 0 6px 20px rgba(20,12,4,0.3);
+}
+.preview-banner b { color: #fff; }
+
+/* PDF page mockup — each section = 1 A4 page */
+section {
+  max-width: 794px; /* 210mm @ 96dpi */
+  margin: 30px auto;
+  padding: 40mm 18mm;
+  min-height: 280mm;
+  background: #FFFDF7;
+  box-shadow: 0 12px 40px rgba(20,12,4,0.18);
+  position: relative;
+}
+
+/* Cover */
+.pdf-cover { background: linear-gradient(135deg, #FFF5E6 0%, #FFE5D9 55%, #F4ECFA 100%); text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.cover-kicker { font-size: 11px; font-weight: 800; letter-spacing: 0.2em; color: #C95721; text-transform: uppercase; }
+.cover-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 38px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; margin: 22px 0 0; color: #2A1F14; }
+.cover-title .kr { font-family: 'Pretendard Variable', sans-serif; font-weight: 800; font-size: 32px; }
+.cover-num-wrap { margin-top: 36px; }
+.cover-num { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 78px; font-weight: 700; color: #E8743C; line-height: 1; }
+.cover-num span { font-size: 22px; color: #5A4A36; margin-left: 6px; font-family: 'Pretendard Variable', sans-serif; font-weight: 600; }
+.cover-sub { margin-top: 10px; font-size: 13px; color: #5A4A36; }
+.cover-badge { margin-top: 16px; display: inline-block; padding: 8px 18px; border-radius: 99px; background: rgba(34,179,106,0.22); color: #1F8F58; font-size: 12px; font-weight: 800; letter-spacing: 0.05em; }
+.cover-toc { margin-top: 44px; padding: 22px 26px; background: rgba(255,255,255,0.85); border: 1px solid rgba(231,221,200,0.7); border-radius: 18px; text-align: left; max-width: 420px; }
+.toc-title { font-size: 10.5px; font-weight: 800; color: #9A8B73; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 10px; }
+.cover-toc ol { margin: 0; padding-left: 22px; font-size: 13px; color: #2A1F14; }
+.cover-toc li { margin-bottom: 8px; line-height: 1.5; }
+.cover-footer { margin-top: 54px; font-size: 11px; color: #9A8B73; letter-spacing: 0.1em; }
+
+/* Section common */
+.section-num { font-size: 11px; font-weight: 800; color: #C95721; letter-spacing: 0.2em; }
+.section-title { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin: 10px 0 6px; color: #2A1F14; line-height: 1.25; }
+.section-desc { font-size: 12px; color: #5A4A36; margin: 0 0 22px; line-height: 1.6; }
+
+/* Section 1 - weak words */
+.weak-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; margin-bottom: 8px; border-radius: 12px; background: #F7EFDE; border: 1px solid rgba(231,221,200,0.5); }
+.weak-rank { flex: 0 0 28px; height: 28px; border-radius: 50%; background: #E8743C; color: #fff; font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+.weak-main { flex: 1; min-width: 0; }
+.weak-day { font-size: 9.5px; font-weight: 800; color: #9A8B73; letter-spacing: 0.08em; }
+.weak-en { font-size: 16px; font-weight: 800; color: #2A1F14; letter-spacing: -0.01em; margin: 3px 0; }
+.weak-def { font-size: 11.5px; color: #5A4A36; line-height: 1.5; }
+.weak-parent { margin-top: 4px; font-size: 10px; color: #9A8B73; font-style: italic; }
+.weak-stat { flex: 0 0 auto; font-size: 10.5px; color: #C95721; font-weight: 700; padding: 4px 9px; background: #FDF0E2; border-radius: 99px; white-space: nowrap; }
+
+/* Section 2 - all words */
+.week-heading { font-size: 19px; font-weight: 800; letter-spacing: -0.02em; color: #C95721; margin: 26px 0 8px; padding-bottom: 6px; border-bottom: 2px solid #E8743C; }
+.week-heading:first-of-type { margin-top: 0; }
+.day-block { margin-top: 14px; }
+.day-heading { font-size: 13px; font-weight: 800; color: #2A1F14; letter-spacing: -0.01em; margin-bottom: 8px; padding: 6px 11px; background: #F1E6CF; border-radius: 6px; }
+.word-card { margin-bottom: 9px; padding: 12px 14px; background: #F7EFDE; border-radius: 10px; border: 1px solid rgba(231,221,200,0.5); }
+.word-main { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.word-en { font-size: 16px; font-weight: 800; color: #2A1F14; letter-spacing: -0.01em; }
+.word-pos { font-size: 10px; color: #9A8B73; font-style: italic; padding: 1px 6px; background: rgba(154,139,115,0.12); border-radius: 4px; }
+.word-def { margin-top: 4px; font-size: 12px; color: #2A1F14; font-weight: 600; line-height: 1.55; }
+.word-ex { margin-top: 7px; padding: 8px 11px; background: rgba(255,253,247,0.7); border-radius: 6px; border-left: 3px solid #E8743C; }
+.word-ex-en { font-size: 11.5px; color: #2A1F14; line-height: 1.55; font-style: italic; }
+.word-ex-kr { margin-top: 3px; font-size: 10.5px; color: #5A4A36; line-height: 1.55; }
+.word-syn { margin-top: 7px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 10.5px; }
+.syn-label { font-size: 9px; font-weight: 800; color: #9A8B73; letter-spacing: 0.08em; padding: 1.5px 6px; background: rgba(154,139,115,0.14); border-radius: 3px; }
+.syn-list { color: #C95721; font-weight: 600; }
+.word-nuance { margin-top: 7px; font-size: 10.5px; color: #5A4A36; line-height: 1.55; padding: 7px 9px; background: rgba(252,232,178,0.22); border-radius: 6px; }
+
+/* Section 3 - best sentences */
+.best-sent { margin-bottom: 11px; padding: 13px 15px; background: #F7EFDE; border-radius: 12px; border-left: 3px solid #E8743C; }
+.best-sent-meta { display: flex; align-items: center; gap: 8px; font-size: 10px; }
+.best-sent-num { color: #E8743C; font-weight: 800; }
+.best-sent-day { font-weight: 800; color: #9A8B73; letter-spacing: 0.06em; }
+.best-sent-word { color: #C95721; background: #FDF0E2; padding: 1.5px 7px; border-radius: 4px; font-weight: 700; }
+.best-sent-en { margin-top: 8px; font-size: 14px; line-height: 1.55; color: #2A1F14; font-style: italic; }
+.best-sent-ko { margin-top: 4px; font-size: 11.5px; color: #5A4A36; line-height: 1.55; }
+
+/* Closing */
+.pdf-closing { background: linear-gradient(135deg, #1F1630 0%, #3A2A52 100%); color: #fff; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 40mm 18mm; }
+.closing-heart { font-size: 56px; line-height: 1; }
+.closing-title { margin-top: 16px; font-size: 24px; font-weight: 800; letter-spacing: -0.02em; }
+.closing-body { margin-top: 22px; font-size: 13.5px; line-height: 1.85; color: #F1E0BA; max-width: 460px; }
+.closing-sign { margin-top: 40px; font-size: 12px; color: #C8B89A; letter-spacing: 0.06em; }
+
+/* Page indicator */
+.page-num { position: absolute; bottom: 14mm; right: 18mm; font-size: 10px; color: #9A8B73; font-weight: 700; letter-spacing: 0.05em; }
+.pdf-closing .page-num, .pdf-cover .page-num { color: rgba(255,255,255,0.4); }
+
+@media print {
+  body { background: white; }
+  section { box-shadow: none; margin: 0; page-break-after: always; }
+  .preview-banner { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="preview-banner">
+  🔍 <b>PDF 단어집 미리보기</b> — 18일+ 인증 시 다운로드 받게 될 결과물 (실제 PDF 는 A4 페이지로 분할)
+</div>
+
+<!-- ━━━ PAGE 1 · 표지 ━━━ -->
+<section class="pdf-cover">
+  <div class="cover-kicker">YOUBUDDY 5기 · 4주 단어집</div>
+  <h1 class="cover-title">
+    <span class="kr">Gaby</span>님의<br>비즈니스 영어 핸드북
+  </h1>
+  <div class="cover-num-wrap">
+    <div class="cover-num">19<span>/20일</span></div>
+    <div class="cover-sub">전체 인증률 95%</div>
+    <div class="cover-badge">🏆 수료 자격 충족 (18일 이상)</div>
+  </div>
+  <div class="cover-toc">
+    <div class="toc-title">목차</div>
+    <ol>
+      <li><b>가장 많이 틀린 단어 Top 10</b> — 졸업 후 우선 복습용</li>
+      <li><b>4주 단어 전체</b> — Day 1~20 / 60개 + 유의어 + 예문</li>
+      <li><b>본인 베스트 문장 Top 10</b> — 4주 동안 만든 본인 voice</li>
+    </ol>
+  </div>
+  <div class="cover-footer">2026-05-22 · YOUBUDDY 5기</div>
+  <div class="page-num">001</div>
+</section>
+
+<!-- ━━━ PAGE 2 · Section 1 약점 단어 Top 10 ━━━ -->
+<section>
+  <div class="section-num">SECTION 01</div>
+  <h1 class="section-title">📚 가장 많이 틀린 단어 Top 10</h1>
+  <p class="section-desc">자주 틀리거나 힌트 본 단어 기반 · 졸업 후 가장 먼저 다시 봐야 할 단어들</p>
+
+  <div class="weak-item">
+    <div class="weak-rank">1</div>
+    <div class="weak-main">
+      <div class="weak-day">DAY 13 · WEEK 3</div>
+      <div class="weak-en">Devil's advocate</div>
+      <div class="weak-def">반대 입장에서 일부러 따져 물어보는 사람</div>
+    </div>
+    <div class="weak-stat">4회 틀림</div>
+  </div>
+
+  <div class="weak-item">
+    <div class="weak-rank">2</div>
+    <div class="weak-main">
+      <div class="weak-day">DAY 17 · WEEK 4</div>
+      <div class="weak-en">Bandwidth</div>
+      <div class="weak-def">처리 가능한 일/시간의 여유</div>
+    </div>
+    <div class="weak-stat">3회 틀림</div>
+  </div>
+
+  <div class="weak-item">
+    <div class="weak-rank">3</div>
+    <div class="weak-main">
+      <div class="weak-day">DAY 4 · WEEK 1 · 유의어</div>
+      <div class="weak-en">Delve into</div>
+      <div class="weak-def">(Drill down 유의어)</div>
+      <div class="weak-parent">↳ 본 단어: <b>Drill down</b></div>
+    </div>
+    <div class="weak-stat">3회 틀림</div>
+  </div>
+
+  <div class="weak-item">
+    <div class="weak-rank">4</div>
+    <div class="weak-main">
+      <div class="weak-day">DAY 4 · WEEK 1 · 유의어</div>
+      <div class="weak-en">Deconstruct</div>
+      <div class="weak-def">(Unpack 유의어)</div>
+      <div class="weak-parent">↳ 본 단어: <b>Unpack</b></div>
+    </div>
+    <div class="weak-stat">2회 틀림</div>
+  </div>
+
+  <div class="weak-item">
+    <div class="weak-rank">5</div>
+    <div class="weak-main">
+      <div class="weak-day">DAY 11 · WEEK 3</div>
+      <div class="weak-en">Reinvent the wheel</div>
+      <div class="weak-def">이미 있는 것을 쓸데없이 처음부터 다시 만들다</div>
+    </div>
+    <div class="weak-stat">2회 틀림</div>
+  </div>
+
+  <div class="weak-item">
+    <div class="weak-rank">6</div>
+    <div class="weak-main">
+      <div class="weak-day">DAY 5 · WEEK 1</div>
+      <div class="weak-en">Move in lockstep</div>
+      <div class="weak-def">긴밀하게 발을 맞추다 / 혼연일체가 되다</div>
+    </div>
+    <div class="weak-stat">2회 틀림</div>
+  </div>
+
+  <div class="weak-item">
+    <div class="weak-rank">7</div>
+    <div class="weak-main">
+      <div class="weak-day">DAY 7 · WEEK 2</div>
+      <div class="weak-en">Middle ground</div>
+      <div class="weak-def">타협점 / 절충안</div>
+    </div>
+    <div class="weak-stat">2회 틀림</div>
+  </div>
+
+  <div class="weak-item">
+    <div class="weak-rank">8</div>
+    <div class="weak-main">
+      <div class="weak-day">DAY 8 · WEEK 2</div>
+      <div class="weak-en">Cut to the chase</div>
+      <div class="weak-def">본론으로 바로 들어가다</div>
+    </div>
+    <div class="weak-stat">1회 틀림</div>
+  </div>
+
+  <div class="weak-item">
+    <div class="weak-rank">9</div>
+    <div class="weak-main">
+      <div class="weak-day">DAY 13 · WEEK 3</div>
+      <div class="weak-en">Stumbling block</div>
+      <div class="weak-def">진행을 막는 걸림돌 / 장애물</div>
+    </div>
+    <div class="weak-stat">1회 틀림</div>
+  </div>
+
+  <div class="weak-item">
+    <div class="weak-rank">10</div>
+    <div class="weak-main">
+      <div class="weak-day">DAY 10 · WEEK 2</div>
+      <div class="weak-en">Elephant in the room</div>
+      <div class="weak-def">모두가 알지만 꺼내기 꺼려하는 민감한 문제</div>
+    </div>
+    <div class="weak-stat">1회 틀림</div>
+  </div>
+
+  <div class="page-num">002</div>
+</section>
+
+<!-- ━━━ PAGE 3 · Section 2 시작 (Week 1 일부) ━━━ -->
+<section>
+  <div class="section-num">SECTION 02</div>
+  <h1 class="section-title">📖 4주 단어 전체</h1>
+  <p class="section-desc">Week 1~4 / Day 1~20 / 총 60개 단어 + 품사 + 정의 + 유의어 + 실전 예문</p>
+
+  <h3 class="week-heading">Week 1. Setup & Strategy</h3>
+
+  <div class="day-block">
+    <div class="day-heading">DAY 1 — 우리 목표부터 정렬하고 시작하죠</div>
+
+    <div class="word-card">
+      <div class="word-main">
+        <span class="word-en">Set the stage</span>
+        <span class="word-pos">phrase</span>
+      </div>
+      <div class="word-def">기틀을 마련하다 / 판을 깔다</div>
+      <div class="word-ex">
+        <div class="word-ex-en">"Let's set the stage for our new campaign by reviewing the data first."</div>
+        <div class="word-ex-kr">데이터를 먼저 검토하면서 새 캠페인을 위한 판을 깔아봅시다.</div>
+      </div>
+      <div class="word-syn">
+        <span class="syn-label">유의어</span>
+        <span class="syn-list">Pave the way · Prepare the ground</span>
+      </div>
+      <div class="word-nuance">💡 새 프로젝트나 논의 전, 팀이 같은 이해도를 갖도록 배경·환경을 미리 조성해둘 때 써요.</div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-main">
+        <span class="word-en">Anchor</span>
+        <span class="word-pos">verb</span>
+      </div>
+      <div class="word-def">기준점을 잡다 / 고정시키다</div>
+      <div class="word-ex">
+        <div class="word-ex-en">"We need to anchor this strategy in user feedback."</div>
+        <div class="word-ex-kr">우리는 이 전략의 기준점을 유저 피드백에 둬야 합니다.</div>
+      </div>
+      <div class="word-syn">
+        <span class="syn-label">유의어</span>
+        <span class="syn-list">Ground · Establish a baseline</span>
+      </div>
+      <div class="word-nuance">💡 회의나 기획이 산으로 가지 않도록 흔들리지 않는 기준점·북극성을 꽉 잡아둘 때 써요.</div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-main">
+        <span class="word-en">Key driver</span>
+        <span class="word-pos">noun</span>
+      </div>
+      <div class="word-def">성과의 핵심 동인 / 주된 요인</div>
+      <div class="word-ex">
+        <div class="word-ex-en">"Customer retention is the key driver of our growth."</div>
+        <div class="word-ex-kr">고객 유지는 우리 성장의 핵심 동인입니다.</div>
+      </div>
+      <div class="word-syn">
+        <span class="syn-label">유의어</span>
+        <span class="syn-list">Main catalyst · Core factor</span>
+      </div>
+      <div class="word-nuance">💡 단순 원인을 넘어 매출·성과를 실질적으로 끌어올리는 가장 강력한 핵심 동력을 말할 때 써요.</div>
+    </div>
+  </div>
+
+  <div class="day-block">
+    <div class="day-heading">DAY 2 — 이거 진짜 현실적으로 승산이 있나요?</div>
+
+    <div class="word-card">
+      <div class="word-main">
+        <span class="word-en">Gut check</span>
+        <span class="word-pos">noun</span>
+      </div>
+      <div class="word-def">직감에 따른 확인 / 퀵 점검</div>
+      <div class="word-ex">
+        <div class="word-ex-en">"Let's do a quick gut check on this timeline before showing it to the CEO."</div>
+        <div class="word-ex-kr">CEO에게 보여주기 전에 이 일정 현실성 있는지 퀵하게 점검해 봅시다.</div>
+      </div>
+      <div class="word-syn">
+        <span class="syn-label">유의어</span>
+        <span class="syn-list">Reality check · Instinctive review</span>
+      </div>
+      <div class="word-nuance">💡 복잡한 데이터 분석 전, 실무자의 직감으로 "이거 진짜 말이 되나?" 하고 빠르게 점검할 때 써요.</div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-main">
+        <span class="word-en">Vetting process</span>
+        <span class="word-pos">noun</span>
+      </div>
+      <div class="word-def">철저한 검증/심사 과정</div>
+      <div class="word-ex">
+        <div class="word-ex-en">"They have to go through a strict vetting process."</div>
+        <div class="word-ex-kr">그들은 엄격한 검증 과정을 거쳐야 합니다.</div>
+      </div>
+      <div class="word-syn">
+        <span class="syn-label">유의어</span>
+        <span class="syn-list">Screening · Due diligence</span>
+      </div>
+      <div class="word-nuance">💡 새 파트너·중요 솔루션 도입 시 리스크가 없는지 깐깐하고 철저하게 심사하는 과정을 말해요.</div>
+    </div>
+  </div>
+
+  <div class="page-num">003</div>
+</section>
+
+<!-- ━━━ PAGE 4 · Section 2 계속 ━━━ -->
+<section>
+  <div class="day-block" style="margin-top:0;">
+    <div class="day-heading">DAY 5 — 다들 이 방향에 동의하시나요?</div>
+
+    <div class="word-card">
+      <div class="word-main">
+        <span class="word-en">Get buy-in</span>
+        <span class="word-pos">phrase</span>
+      </div>
+      <div class="word-def">적극적인 지지와 동의를 얻어내다</div>
+      <div class="word-ex">
+        <div class="word-ex-en">"We need to get buy-in from the stakeholders before we proceed."</div>
+        <div class="word-ex-kr">진행하기 전에 이해관계자들의 적극적인 지지를 먼저 얻어내야 해요.</div>
+      </div>
+      <div class="word-syn">
+        <span class="syn-label">유의어</span>
+        <span class="syn-list">Gain support · Secure agreement</span>
+      </div>
+      <div class="word-nuance">💡 새 기획 밀어붙이기 전, 단순 승인을 넘어 "내 편이 되어주는 적극적 지지"를 얻어낼 때 써요.</div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-main">
+        <span class="word-en">Move in lockstep</span>
+        <span class="word-pos">phrase</span>
+      </div>
+      <div class="word-def">긴밀하게 발을 맞추다 / 혼연일체가 되다</div>
+      <div class="word-ex">
+        <div class="word-ex-en">"Marketing and sales need to move in lockstep for this launch."</div>
+        <div class="word-ex-kr">이번 런칭을 위해 마케팅팀과 영업팀은 완벽하게 발을 맞춰야 합니다.</div>
+      </div>
+      <div class="word-syn">
+        <span class="syn-label">유의어</span>
+        <span class="syn-list">Sync up perfectly · Coordinate closely</span>
+      </div>
+      <div class="word-nuance">💡 타 부서·파트너사와 서로 다른 말 하지 않고 오차 없이 완벽하게 협력해 나아갈 때 써요.</div>
+    </div>
+  </div>
+
+  <h3 class="week-heading">Week 2. Smart Communication</h3>
+
+  <div class="day-block">
+    <div class="day-heading">DAY 7 — 부드럽게 반대하고 설득하기</div>
+
+    <div class="word-card">
+      <div class="word-main">
+        <span class="word-en">Play devil's advocate</span>
+        <span class="word-pos">phrase</span>
+      </div>
+      <div class="word-def">의도적으로 반대 입장을 취하다</div>
+      <div class="word-ex">
+        <div class="word-ex-en">"Let me play devil's advocate for a second. What if the server crashes?"</div>
+        <div class="word-ex-kr">잠깐 딴지 좀 걸어볼게요. 만약 서버가 터지면 어떡하죠?</div>
+      </div>
+      <div class="word-syn">
+        <span class="syn-label">유의어</span>
+        <span class="syn-list">Argue the opposing side</span>
+      </div>
+      <div class="word-nuance">💡 모두가 "좋아요" 할 때 리스크 점검용으로 악역을 자처하며 딴지를 걸어볼 때 써요.</div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-main">
+        <span class="word-en">Middle ground</span>
+        <span class="word-pos">noun</span>
+      </div>
+      <div class="word-def">타협점 / 절충안</div>
+      <div class="word-ex">
+        <div class="word-ex-en">"We need to find a middle ground between speed and quality."</div>
+        <div class="word-ex-kr">우리는 속도와 퀄리티 사이에서 타협점을 찾아야 해요.</div>
+      </div>
+      <div class="word-syn">
+        <span class="syn-label">유의어</span>
+        <span class="syn-list">Compromise · Happy medium</span>
+      </div>
+      <div class="word-nuance">💡 A안과 B안이 팽팽할 때 양쪽이 조금씩 양보해 모두가 만족할 중간 지점을 찾는 표현.</div>
+    </div>
+  </div>
+
+  <div style="margin-top:28px;padding:18px 22px;border-radius:14px;background:rgba(154,139,115,0.10);border:1px dashed rgba(154,139,115,0.4);text-align:center;">
+    <p style="margin:0;font-size:11.5px;color:#9A8B73;font-weight:600;line-height:1.6;">
+      ⋯ <b>Week 2~4 / 나머지 약 50개 단어가 동일한 포맷으로 이어집니다</b> ⋯<br>
+      <span style="font-size:10.5px;">(실제 PDF 는 60단어 전체 + 유의어 + 예문 + 뉘앙스 다 들어가요)</span>
+    </p>
+  </div>
+
+  <div class="page-num">004</div>
+</section>
+
+<!-- ━━━ PAGE 5 · Section 3 본인 베스트 문장 ━━━ -->
+<section>
+  <div class="section-num">SECTION 03</div>
+  <h1 class="section-title">✨ 본인 베스트 문장 Top 10</h1>
+  <p class="section-desc">5기 4주 동안 Gaby님이 직접 쓴 문장 중 AI 가 'natural' 평가한 문장 우선</p>
+
+  <div class="best-sent">
+    <div class="best-sent-meta">
+      <span class="best-sent-num">#1</span>
+      <span class="best-sent-day">DAY 4</span>
+      <span class="best-sent-word">Touch base</span>
+    </div>
+    <div class="best-sent-en">"Let's touch base next Tuesday to align on the Q3 roadmap before the leadership review."</div>
+    <div class="best-sent-ko">— 다음 주 화요일에 잠깐 만나서 임원 리뷰 전에 Q3 로드맵 정렬하시죠.</div>
+  </div>
+
+  <div class="best-sent">
+    <div class="best-sent-meta">
+      <span class="best-sent-num">#2</span>
+      <span class="best-sent-day">DAY 9</span>
+      <span class="best-sent-word">Loop in</span>
+    </div>
+    <div class="best-sent-en">"Can you loop in the design team on this thread? They'll want visibility before we ship."</div>
+    <div class="best-sent-ko">— 이 스레드에 디자인팀 참조 좀 넣어줄래요? 출시 전에 알고 있는 게 좋을 거예요.</div>
+  </div>
+
+  <div class="best-sent">
+    <div class="best-sent-meta">
+      <span class="best-sent-num">#3</span>
+      <span class="best-sent-day">DAY 13</span>
+      <span class="best-sent-word">Devil's advocate</span>
+    </div>
+    <div class="best-sent-en">"Let me play devil's advocate here — what if the customer never adopts the new flow?"</div>
+    <div class="best-sent-ko">— 딴지 한 번 걸어볼게요. 고객이 새 플로우를 안 쓰면 어떡하죠?</div>
+  </div>
+
+  <div class="best-sent">
+    <div class="best-sent-meta">
+      <span class="best-sent-num">#4</span>
+      <span class="best-sent-day">DAY 16</span>
+      <span class="best-sent-word">Circle back</span>
+    </div>
+    <div class="best-sent-en">"I don't have a clear answer yet. Let me circle back once I sync with the engineering lead."</div>
+    <div class="best-sent-ko">— 아직 답이 명확하지 않아요. 엔지니어링 리드랑 얘기하고 다시 돌아올게요.</div>
+  </div>
+
+  <div class="best-sent">
+    <div class="best-sent-meta">
+      <span class="best-sent-num">#5</span>
+      <span class="best-sent-day">DAY 19</span>
+      <span class="best-sent-word">Bandwidth</span>
+    </div>
+    <div class="best-sent-en">"I'd love to help but I'm at full bandwidth this sprint. Can we revisit next week?"</div>
+    <div class="best-sent-ko">— 돕고 싶은데 이번 스프린트 풀로 차있어요. 다음 주에 다시 얘기할까요?</div>
+  </div>
+
+  <div class="best-sent">
+    <div class="best-sent-meta">
+      <span class="best-sent-num">#6</span>
+      <span class="best-sent-day">DAY 1</span>
+      <span class="best-sent-word">Set the stage</span>
+    </div>
+    <div class="best-sent-en">"Let's set the stage with the data before jumping into solutions."</div>
+    <div class="best-sent-ko">— 솔루션 얘기 전에 데이터로 판부터 깔고 시작합시다.</div>
+  </div>
+
+  <div class="best-sent">
+    <div class="best-sent-meta">
+      <span class="best-sent-num">#7</span>
+      <span class="best-sent-day">DAY 7</span>
+      <span class="best-sent-word">Meet halfway</span>
+    </div>
+    <div class="best-sent-en">"If you can extend the deadline by a week, we can meet you halfway on the scope."</div>
+    <div class="best-sent-ko">— 데드라인을 일주일만 늘려주시면 저희도 양보해서 스코프 조정할게요.</div>
+  </div>
+
+  <div class="best-sent">
+    <div class="best-sent-meta">
+      <span class="best-sent-num">#8</span>
+      <span class="best-sent-day">DAY 11</span>
+      <span class="best-sent-word">Reinvent the wheel</span>
+    </div>
+    <div class="best-sent-en">"There's no need to reinvent the wheel — we already have a working template from Q2."</div>
+    <div class="best-sent-ko">— 처음부터 다시 만들 필요 없어요. Q2 때 쓰던 템플릿 그대로 쓰면 돼요.</div>
+  </div>
+
+  <div class="best-sent">
+    <div class="best-sent-meta">
+      <span class="best-sent-num">#9</span>
+      <span class="best-sent-day">DAY 15</span>
+      <span class="best-sent-word">Ramp up</span>
+    </div>
+    <div class="best-sent-en">"We should ramp up the ad spend two weeks before the launch."</div>
+    <div class="best-sent-ko">— 런칭 2주 전부터 광고 예산을 쫙 끌어올려야 해요.</div>
+  </div>
+
+  <div class="best-sent">
+    <div class="best-sent-meta">
+      <span class="best-sent-num">#10</span>
+      <span class="best-sent-day">DAY 8</span>
+      <span class="best-sent-word">Cut to the chase</span>
+    </div>
+    <div class="best-sent-en">"We have 10 minutes — let me cut to the chase. The launch is delayed by two weeks."</div>
+    <div class="best-sent-ko">— 10분밖에 없으니 본론부터요. 런칭이 2주 늦어졌어요.</div>
+  </div>
+
+  <div class="page-num">005</div>
+</section>
+
+<!-- ━━━ LAST PAGE · 마무리 인사 ━━━ -->
+<section class="pdf-closing">
+  <div class="closing-heart">💛</div>
+  <div class="closing-title">4주 동안 정말 수고하셨어요</div>
+  <p class="closing-body">
+    Gaby님이 4주 동안 만든 10개의 본인 문장은,<br>
+    영어가 머릿속에 자리 잡았다는 가장 명확한 증거예요.<br><br>
+    이 단어집을 책상 앞에 두고,<br>
+    어렵던 단어 다시 마주칠 때마다 한 번씩 펼쳐보세요.<br>
+    Gaby님만의 본인 사전이 되어줄 거예요.
+  </p>
+  <div class="closing-sign">— YOUBUDDY 운영진 일동 · 5기</div>
+  <div class="page-num">006</div>
+</section>
+
+</body>
+</html>
