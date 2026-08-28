@@ -468,8 +468,9 @@ section{padding:72px 20px;}
 .pricing-limit{font-size:12px;color:var(--light-text);padding-bottom:18px;border-bottom:1px solid var(--border);margin-bottom:18px;}
 .pricing-tag{font-size:13.5px;color:var(--warm-gray);line-height:1.7;margin-bottom:20px;}
 .pricing-features{list-style:none;}
-.pricing-features li{font-size:13.5px;color:var(--charcoal);padding:8px 0;border-bottom:1px dashed rgba(200,185,180,.2);display:flex;gap:10px;align-items:flex-start;line-height:1.5;}
-.pricing-features li::before{content:'✓';color:var(--accent-sage);font-weight:800;flex-shrink:0;margin-top:1px;}
+.pricing-features li{font-size:13.5px;color:var(--charcoal);padding:8px 0 8px 24px;border-bottom:1px dashed rgba(200,185,180,.2);position:relative;line-height:1.55;word-break:keep-all;}
+.pricing-features li::before{content:'✓';color:var(--accent-sage);font-weight:800;position:absolute;left:0;top:8px;}
+.pricing-features li small{display:block;font-size:12px;color:var(--warm-gray);margin-top:1px;}
 .pricing-btn{display:block;text-align:center;margin-top:26px;padding:14px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none;transition:all .25s;letter-spacing:.03em;}
 .basic .pricing-btn{background:var(--blush);color:var(--charcoal);border:1.5px solid var(--rose);}
 .basic .pricing-btn:hover{background:var(--rose);}
@@ -829,7 +830,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
   <div class="hero-proof-row fade">
     <div class="proof-chip"><span class="big">⭐ 4.9</span> 참여자 만족</div>
     <div class="proof-chip"><span class="big">195명</span> 누적 챌린저</div>
-    <div class="proof-chip"><span class="big">9/12</span> "매일 하게 만드는 곳"</div>
+    <div class="proof-chip"><span class="big">4명 중 3명</span> "매일 하게 만드는 곳"</div>
     <div class="proof-chip"><span class="big">∞</span> 평생 소장</div>
   </div>
 
@@ -1566,10 +1567,10 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
           <li>커뮤니티 참여 & 인증 시스템</li>
           <li>평생 소장 가능</li>
           <li>공용 단톡방 + 주 1회 동기 메시지</li>
-          <li><strong>수료 시 '해당 기수 단어집' 증정</strong> (예문·유의어·뉘앙스)</li>
-          <li><strong>완주 시 1일1비 1개월권 증정</strong> (₩13,900 상당 · 매일 비즈니스 어휘 1개씩 받는 구독 서비스)</li>
-          <li><strong>🎁 AI 첨삭 무제한</strong> (프리미엄 전용이던 기능, 이번 기수 해제)</li>
-          <li><strong>🎁 내 문장으로 주간 테스트 보기</strong> (프리미엄 전용이던 기능, 이번 기수 해제)</li>
+          <li><strong>수료 시 '해당 기수 단어집' 증정</strong> <small>예문·유의어·뉘앙스 포함</small></li>
+          <li><strong>완주 시 1일1비 1개월권 증정</strong> <small>₩13,900 상당 · 매일 비즈니스 어휘 1개씩 받는 구독</small></li>
+          <li><strong>🎁 AI 첨삭 무제한</strong> <small>프리미엄 전용이던 기능 · 이번 기수 한정 해제</small></li>
+          <li><strong>🎁 내 문장으로 주간 테스트 보기</strong> <small>프리미엄 전용이던 기능 · 이번 기수 한정 해제</small></li>
         </ul>
         <a class="pricing-btn" id="basic-primary-cta" href="https://www.latpeed.com/products/en0l_" target="_blank" rel="noopener noreferrer">9기 모집 신청하기</a>
       </div>
