@@ -110,6 +110,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,249,244,.92);backdrop-
 .container{max-width:860px;margin:0 auto;}
 .section-label{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-rose);margin-bottom:12px;}
 body{word-break:keep-all;overflow-wrap:break-word;}
+.premium-fold summary::-webkit-details-marker{display:none;}
+.premium-fold[open] summary{margin-bottom:4px;}
 .section-title{font-family:'Gothic A1','Noto Sans KR',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:700;line-height:1.34;color:var(--charcoal);margin-bottom:10px;text-wrap:balance;}
 .section-title em{font-style:normal;color:var(--accent-rose);}
 .section-title .sage{color:var(--accent-sage);font-style:normal;}
@@ -1585,6 +1587,10 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
 <!-- PURCHASE INFO -->
 <section class="detail-section premium-bg">
   <div class="container">
+    <details class="premium-fold">
+      <summary style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;padding:16px 20px;border-radius:16px;background:#fff;border:1px dashed var(--border);color:var(--warm-gray);font-size:14.5px;font-weight:700;">⭐ 프리미엄은 어떤 프로그램이었나요? <span style="font-size:12px;color:#8a6fc0;font-weight:800;">(당분간 미운영 · 궁금하신 분만 펼쳐보세요 ▾)</span></summary>
+      <div style="margin-top:18px;">
+
     <span class="detail-badge p">⭐ 프리미엄 상세 (당분간 미운영)</span>
     <p class="detail-price-meta tier-txt" data-recruit="🎓 9기 모집중 · 9월 14일 시작">🎓 9기 모집중 · 9월 14일 시작</p>
     <div class="detail-price-row" style="align-items:center;gap:10px;flex-wrap:wrap;">
@@ -1643,8 +1649,10 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
       </ul>
       <p style="font-size:13.2px;color:var(--warm-gray);line-height:1.75;margin-top:12px;">PPT 발표 시간은 참여자들과 목요일 중 조율할 수 있습니다. 예: 목요일 저녁 8시부터</p>
     </div>
-  </div>
-</section>
+  
+      </div>
+    </details>
+  </div></section>
 
 <!-- BASIC DETAIL -->
 <section class="detail-section basic-bg">
