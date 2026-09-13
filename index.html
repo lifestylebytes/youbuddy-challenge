@@ -845,7 +845,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
   <p class="hero-sub-note fade" id="hero-sub-note">유비챌 9기 모집중이에요. 챌린지는 9월 14일 시작합니다. 이번 기수는 베이직만 운영하고, 지금 바로 신청하실 수 있어요.</p>
 </section>
 
-<!-- 대기 등록 섹션: 프리미엄 미운영 확정으로 숨김 (2026-08-27) · 다시 쓸 땐 주석 해제
+<!-- 대기 등록 섹션: 10기(10월) 대기 · 2026-09-14 재오픈. 9기 마감 상태에서 CTA 가 전부 여기로 온다. -->
 
 <style>
 .waitlist-section{background:var(--white);padding:60px 20px;}
@@ -858,13 +858,21 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
 .waitlist-btn:active{transform:scale(.99);}
 .waitlist-btn:disabled{background:#bdb7b6;cursor:default;}
 .waitlist-msg{min-height:20px;margin:4px 0 0;font-size:13.5px;font-weight:700;text-align:center;line-height:1.5;}
+.waitlist-perks{display:flex;flex-direction:column;gap:8px;margin:0 auto 26px;max-width:460px;padding:0;list-style:none;}
+.waitlist-perks li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.6;color:var(--charcoal);}
+.waitlist-perks li span:first-child{flex:0 0 auto;}
 </style>
 <section class="waitlist-section" id="waitlist">
   <div class="container" style="max-width:560px;">
-    <span class="section-label">프리미엄 대기 등록</span>
-    <h2 class="section-title">9기 프리미엄은 마감됐어요.<br><em>자리가 나면 가장 먼저 알려드릴게요</em></h2>
+    <span class="section-label">10기 대기 등록</span>
+    <h2 class="section-title">9기는 마감됐어요.<br><em>10월 10기, 열리면 가장 먼저 알려드릴게요</em></h2>
     <div class="divider"></div>
-    <p style="text-align:center;color:var(--warm-gray);font-size:15px;line-height:1.7;max-width:460px;margin:0 auto 26px;">프리미엄 10자리는 이미 다 찼어요. 아래에 남겨주시면 취소석이 생기거나 10기가 열릴 때 제일 먼저 안내드릴게요. (베이직은 지금 바로 신청 가능해요)</p>
+    <p style="text-align:center;color:var(--warm-gray);font-size:15px;line-height:1.7;max-width:460px;margin:0 auto 18px;">10기는 10월에 열려요. 아래에 남겨주시면 오픈 순간에 제일 먼저 안내드립니다.</p>
+    <ul class="waitlist-perks">
+      <li><span>✔️</span><span><strong>오픈 소식을 가장 먼저</strong> 받아요. 공개 전에 먼저 문을 열어드려요.</span></li>
+      <li><span>✔️</span><span>얼리버드가 열리면 <strong>대기 등록자에게 먼저</strong> 안내드려요.</span></li>
+      <li><span>✔️</span><span>스팸 없어요. 10기 안내 딱 한 번, 그게 다예요.</span></li>
+    </ul>
 
     <form id="waitlist-form" class="waitlist-form" novalidate>
       <input type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;">
@@ -874,21 +882,22 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
       <label>이메일 <span style="color:var(--accent-rose)">*</span>
         <input type="email" name="email" required autocomplete="email" placeholder="you@example.com">
       </label>
-      <label>연락처 <small style="font-weight:500;color:var(--light-text)">(선택)</small>
+      <label>연락처 <small style="font-weight:500;color:var(--light-text)">(선택 · 카톡으로 먼저 알려드릴 때 써요)</small>
         <input type="tel" name="phone" autocomplete="tel" placeholder="010-0000-0000">
       </label>
       <label>관심 코스
         <select name="course">
-          <option value="프리미엄">프리미엄 (9기 대기)</option>
-          <option value="프리미엄-10기">프리미엄 (10기부터 괜찮아요)</option>
+          <option value="베이직">베이직</option>
+          <option value="프리미엄">프리미엄 (1:1 피드백 · 주간 미팅)</option>
+          <option value="미정">아직 모르겠어요</option>
         </select>
       </label>
-      <button type="submit" class="waitlist-btn" id="waitlist-submit">프리미엄 대기 등록하기</button>
+      <button type="submit" class="waitlist-btn" id="waitlist-submit">10기 대기 등록하기</button>
       <p class="waitlist-msg" id="waitlist-msg" role="status" aria-live="polite"></p>
+      <p style="margin:2px 0 0;font-size:11.5px;color:var(--light-text);text-align:center;line-height:1.5;">남겨주신 정보는 10기 안내 용도로만 쓰고, 안내 후 삭제해요.</p>
     </form>
   </div>
 </section>
--->
 <script>
 (function(){
   /* ▼▼ Supabase 연결: 아래 두 값만 채우면 작동합니다 (공개용 anon key만!) ▼▼ */
@@ -913,13 +922,13 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
       const res = await fetch(SUPABASE_URL.replace(/\/+$/,'') + '/rest/v1/waitlist', {
         method: 'POST',
         headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
-        body: JSON.stringify({ name: name, email: email, phone: form.phone.value.trim() || null, course: form.course.value, cohort: '9기', source: 'landing' })
+        body: JSON.stringify({ name: name, email: email, phone: form.phone.value.trim() || null, course: form.course.value, cohort: '10기', source: 'landing' })
       });
       if (!res.ok) throw new Error('http ' + res.status);
       form.reset();
-      say('✅ 대기 등록 완료! 프리미엄 자리가 나는 즉시 가장 먼저 보내드릴게요.', 'var(--accent-sage)');
+      say('✅ 등록 완료! 10기가 열리는 순간 가장 먼저 알려드릴게요.', 'var(--accent-sage)');
       btn.textContent = '등록 완료 ✓';
-      if (window.gtag) gtag('event', 'waitlist_signup', { cohort: '9기' });
+      if (window.gtag) gtag('event', 'waitlist_signup', { cohort: '10기' });
     } catch (err) {
       say('앗, 잠시 오류가 났어요. 다시 시도해주시겠어요?', 'var(--accent-rose)');
       btn.disabled = false; btn.textContent = old;
@@ -2507,28 +2516,33 @@ function renderClosedState() {
   // 마감 기수에 카운트다운·조기마감 문구가 남아 있으면 거짓말이 된다. 전부 정리.
   document.querySelectorAll('.offerblock, .schedule-section').forEach(el => { el.style.display = 'none'; });
   document.querySelectorAll('.tier-txt').forEach(el => {
-    el.innerHTML = '\ud83d\udd12 <strong>9\uae30 \ubaa8\uc9d1\uc740 \ub9c8\uac10\ub410\uc5b4\uc694</strong> \u00b7 \ub2e4\uc74c \uae30\uc218 \uc18c\uc2dd\uc740 1:1 \ucc44\ub110\uc5d0\uc11c \uac00\uc7a5 \uba3c\uc800';
+    el.innerHTML = '🔒 <strong>9기 모집은 마감됐어요</strong> · 10기(10월)는 <a href="#waitlist" style="color:var(--accent-rose);font-weight:800;">대기 등록</a>하시면 가장 먼저';
   });
-  // 모든 신청 버튼 → 상품 상세 둘러보기 (래피드 링크는 그대로 유지)
-  const BROWSE = '\ud83d\udc40 \uc0c1\ud488 \ub354 \uc790\uc138\ud788 \ub458\ub7ec\ubcf4\uae30 \u2192';
+  // 모든 신청 버튼 → 10기 대기 등록 폼으로 (2026-09-14). 상품 둘러보기는 본문 링크로만 남긴다.
+  const WAIT = '📋 10기 대기 등록하기';
+  const BROWSE_URL = 'https://www.latpeed.com/products/en0l_';
   document.querySelectorAll('a[href*="latpeed.com"]').forEach(a => {
     if (a.id === 'premium-primary-cta') return; // 프리미엄 버튼은 renderPremiumSoldOut 이 처리
-    a.textContent = BROWSE;
+    a.setAttribute('href', '#waitlist');
+    a.removeAttribute('target');
+    a.removeAttribute('rel');
+    a.textContent = WAIT;
   });
   const navEl = document.getElementById('next-alert-nav');
-  if (navEl) navEl.textContent = '\ud83d\udc40 \uc0c1\ud488 \ub458\ub7ec\ubcf4\uae30';
+  if (navEl) { navEl.setAttribute('href', '#waitlist'); navEl.removeAttribute('target'); navEl.textContent = '📋 10기 대기 등록'; }
   const setT = (id, t) => { const el = document.getElementById(id); if (el) el.textContent = t; };
   const setH = (id, h) => { const el = document.getElementById(id); if (el) el.innerHTML = h; };
-  setT('hero-deadline-badge', '9\uae30 \ubaa8\uc9d1 \ub9c8\uac10');
-  setH('hero-deadline-sub', '9\uc6d4 14\uc77c \uc2dc\uc791 \u00b7 <strong>\ub2e4\uc74c \uae30\uc218\ub294 1:1 \ucc44\ub110\uc5d0\uc11c \uba3c\uc800 \uc548\ub0b4\ub4dc\ub824\uc694</strong>');
-  setH('hero-sub-note', '9\uae30\ub294 \uc815\uc6d0\uc774 \ucc28\uc11c \ubaa8\uc9d1\uc744 \ub9c8\uac10\ud588\uc5b4\uc694. \uc5b4\ub5a4 \ucc98\ub7fc \uad74\ub7ec\uac00\ub294\uc9c0\ub294 \uc544\ub798\uc5d0\uc11c \uadf8\ub300\ub85c \ubcf4\uc2e4 \uc218 \uc788\uace0, \ub2e4\uc74c \uae30\uc218 \uc18c\uc2dd\uc740 <a href="http://pf.kakao.com/_ExdxcGX" target="_blank" rel="noopener noreferrer" style="color:var(--accent-rose);font-weight:800;">1:1 \ucc44\ub110</a>\uc5d0 \ud55c\ub9c8\ub514 \ub0a8\uaca8\uc8fc\uc2dc\uba74 \uac00\uc7a5 \uba3c\uc800 \uc54c\ub824\ub4dc\ub824\uc694.');
-  setT('mid-cta-title', '9\uae30 \ubaa8\uc9d1\uc740 \ub9c8\uac10\ub410\uc5b4\uc694');
-  setT('mid-cta-copy', '\ub2e4\uc74c \uae30\uc218\ub294 1:1 \ucc44\ub110\uc5d0\uc11c \uac00\uc7a5 \uba3c\uc800 \uc548\ub0b4\ub4dc\ub824\uc694. \uadf8\uc804\uae4c\uc9c0 \uc0c1\ud488 \uad6c\uc131\uc740 \ucc9c\ucc9c\ud788 \ub458\ub7ec\ubcf4\uc154\ub3c4 \uc88b\uc544\uc694.');
-  setH('final-cta-title', '9\uae30\ub294 \ub9c8\uac10\ub410\uc9c0\ub9cc<br><em>\ub2e4\uc74c \uae30\uc218\uac00 \uc788\uc5b4\uc694</em>');
-  setH('final-cta-copy', '\uc815\uc6d0\uc774 \ucc28\uc11c 9\uae30 \ubaa8\uc9d1\uc744 \ub9c8\uac10\ud588\uc5b4\uc694.<br>\ub2e4\uc74c \uae30\uc218 \uc624\ud508 \uc18c\uc2dd\uc744 \uac00\uc7a5 \uba3c\uc800 \ubc1b\uc544\ubcf4\uc138\uc694.');
-  setH('final-cta-meta', '9\uae30 \ubaa8\uc9d1 \ub9c8\uac10 \u00b7 \ucc4c\ub9b0\uc9c0 \uc2dc\uc791: 9\uc6d4 14\uc77c<br><strong>\ub2e4\uc74c \uae30\uc218 \uc548\ub0b4\ub294 1:1 \ucc44\ub110\uc5d0\uc11c \uba3c\uc800</strong><br>\uc720\ubc84\ub514\ub294 \uc678\uad6d\uacc4 \ud604\uc5c5 \uc2e4\ubb34\uc790\uc785\ub2c8\ub2e4.');
-  setT('sc-top', '\ud83d\udd12 9\uae30 \ubaa8\uc9d1 \ub9c8\uac10');
-  document.querySelectorAll('.sticky-cta-btn').forEach(a => { a.textContent = '\ud83d\udc40 \ub458\ub7ec\ubcf4\uae30'; });
+  const browseLink = '<a href="' + BROWSE_URL + '" target="_blank" rel="noopener noreferrer" style="color:var(--accent-rose);font-weight:800;">상품 구성 둘러보기 →</a>';
+  setT('hero-deadline-badge', '9기 마감 · 10기 대기 등록 중');
+  setH('hero-deadline-sub', '10기는 10월에 열려요 · <strong>대기 등록하시면 가장 먼저 안내</strong>');
+  setH('hero-sub-note', '9기는 정원이 차서 마감했어요. 10기는 10월에 열리고, 아래 대기 등록을 남겨주시면 오픈 순간 제일 먼저 알려드려요. 그동안 ' + browseLink);
+  setT('mid-cta-title', '10기, 10월에 열려요');
+  setT('mid-cta-copy', '9기는 마감됐어요. 대기 등록해두시면 10기 오픈 소식과 얼리버드를 가장 먼저 받아보실 수 있어요.');
+  setH('final-cta-title', '유비챌 10기<br><em>대기 등록하세요</em>');
+  setH('final-cta-copy', '9기는 마감됐어요.<br>10월 10기 오픈 소식을 가장 먼저 받아보세요.');
+  setH('final-cta-meta', '9기 마감 · 10기 10월 오픈 예정<br><strong>대기 등록자 우선 안내 · 얼리버드 먼저</strong><br>유버디는 외국계 현업 실무자입니다.');
+  setT('sc-top', '📋 10기 대기 등록 받는 중');
+  document.querySelectorAll('.sticky-cta-btn').forEach(a => { a.setAttribute('href', '#waitlist'); a.removeAttribute('target'); a.textContent = '📋 대기 등록'; });
   renderPremiumSoldOut();
 }
 
