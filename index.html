@@ -893,7 +893,6 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
       <label>관심 코스
         <select name="course">
           <option value="베이직">베이직</option>
-          <option value="프리미엄">프리미엄 (1:1 피드백 · 주간 미팅)</option>
           <option value="미정">아직 모르겠어요</option>
         </select>
       </label>
@@ -2095,6 +2094,11 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
     <strong>베이직 ₩99,000 · 베이직으로만 운영</strong><br>
     유버디는 외국계 현업 실무자입니다.
   </p>
+  <div id="final-1day1biz" style="display:none;margin:34px auto 0;max-width:520px;padding:22px 22px 20px;border:1px solid rgba(253,249,244,.18);border-radius:18px;text-align:center;">
+    <p style="margin:0 0 6px;font-size:12.5px;font-weight:800;letter-spacing:.08em;color:rgba(253,249,244,.55);">10기까지 기다리기 아깝다면</p>
+    <p style="margin:0 0 14px;font-size:16px;font-weight:800;line-height:1.5;color:var(--cream);">매일 비즈니스 표현 하나씩 받는 <em style="font-style:normal;color:var(--rose);">1일1비</em>는 지금 바로 시작할 수 있어요</p>
+    <a href="https://1day-1biz.youbuddy.co.kr/onboarding" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:13px 26px;border-radius:50px;border:1.5px solid var(--rose);font-size:14.5px;font-weight:800;text-decoration:none;color:var(--rose);">☕ 1일1비 둘러보기 →</a>
+  </div>
 </section>
 
 <!-- STICKY CTA -->
@@ -2573,6 +2577,7 @@ function renderClosedState() {
   setH('final-cta-meta', '9기 마감 · 10기 10월 오픈 예정<br><strong>대기 등록자 우선 안내 · 얼리버드 먼저</strong><br>유버디는 외국계 현업 실무자입니다.');
   setT('sc-top', '📋 10기 대기 등록 받는 중');
   document.querySelectorAll('.sticky-cta-btn').forEach(a => { a.setAttribute('href', '#waitlist'); a.removeAttribute('target'); a.textContent = '📋 대기 등록'; });
+  const oneBiz = document.getElementById('final-1day1biz'); if (oneBiz) oneBiz.style.display = 'block';
   renderPremiumSoldOut();
 }
 
