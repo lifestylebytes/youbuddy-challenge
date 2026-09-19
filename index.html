@@ -2550,33 +2550,31 @@ function renderClosedState() {
   // 마감 기수에 카운트다운·조기마감 문구가 남아 있으면 거짓말이 된다. 전부 정리.
   document.querySelectorAll('.offerblock, .schedule-section').forEach(el => { el.style.display = 'none'; });
   document.querySelectorAll('.tier-txt').forEach(el => {
-    el.innerHTML = '🔒 <strong>9기 모집은 마감됐어요</strong> · 10기(10월)는 <a href="#waitlist" style="color:var(--accent-rose);font-weight:800;">대기 등록</a>하시면 가장 먼저';
+    el.innerHTML = '🔔 <strong>10기 알림 신청 오픈!</strong> 래피드에서 신청하시면 10기 오픈 시 카카오톡으로 바로 알려드려요 · 9기 진행중 🏃';
   });
   // 모든 신청 버튼 → 10기 대기 등록 폼으로 (2026-09-14). 상품 둘러보기는 본문 링크로만 남긴다.
-  const WAIT = '📋 10기 대기 등록하기';
+  // 주 CTA = 래피드 알림 신청 (카톡으로 바로 감). 우리 대기 폼(#waitlist)은 이메일 안내용 보조.
+  const ALERT = '🔔 10기 알림 신청하기';
   const BROWSE_URL = 'https://www.latpeed.com/products/en0l_';
   document.querySelectorAll('a[href*="latpeed.com"]').forEach(a => {
     if (a.id === 'premium-primary-cta') return; // 프리미엄 버튼은 renderPremiumSoldOut 이 처리
-    a.setAttribute('href', '#waitlist');
-    a.removeAttribute('target');
-    a.removeAttribute('rel');
-    a.textContent = WAIT;
+    a.textContent = ALERT;
   });
   const navEl = document.getElementById('next-alert-nav');
-  if (navEl) { navEl.setAttribute('href', '#waitlist'); navEl.removeAttribute('target'); navEl.textContent = '📋 10기 대기 등록'; }
+  if (navEl) navEl.textContent = '🔔 10기 알림 신청';
   const setT = (id, t) => { const el = document.getElementById(id); if (el) el.textContent = t; };
   const setH = (id, h) => { const el = document.getElementById(id); if (el) el.innerHTML = h; };
   const browseLink = '<a href="' + BROWSE_URL + '" target="_blank" rel="noopener noreferrer" style="color:var(--accent-rose);font-weight:800;">상품 구성 둘러보기 →</a>';
-  setT('hero-deadline-badge', '9기 마감 · 10기 대기 등록 중');
-  setH('hero-deadline-sub', '10기는 10월에 열려요 · <strong>대기 등록하시면 가장 먼저 안내</strong>');
-  setH('hero-sub-note', '9기는 정원이 차서 마감했어요. 10기는 10월에 열리고, 아래 대기 등록을 남겨주시면 오픈 순간 제일 먼저 알려드려요. 그동안 ' + browseLink);
+  setH('hero-deadline-badge', '10기 알림 신청'); // 모바일에서 두 줄로 깨지지 않게 짧게 (2026-09-19)
+  setH('hero-deadline-sub', '10월 오픈 예정 · <strong>래피드에서 알림 신청하면 카톡으로 먼저</strong>');
+  setH('hero-sub-note', '10기 알림 신청이 열렸어요! 래피드에서 알림 신청하시면 10기 오픈 시 카카오톡으로 바로 알려드려요. 이메일로도 받고 싶으시면 <a href="#waitlist" style="color:var(--accent-rose);font-weight:800;">여기에 남겨주세요</a>.');
   setT('mid-cta-title', '10기, 10월에 열려요');
-  setT('mid-cta-copy', '9기는 마감됐어요. 대기 등록해두시면 10기 오픈 소식과 얼리버드를 가장 먼저 받아보실 수 있어요.');
-  setH('final-cta-title', '유비챌 10기<br><em>대기 등록하세요</em>');
-  setH('final-cta-copy', '9기는 마감됐어요.<br>10월 10기 오픈 소식을 가장 먼저 받아보세요.');
-  setH('final-cta-meta', '9기 마감 · 10기 10월 오픈 예정<br><strong>대기 등록자 우선 안내 · 얼리버드 먼저</strong><br>유버디는 외국계 현업 실무자입니다.');
-  setT('sc-top', '📋 10기 대기 등록 받는 중');
-  document.querySelectorAll('.sticky-cta-btn').forEach(a => { a.setAttribute('href', '#waitlist'); a.removeAttribute('target'); a.textContent = '📋 대기 등록'; });
+  setT('mid-cta-copy', '래피드에서 알림 신청하시면 판매 시작 시 카카오톡으로 바로 알려드려요. 알림 신청은 무료예요.');
+  setH('final-cta-title', '유비챌 10기<br><em>알림 신청하세요</em>');
+  setH('final-cta-copy', '10월 오픈 예정이에요.<br>판매 시작 시 카카오톡으로 바로 알려드려요.');
+  setH('final-cta-meta', '10기 10월 오픈 예정 · 알림 신청은 무료예요<br><strong>래피드 알림 신청 · 이메일 안내는 대기 등록으로</strong><br>유버디는 외국계 현업 실무자입니다.');
+  setT('sc-top', '🔔 10기 알림 신청 오픈');
+  document.querySelectorAll('.sticky-cta-btn').forEach(a => { a.textContent = '🔔 알림 신청'; });
   const oneBiz = document.getElementById('final-1day1biz'); if (oneBiz) oneBiz.style.display = 'block';
   renderPremiumSoldOut();
 }
