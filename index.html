@@ -449,6 +449,16 @@ section{padding:72px 20px;}
 .cert-summary{margin-bottom:24px;background:rgba(255,255,255,.75);border:1px solid var(--border);border-radius:14px;padding:14px 16px;}
 .cert-summary p{font-size:13.5px;color:var(--charcoal);line-height:1.7;}
 .cert-summary p strong{color:var(--accent-rose);}
+.bonus-1b1b{margin:0 auto 28px;max-width:640px;padding:24px 24px 22px;background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(245,230,220,.6));border:1.5px solid var(--rose);border-radius:20px;box-shadow:var(--shadow);text-align:left;}
+.bonus-1b1b-tag{display:inline-block;margin-bottom:10px;padding:5px 12px;border-radius:50px;background:var(--accent-rose);color:#fff;font-size:12px;font-weight:800;letter-spacing:.02em;}
+.bonus-1b1b-title{margin:0 0 10px;font-size:19px;font-weight:800;line-height:1.45;color:var(--charcoal);}
+.bonus-1b1b-title b{color:var(--accent-rose);}
+.bonus-1b1b-desc{margin:0 0 12px;font-size:14px;line-height:1.75;color:var(--warm-gray);}
+.bonus-1b1b-desc b{color:var(--charcoal);font-weight:700;}
+.bonus-1b1b-note{margin:0 0 14px;padding:11px 13px;border-radius:12px;background:rgba(255,255,255,.75);border:1px solid var(--border);font-size:13px;line-height:1.7;color:var(--charcoal);}
+.bonus-1b1b-note b{color:var(--accent-rose);}
+.bonus-1b1b-link{display:inline-block;font-size:13.5px;font-weight:800;text-decoration:none;color:var(--accent-rose);border-bottom:1.5px solid var(--rose);padding-bottom:2px;}
+@media (max-width:560px){.bonus-1b1b{padding:20px 18px;}.bonus-1b1b-title{font-size:17px;}}
 .pricing-promo{margin:0 0 26px;padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.82);border:1px solid rgba(205,194,186,.7);box-shadow:var(--shadow);}
 .pricing-promo-strong{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:12px;}
 .pricing-promo-strong span{display:inline-flex;align-items:center;padding:8px 13px;border-radius:999px;background:var(--blush);border:1px solid var(--rose);color:var(--accent-rose);font-size:13px;font-weight:800;letter-spacing:.01em;}
@@ -1566,6 +1576,18 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
       <p><strong>완주 선물:</strong> 해당 기수 단어집 + 1일1비 1개월권 (₩13,900 상당)</p>
     </div>
 
+    <div class="bonus-1b1b fade">
+      <div class="bonus-1b1b-tag">🎁 10기 신청 특전</div>
+      <h3 class="bonus-1b1b-title">1일1비 <b>7일 무료권</b>을 함께 드려요</h3>
+      <p class="bonus-1b1b-desc">
+        <b>1일1비</b>는 매일 아침 비즈니스 영어 표현 하나를 카카오톡으로 보내드리는 구독이에요.
+        뜻만 던지지 않고 <b>어떤 상황에서 꺼내 쓰는 표현인지</b>, 예문은 어떻게 되는지까지 같이 보내드립니다.
+        하루 3분이면 충분해서, 챌린지가 끝난 뒤에도 감을 놓지 않게 해주는 쪽에 가까워요.
+      </p>
+      <p class="bonus-1b1b-note">10기 신청하신 분들께 온보딩 때 <b>7일 무료 체험권</b>을 카카오톡으로 보내드립니다. 자동 결제는 없고, 7일 뒤 그냥 끝나요.</p>
+      <a class="bonus-1b1b-link" href="https://1day-1biz.youbuddy.co.kr/onboarding" target="_blank" rel="noopener noreferrer">☕ 1일1비가 뭔지 보러 가기 →</a>
+    </div>
+
     <div class="pricing-grid">
       <!-- PREMIUM -->
       <div class="pricing-card premium fade" style="filter:grayscale(.5);opacity:.78;">
@@ -1604,6 +1626,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
           <li>평생 소장 가능</li>
           <li>공용 단톡방 + 주 1회 동기 메시지</li>
           <li><strong>수료 시 '해당 기수 단어집' 증정</strong> <small>예문·유의어·뉘앙스 포함</small></li>
+          <li><strong>🎁 10기 특전 · 1일1비 7일 무료권</strong> <small>신청만 하셔도 온보딩 때 드려요 (자동 결제 없음)</small></li>
           <li><strong>완주 시 1일1비 1개월권 증정</strong> <small>₩13,900 상당 · 매일 비즈니스 어휘 1개씩 받는 구독</small></li>
           <li><strong>AI 첨삭</strong> <small>내가 쓴 문장을 바로 교정받기</small></li>
         </ul>
@@ -2584,6 +2607,8 @@ function renderClosedState() {
   setT('sc-top', '🔔 10기 알림 신청 오픈');
   document.querySelectorAll('.sticky-cta-btn').forEach(a => { a.textContent = '🔔 알림 신청'; });
   const oneBiz = document.getElementById('final-1day1biz'); if (oneBiz) oneBiz.style.display = 'block';
+  // 모집 마감 중에는 '10기 신청 특전' 박스를 숨긴다 (없는 혜택을 띄우지 않기)
+  document.querySelectorAll('.bonus-1b1b').forEach(el => { el.style.display = 'none'; });
   renderPremiumSoldOut();
 }
 
