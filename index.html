@@ -378,6 +378,20 @@ section{padding:72px 20px;}
 
 /* ── SOCIAL PROOF ── */
 .proof-section{background:var(--lavender);}
+.live9-pin{display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap;max-width:660px;margin:0 auto 20px;padding:12px 18px;background:var(--white);border:1.5px solid var(--accent-rose);border-radius:50px;box-shadow:var(--shadow);font-size:14px;line-height:1.5;}
+.live9-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#E05A5A;box-shadow:0 0 0 0 rgba(224,90,90,.6);animation:live9pulse 1.8s infinite;}
+@keyframes live9pulse{70%{box-shadow:0 0 0 8px rgba(224,90,90,0);}100%{box-shadow:0 0 0 0 rgba(224,90,90,0);}}
+.live9-label{font-size:12.5px;font-weight:800;color:var(--accent-rose);}
+.live9-quote{color:var(--charcoal);font-weight:600;}
+.live9-quote b{color:var(--accent-rose);}
+.live9-who{font-size:12px;color:var(--light-text);}
+.live9-band{max-width:860px;margin:0 auto 26px;padding:20px 20px 16px;background:rgba(255,255,255,.75);border:1px solid var(--rose);border-radius:20px;}
+.live9-band-head{display:flex;align-items:center;gap:8px;margin-bottom:14px;font-size:13px;font-weight:800;color:var(--accent-rose);}
+.live9-band-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;}
+.live9-band blockquote{margin:0;padding:14px 15px;background:var(--white);border:1px solid var(--border);border-radius:14px;font-size:13.5px;line-height:1.7;color:var(--charcoal);text-align:left;}
+.live9-band blockquote b{color:var(--accent-rose);}
+.live9-band cite{display:block;margin-top:8px;font-style:normal;font-size:12px;color:var(--light-text);}
+@media (max-width:560px){.live9-pin{border-radius:18px;}.live9-band{padding:16px 14px;}}
 .proof-intro{font-size:15px;color:var(--warm-gray);max-width:540px;line-height:1.8;margin-bottom:36px;}
 .proof-spotlights{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-bottom:20px;}
 .proof-spotlight{background:var(--white);border-radius:22px;padding:22px 24px;box-shadow:var(--shadow);border:2px solid transparent;}
@@ -985,7 +999,28 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
       <div style="background:var(--white);border:1px solid var(--rose);border-radius:14px;padding:13px 18px;font-size:14px;color:var(--warm-gray);line-height:1.55;box-shadow:var(--shadow);">7기 수료생이 꼽은 가장 큰 소득 <b style="color:var(--charcoal);">1위</b> · "매일 하게 된 <b style="color:var(--charcoal);">루틴</b>"</div>
       <div style="background:var(--white);border:1px solid var(--rose);border-radius:14px;padding:13px 18px;font-size:14px;color:var(--warm-gray);line-height:1.55;box-shadow:var(--shadow);">7기 완주자 12명 중 <b style="color:var(--charcoal);">9명</b>이 남긴 말 · "여기는 <b style="color:var(--charcoal);">매일 하게 만드는 곳</b>"</div>
     </div>
+    <div class="live9-pin fade">
+      <span class="live9-dot"></span>
+      <span class="live9-label">지금 진행 중인 9기에서</span>
+      <span class="live9-quote">"이 프로그램 너무 좋아요. <b>다음달도 결제했어요.</b>"</span>
+      <span class="live9-who">김*연 님 · 9기 3주차</span>
+    </div>
     <div class="proofstrip-grid">
+      <div class="ps-card fade">
+        <div class="ps-stars">★★★★★</div>
+        <p><b>"너무 가벼워도 흥미가 안 가고 너무 부담스러워도 중간에 그만하게 되는데,</b> 데일리로 지속하기 딱 좋은 것 같아요!"</p>
+        <div class="ps-who">김*미 님 · 9기 1주차</div>
+      </div>
+      <div class="ps-card fade">
+        <div class="ps-stars">★★★★★</div>
+        <p><b>"딱 회의할 때 쓰기 좋은 표현들임."</b></p>
+        <div class="ps-who">박*실 님 · 9기 1주차</div>
+      </div>
+      <div class="ps-card fade">
+        <div class="ps-stars">★★★★★</div>
+        <p>"이런 거 매번 오래 못했는데 <b>이번엔 끝까지 할 수 있을 것 같아요!</b>"</p>
+        <div class="ps-who">김*미 님 · 9기 2주차</div>
+      </div>
       <div class="ps-card fade">
         <div class="ps-stars">★★★★★</div>
         <p><b>"제 인생에서 가장 열심히 참여하고, 발전하는 게 보였던 챌린지예요."</b> 100기까지 해주세요. 8기에서 또 뵈어요.</p>
@@ -1253,7 +1288,17 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
     <span class="section-label">실제 참여자 후기 (현재 누적 챌린저 235명)</span>
     <h2 class="section-title">나와 비슷한 사람들이<br><em>이미 달라졌습니다</em></h2>
     <div class="divider"></div>
-    <p class="proof-intro">현재까지 누적 235명이 참여한 챌린지입니다. 핵심 후기는 바로 보이고, 원문/인증 캡처는 아래에서 펼쳐 확인할 수 있어요.</p>
+    <p class="proof-intro">현재까지 누적 235명이 참여한 챌린지입니다. 아래 후기 중 <b>9기 표시가 붙은 것은 지금 이번 주에 달린 주차 후기</b>예요. 원문과 인증 캡처는 접어둔 곳에서 펼쳐 볼 수 있어요.</p>
+
+    <div class="live9-band fade">
+      <div class="live9-band-head"><span class="live9-dot"></span> 9기 주차 후기에서 그대로 가져왔어요</div>
+      <div class="live9-band-grid">
+        <blockquote>"매일매일 알림해주시고 소환해주셔서 하루도 빠짐없이 할 수 있었어요. <b>이제까지 어떤 챌린지보다 가장 좋은 것 같아요.</b> 참여율을 높일 수밖에 없게 만드는!!"<cite>Chloe 님 · 9기 2주차</cite></blockquote>
+        <blockquote>"어떻게든 <b>매일 할 수 있는 동력이 생겨요.</b>"<cite>김*진 님 · 9기 3주차</cite></blockquote>
+        <blockquote>"<b>매 기수 배우는 표현이 다르다면 계속 신청하고 싶어요.</b>"<cite>최*리 님 · 9기 1주차</cite></blockquote>
+        <blockquote>"<b>여기저기 써보고 다니고 있습니다.</b>"<cite>안*진 님 · 9기 1주차</cite></blockquote>
+      </div>
+    </div>
 
     <div class="proof-spotlights">
       <div class="proof-spotlight basic fade">
@@ -1274,6 +1319,66 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
         <p class="reviews-hint">🖱️ 자동으로 흐르는 후기, 마우스를 올리면 멈춰서 읽을 수 있어요</p>
         <div class="reviews-marquee">
         <div class="reviews-track" id="reviews-track">
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-q">"</div>
+            <p class="review-text">평소 제 생각을 영어 문장으로 만드는 게 가장 어려웠는데, 연습하면서 피드백도 받으니 <b>표현도 느는 것 같아 좋았습니다.</b></p>
+            <div class="review-author">임*주 님 (9기 1주차)</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-q">"</div>
+            <p class="review-text"><b>진짜 쓸 만한 표현들로, 매일 꾸준히 하고 싶게 만들어져 있어요!</b></p>
+            <div class="review-author">박*원 님 (9기 1주차)</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-q">"</div>
+            <p class="review-text">단어별로 약간 다른 뉘앙스를 이야기해줘서 좋았고, <b>실생활에 어떨 때 쓸지 고민할 수 있어서 더 실용적이에요.</b></p>
+            <div class="review-author">김*경 님 (9기 1주차)</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-q">"</div>
+            <p class="review-text">문장을 따라 읽게 되어서 <b>억지로라도 계속 말하게 되어서 좋아요.</b></p>
+            <div class="review-author">김*연 님 (9기 1주차)</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-q">"</div>
+            <p class="review-text">한국 입시로 배운 영어랑 비즈니스 영어는 너무 다른 것 같아요. <b>거의 다 모르는 단어여서 열심히 배우고 있습니다.</b></p>
+            <div class="review-author">류*리 님 (9기 3주차)</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-q">"</div>
+            <p class="review-text"><b>계속 반복되게 학습할 수 있어서 잊지 않을 것 같아요.</b> 꾸준히 들어가서 볼 수 있는 게 중요한 것 같습니다.</p>
+            <div class="review-author">전*린 님 (9기 3주차)</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-q">"</div>
+            <p class="review-text"><b>업무 상황 생각하며 문장 익혀갈 수 있는 게</b> 좋아요.</p>
+            <div class="review-author">윤*아 님 (9기 2주차)</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-q">"</div>
+            <p class="review-text"><b>매주 후기 참고하시고 업데이트 되는 거</b> 너무 좋아요.</p>
+            <div class="review-author">남*우 님 (9기 3주차)</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-q">"</div>
+            <p class="review-text">내 문장 문법 검사, <b>내 직무에 맞는 예시 문장 교정</b> 유용하게 사용 중이에요.</p>
+            <div class="review-author">정*혜 님 (9기 2주차)</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-q">"</div>
+            <p class="review-text"><b>새로운 단어 공부하기 전에 어제 단어 복습할 수 있어서</b> 좋아요.</p>
+            <div class="review-author">남*우 님 (9기 2주차)</div>
+          </div>
           <div class="review-card">
             <div class="review-stars">★★★★★</div>
             <div class="review-q">"</div>
@@ -1584,7 +1689,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
         뜻만 던지지 않고 <b>어떤 상황에서 꺼내 쓰는 표현인지</b>, 예문은 어떻게 되는지까지 같이 보내드립니다.
         하루 3분이면 충분해서, 챌린지가 끝난 뒤에도 감을 놓지 않게 해주는 쪽에 가까워요.
       </p>
-      <p class="bonus-1b1b-note">10기 신청하신 분들께 온보딩 때 <b>7일 무료 체험권</b>을 카카오톡으로 보내드립니다. 자동 결제는 없고, 7일 뒤 그냥 끝나요.</p>
+      <p class="bonus-1b1b-note">10기 신청하신 분들께 온보딩 때 <b>7일 무료 체험권</b>을 카카오톡으로 보내드립니다. 자동 결제는 없어요. 7일 뒤 더 받아보고 싶으시면 <b>그날 진도 그대로</b> 정식 구독으로 이어가실 수 있습니다.</p>
       <a class="bonus-1b1b-link" href="https://1day-1biz.youbuddy.co.kr/onboarding" target="_blank" rel="noopener noreferrer">☕ 1일1비가 뭔지 보러 가기 →</a>
     </div>
 
@@ -1626,7 +1731,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
           <li>평생 소장 가능</li>
           <li>공용 단톡방 + 주 1회 동기 메시지</li>
           <li><strong>수료 시 '해당 기수 단어집' 증정</strong> <small>예문·유의어·뉘앙스 포함</small></li>
-          <li><strong>🎁 10기 특전 · 1일1비 7일 무료권</strong> <small>신청만 하셔도 온보딩 때 드려요 (자동 결제 없음)</small></li>
+          <li><strong>🎁 10기 특전 · 1일1비 7일 무료권</strong> <small>신청만 하셔도 온보딩 때 드려요 · 자동 결제 없고, 원하시면 진도 그대로 이어서 구독</small></li>
           <li><strong>완주 시 1일1비 1개월권 증정</strong> <small>₩13,900 상당 · 매일 비즈니스 어휘 1개씩 받는 구독</small></li>
           <li><strong>AI 첨삭</strong> <small>내가 쓴 문장을 바로 교정받기</small></li>
         </ul>
