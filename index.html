@@ -2691,6 +2691,36 @@ function renderWaitlistState() {
   onScroll();
 
   // 2) 버튼(CTA) 클릭: 어느 섹션의 어느 버튼 + 결정까지 걸린 시간
+  // 래피드로 나가는 링크에 UTM 을 자동으로 붙인다. (2026-10-08)
+  // 래피드는 다른 도메인이라 GA4 가 못 따라간다. UTM 이 없으면 래피드 통계에서도
+  // "랜딩에서 온 사람"을 구분할 수 없어서, 랜딩에서 샌 건지 래피드에서 샌 건지 영영 모른다.
+  // utm_content 에 '어느 버튼' 인지까지 담아 어느 위치가 실제로 결제로 이어지는지 본다.
+  (function tagLatpeedLinks(){
+    try {
+      var qs = new URLSearchParams(location.search);
+      var upstream = qs.get('utm_source') || '';   // 인스타 등에서 온 원래 출처는 살려둔다
+      var spots = [
+        ['hero-primary-cta', 'hero'], ['next-alert-nav', 'nav'],
+        ['basic-primary-cta', 'pricing_basic'], ['premium-primary-cta', 'pricing_premium'],
+        ['mid-primary-cta', 'mid'], ['final-primary-cta', 'final']
+      ];
+      var byId = {}; spots.forEach(function(x){ byId[x[0]] = x[1]; });
+      document.querySelectorAll('a[href*="latpeed.com"]').forEach(function(a){
+        var href = a.getAttribute('href') || '';
+        if (href.indexOf('utm_') >= 0) return;
+        var cls = a.className || '';
+        var spot = byId[a.id]
+          || (/sticky-cta-btn/.test(cls) ? 'sticky'
+            : (/offer-cta/.test(cls) ? 'offer'
+            : (/vsresult-cta/.test(cls) ? 'result' : 'other')));
+        var sep = href.indexOf('?') >= 0 ? '&' : '?';
+        a.setAttribute('href', href + sep
+          + 'utm_source=' + encodeURIComponent(upstream || 'landing')
+          + '&utm_medium=detailpage&utm_campaign=10th&utm_content=' + encodeURIComponent(spot));
+      });
+    } catch (e) {}
+  })();
+
   var sel = 'a[href*="latpeed"], a[href*="tally"], a[href*="pf.kakao"], .hero-cta, .pricing-btn, .offer-cta, .final-btn, .sticky-cta-btn, .vsresult-cta, .pricing-consult, .nav-cta';
   document.querySelectorAll(sel).forEach(function(a){
     a.addEventListener('click', function(){
@@ -2699,7 +2729,8 @@ function renderWaitlistState() {
         label: (a.textContent || '').trim().replace(/\s+/g,' ').slice(0, 40),
         section: s ? nameOf(s) : '상단 네비/배너',
         link: a.getAttribute('href') || '',
-        seconds_to_click: elapsed()   // ← 진입 후 몇 초 만에 결정했는지
+        seconds_to_click: elapsed(),  // ← 진입 후 몇 초 만에 결정했는지
+        from_source: (new URLSearchParams(location.search).get('utm_source') || document.referrer || 'direct').slice(0, 60)
       });
     });
   });
