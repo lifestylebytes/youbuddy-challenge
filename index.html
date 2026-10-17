@@ -131,6 +131,9 @@ b{font-weight:700;}
 .hero-deadline{display:inline-flex;flex-direction:column;align-items:center;gap:8px;padding:16px 22px;border-radius:18px;background:linear-gradient(135deg,#fff7f5,#fff);border:2px solid var(--accent-rose);box-shadow:0 18px 36px rgba(201,127,127,.18);}
 .hero-deadline-kicker{font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--accent-rose);}
 .hero-deadline-badge{font-family:'IBM Plex Sans KR','Gothic A1','Noto Sans KR',sans-serif;font-size:clamp(28px,6vw,54px);font-weight:800;line-height:1.15;color:var(--charcoal);text-align:center;}
+.hero-live-now{margin-top:8px;display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:50px;background:rgba(125,181,168,.14);font-size:12px;font-weight:700;color:var(--accent-sage);}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--accent-sage);box-shadow:0 0 0 0 rgba(125,181,168,.6);animation:livenow 1.8s infinite;}
+@keyframes livenow{70%{box-shadow:0 0 0 6px rgba(125,181,168,0);}100%{box-shadow:0 0 0 0 rgba(125,181,168,0);}}
 .hero-deadline-sub{font-size:13px;font-weight:700;color:var(--warm-gray);text-align:center;line-height:1.6;}
 .hero-deadline.is-dday{background:linear-gradient(135deg,#fff0ef,#ffe3e0);border-color:var(--accent-rose);box-shadow:0 22px 44px rgba(201,127,127,.26);animation:float 2.4s ease-in-out infinite;}
 .hero-deadline.is-dday .hero-deadline-kicker{color:#b86060;}
@@ -835,6 +838,7 @@ footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.05);pad
       <div class="hero-deadline-kicker tier-txt" data-recruit="유비챌 11기 정식 모집">유비챌 11기 정식 모집</div>
       <div class="hero-deadline-badge" id="hero-deadline-badge">11기 모집중</div>
       <div class="hero-deadline-sub" id="hero-deadline-sub">11월 16일(월) 시작 · 모집 마감 11월 12일(목)</div>
+      <div class="hero-live-now" id="hero-live-now"><span class="live-dot"></span>지금은 10기 21명이 Day <span id="live-now-day">1</span> 진행 중이에요</div>
     </div>
   </div>
 
@@ -2819,7 +2823,20 @@ function renderWaitlistState() {
   onScroll();
 
   // 2) 버튼(CTA) 클릭: 어느 섹션의 어느 버튼 + 결정까지 걸린 시간
-  // 래피드로 나가는 링크에 UTM 을 자동으로 붙인다. (2026-10-08)
+  // 히어로 '지금은 10기 진행 중' 한 줄. 평일 기준 Day 를 자동 계산, 기수 끝나면 숨김. (2026-10-17)
+(function liveNowLine(){
+  try {
+    var el = document.getElementById('hero-live-now'); if (!el) return;
+    var START = Date.UTC(2026, 9, 19), END = Date.UTC(2026, 10, 13); // 10기 10/19 ~ 11/13
+    var now = new Date(); var today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+    if (today < START || today > END) { el.style.display = 'none'; return; }
+    var d = 0; for (var t = START; t <= today; t += 86400000) { var w = new Date(t).getUTCDay(); if (w >= 1 && w <= 5) d++; }
+    if (d < 1) { el.style.display = 'none'; return; }
+    var dayEl = document.getElementById('live-now-day'); if (dayEl) dayEl.textContent = String(Math.min(d, 20));
+  } catch (e) {}
+})();
+
+// 래피드로 나가는 링크에 UTM 을 자동으로 붙인다. (2026-10-08)
   // 래피드는 다른 도메인이라 GA4 가 못 따라간다. UTM 이 없으면 래피드 통계에서도
   // "랜딩에서 온 사람"을 구분할 수 없어서, 랜딩에서 샌 건지 래피드에서 샌 건지 영영 모른다.
   // utm_content 에 '어느 버튼' 인지까지 담아 어느 위치가 실제로 결제로 이어지는지 본다.
